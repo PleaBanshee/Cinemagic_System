@@ -54,7 +54,6 @@ C:\Users\Janus\Source\Repos\PleaBanshee\Cinemagic_System\Cinemagic\Cinemagic\obj
 C:\Users\Janus\Source\Repos\PleaBanshee\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\Cinemagic.exe
 C:\Users\Janus\Source\Repos\PleaBanshee\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\Cinemagic.pdb
 C:\Users\Janus\Source\Repos\PleaBanshee\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\Cinemagic.frmCustomer.resources
-C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\Cinemagic.frmCustomer.resources
 C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\RandomProj.Main_Snacks.resources
 C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\RandomProj.Snack_Sale.resources
 C:\Users\Janus\Source\Repos\PleaBanshee\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\RandomProj.Snack_Sale.resources
