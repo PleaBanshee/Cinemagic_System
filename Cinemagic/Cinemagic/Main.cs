@@ -50,10 +50,11 @@ namespace RandomProj
             main_snacks.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMake_A_Booking_Click(object sender, EventArgs e)
         {
-            Booking frm = new Booking();
-            frm.Show();
+            this.Hide();
+            Bookings_Movies booking = new Bookings_Movies();
+            booking.ShowDialog();
         }
     }
 }
