@@ -409,9 +409,9 @@
             this.lblDelete_Transact.AutoSize = true;
             this.lblDelete_Transact.Location = new System.Drawing.Point(70, 324);
             this.lblDelete_Transact.Name = "lblDelete_Transact";
-            this.lblDelete_Transact.Size = new System.Drawing.Size(125, 17);
+            this.lblDelete_Transact.Size = new System.Drawing.Size(177, 17);
             this.lblDelete_Transact.TabIndex = 15;
-            this.lblDelete_Transact.Text = "DELETE A SNACK";
+            this.lblDelete_Transact.Text = "DELETE A TRANSACTION";
             // 
             // spinDelete_TransactID
             // 

@@ -79,6 +79,6 @@ C:\Users\Derick\Desktop\GIT\New CIN\Cinemagic_System\Cinemagic\Cinemagic\obj\Deb
 C:\Users\Derick\Desktop\GIT\New CIN\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\Cinemagic.csproj.CopyComplete
 C:\Users\Derick\Desktop\GIT\New CIN\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\Cinemagic.exe
 C:\Users\Derick\Desktop\GIT\New CIN\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\Cinemagic.pdb
-C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\Cinemagic.Booking.resources
 C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\bin\Debug\CinemagicDB.mdf
 C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\bin\Debug\CinemagicDB_log.ldf
+C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\RandomProj.Bookings_Movies.resources
