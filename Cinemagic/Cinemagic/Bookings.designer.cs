@@ -30,32 +30,11 @@
         {
             this.tbBookings_Control = new System.Windows.Forms.TabControl();
             this.tbBookings_GUI = new System.Windows.Forms.TabPage();
-            this.tbMovies_Control = new System.Windows.Forms.TabPage();
             this.groupBookings = new System.Windows.Forms.GroupBox();
-            this.dbBookings = new System.Windows.Forms.DataGridView();
-            this.dbCustomers = new System.Windows.Forms.DataGridView();
-            this.groupMaintain_Bookings = new System.Windows.Forms.GroupBox();
-            this.btnDelete_Booking = new System.Windows.Forms.Button();
-            this.lblFill_Booking = new System.Windows.Forms.Label();
-            this.spinFill_BookingID = new System.Windows.Forms.NumericUpDown();
-            this.lblBooking_ID = new System.Windows.Forms.Label();
-            this.lblDeleteBooking = new System.Windows.Forms.Label();
-            this.spinDel_Booking = new System.Windows.Forms.NumericUpDown();
-            this.btnUpdate_Booking = new System.Windows.Forms.Button();
-            this.btnFill_Bookings = new System.Windows.Forms.Button();
-            this.btnAdd_Booking = new System.Windows.Forms.Button();
-            this.txtDate = new System.Windows.Forms.TextBox();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblNumOfSeats = new System.Windows.Forms.Label();
-            this.lblTicket_Cost = new System.Windows.Forms.Label();
-            this.lblCust_ID = new System.Windows.Forms.Label();
-            this.lblMovie_ID = new System.Windows.Forms.Label();
-            this.txtTicket_Total = new System.Windows.Forms.TextBox();
-            this.txtNumOfSeats = new System.Windows.Forms.NumericUpDown();
-            this.spinCustID = new System.Windows.Forms.NumericUpDown();
-            this.spinMovieID = new System.Windows.Forms.NumericUpDown();
-            this.lblDelete_BookingID = new System.Windows.Forms.Label();
             this.groupMaintain_Customers = new System.Windows.Forms.GroupBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtSurname = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblDel_CustID = new System.Windows.Forms.Label();
             this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.btnDelete_Customers = new System.Windows.Forms.Button();
@@ -71,9 +50,30 @@
             this.lblPhoneNum = new System.Windows.Forms.Label();
             this.lblSurname = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtSurname = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.groupMaintain_Bookings = new System.Windows.Forms.GroupBox();
+            this.lblDelete_BookingID = new System.Windows.Forms.Label();
+            this.spinMovieID = new System.Windows.Forms.NumericUpDown();
+            this.spinCustID = new System.Windows.Forms.NumericUpDown();
+            this.txtNumOfSeats = new System.Windows.Forms.NumericUpDown();
+            this.txtTicket_Total = new System.Windows.Forms.TextBox();
+            this.btnDelete_Booking = new System.Windows.Forms.Button();
+            this.lblFill_Booking = new System.Windows.Forms.Label();
+            this.spinFill_BookingID = new System.Windows.Forms.NumericUpDown();
+            this.lblBooking_ID = new System.Windows.Forms.Label();
+            this.lblDeleteBooking = new System.Windows.Forms.Label();
+            this.spinDel_Booking = new System.Windows.Forms.NumericUpDown();
+            this.btnUpdate_Booking = new System.Windows.Forms.Button();
+            this.btnFill_Bookings = new System.Windows.Forms.Button();
+            this.btnAdd_Booking = new System.Windows.Forms.Button();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblNumOfSeats = new System.Windows.Forms.Label();
+            this.lblTicket_Cost = new System.Windows.Forms.Label();
+            this.lblCust_ID = new System.Windows.Forms.Label();
+            this.lblMovie_ID = new System.Windows.Forms.Label();
+            this.dbBookings = new System.Windows.Forms.DataGridView();
+            this.dbCustomers = new System.Windows.Forms.DataGridView();
+            this.tbMovies_Control = new System.Windows.Forms.TabPage();
             this.groupMovies = new System.Windows.Forms.GroupBox();
             this.groupMaintain_Genres = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -89,8 +89,11 @@
             this.btnAdd_Genre = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.groupMaintain_Movies = new System.Windows.Forms.GroupBox();
+            this.txtMovie = new System.Windows.Forms.TextBox();
+            this.cmbAge = new System.Windows.Forms.ComboBox();
+            this.lblWithdrawal = new System.Windows.Forms.Label();
             this.lblDel_MovieID = new System.Windows.Forms.Label();
-            this.txtGenre_ID = new System.Windows.Forms.NumericUpDown();
+            this.spinGenre_ID = new System.Windows.Forms.NumericUpDown();
             this.txtDuration = new System.Windows.Forms.TextBox();
             this.btnDelete_Movie = new System.Windows.Forms.Button();
             this.lblFill_Movie = new System.Windows.Forms.Label();
@@ -101,7 +104,6 @@
             this.btnUpdate_Movie = new System.Windows.Forms.Button();
             this.btnFill_Movie = new System.Windows.Forms.Button();
             this.btnAdd_Movie = new System.Windows.Forms.Button();
-            this.txtRelease = new System.Windows.Forms.TextBox();
             this.lblRelease = new System.Windows.Forms.Label();
             this.lblAge = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
@@ -109,31 +111,29 @@
             this.lblMovie = new System.Windows.Forms.Label();
             this.dbMovies = new System.Windows.Forms.DataGridView();
             this.dbGenres = new System.Windows.Forms.DataGridView();
-            this.txtWithdrawal = new System.Windows.Forms.TextBox();
-            this.lblWithdrawal = new System.Windows.Forms.Label();
-            this.cmbAge = new System.Windows.Forms.ComboBox();
-            this.txtMovie = new System.Windows.Forms.TextBox();
+            this.dateRelease = new System.Windows.Forms.DateTimePicker();
+            this.dateWithdrawal = new System.Windows.Forms.DateTimePicker();
             this.tbBookings_Control.SuspendLayout();
             this.tbBookings_GUI.SuspendLayout();
-            this.tbMovies_Control.SuspendLayout();
             this.groupBookings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dbBookings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbCustomers)).BeginInit();
-            this.groupMaintain_Bookings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinFill_BookingID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinDel_Booking)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumOfSeats)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinCustID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinMovieID)).BeginInit();
             this.groupMaintain_Customers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinFill_Customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDel_CustID)).BeginInit();
+            this.groupMaintain_Bookings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinMovieID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinCustID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumOfSeats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinFill_BookingID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinDel_Booking)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbBookings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbCustomers)).BeginInit();
+            this.tbMovies_Control.SuspendLayout();
             this.groupMovies.SuspendLayout();
             this.groupMaintain_Genres.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinFill_GenreID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDel_GenreID)).BeginInit();
             this.groupMaintain_Movies.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGenre_ID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinGenre_ID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinMovie_ID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDel_MovieID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbMovies)).BeginInit();
@@ -161,17 +161,6 @@
             this.tbBookings_GUI.Text = "BOOKINGS";
             this.tbBookings_GUI.UseVisualStyleBackColor = true;
             // 
-            // tbMovies_Control
-            // 
-            this.tbMovies_Control.Controls.Add(this.groupMovies);
-            this.tbMovies_Control.Location = new System.Drawing.Point(4, 25);
-            this.tbMovies_Control.Name = "tbMovies_Control";
-            this.tbMovies_Control.Padding = new System.Windows.Forms.Padding(3);
-            this.tbMovies_Control.Size = new System.Drawing.Size(1287, 786);
-            this.tbMovies_Control.TabIndex = 1;
-            this.tbMovies_Control.Text = "MOVIES";
-            this.tbMovies_Control.UseVisualStyleBackColor = true;
-            // 
             // groupBookings
             // 
             this.groupBookings.Controls.Add(this.groupMaintain_Customers);
@@ -184,219 +173,6 @@
             this.groupBookings.TabIndex = 0;
             this.groupBookings.TabStop = false;
             this.groupBookings.Text = "MAKE A BOOKING";
-            // 
-            // dbBookings
-            // 
-            this.dbBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbBookings.Location = new System.Drawing.Point(50, 34);
-            this.dbBookings.Name = "dbBookings";
-            this.dbBookings.RowTemplate.Height = 24;
-            this.dbBookings.Size = new System.Drawing.Size(545, 192);
-            this.dbBookings.TabIndex = 1;
-            // 
-            // dbCustomers
-            // 
-            this.dbCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbCustomers.Location = new System.Drawing.Point(667, 34);
-            this.dbCustomers.Name = "dbCustomers";
-            this.dbCustomers.RowTemplate.Height = 24;
-            this.dbCustomers.Size = new System.Drawing.Size(545, 192);
-            this.dbCustomers.TabIndex = 2;
-            // 
-            // groupMaintain_Bookings
-            // 
-            this.groupMaintain_Bookings.Controls.Add(this.lblDelete_BookingID);
-            this.groupMaintain_Bookings.Controls.Add(this.spinMovieID);
-            this.groupMaintain_Bookings.Controls.Add(this.spinCustID);
-            this.groupMaintain_Bookings.Controls.Add(this.txtNumOfSeats);
-            this.groupMaintain_Bookings.Controls.Add(this.txtTicket_Total);
-            this.groupMaintain_Bookings.Controls.Add(this.btnDelete_Booking);
-            this.groupMaintain_Bookings.Controls.Add(this.lblFill_Booking);
-            this.groupMaintain_Bookings.Controls.Add(this.spinFill_BookingID);
-            this.groupMaintain_Bookings.Controls.Add(this.lblBooking_ID);
-            this.groupMaintain_Bookings.Controls.Add(this.lblDeleteBooking);
-            this.groupMaintain_Bookings.Controls.Add(this.spinDel_Booking);
-            this.groupMaintain_Bookings.Controls.Add(this.btnUpdate_Booking);
-            this.groupMaintain_Bookings.Controls.Add(this.btnFill_Bookings);
-            this.groupMaintain_Bookings.Controls.Add(this.btnAdd_Booking);
-            this.groupMaintain_Bookings.Controls.Add(this.txtDate);
-            this.groupMaintain_Bookings.Controls.Add(this.lblDate);
-            this.groupMaintain_Bookings.Controls.Add(this.lblNumOfSeats);
-            this.groupMaintain_Bookings.Controls.Add(this.lblTicket_Cost);
-            this.groupMaintain_Bookings.Controls.Add(this.lblCust_ID);
-            this.groupMaintain_Bookings.Controls.Add(this.lblMovie_ID);
-            this.groupMaintain_Bookings.Location = new System.Drawing.Point(50, 247);
-            this.groupMaintain_Bookings.Name = "groupMaintain_Bookings";
-            this.groupMaintain_Bookings.Size = new System.Drawing.Size(545, 461);
-            this.groupMaintain_Bookings.TabIndex = 1;
-            this.groupMaintain_Bookings.TabStop = false;
-            this.groupMaintain_Bookings.Text = "MAINTAIN BOOKINGS";
-            // 
-            // btnDelete_Booking
-            // 
-            this.btnDelete_Booking.Location = new System.Drawing.Point(322, 402);
-            this.btnDelete_Booking.Name = "btnDelete_Booking";
-            this.btnDelete_Booking.Size = new System.Drawing.Size(92, 23);
-            this.btnDelete_Booking.TabIndex = 39;
-            this.btnDelete_Booking.Text = "DELETE";
-            this.btnDelete_Booking.UseVisualStyleBackColor = true;
-            // 
-            // lblFill_Booking
-            // 
-            this.lblFill_Booking.AutoSize = true;
-            this.lblFill_Booking.Location = new System.Drawing.Point(97, 271);
-            this.lblFill_Booking.Name = "lblFill_Booking";
-            this.lblFill_Booking.Size = new System.Drawing.Size(241, 17);
-            this.lblFill_Booking.TabIndex = 38;
-            this.lblFill_Booking.Text = "FILL INPUT CONTROLS WITH DATA";
-            // 
-            // spinFill_BookingID
-            // 
-            this.spinFill_BookingID.Location = new System.Drawing.Point(195, 310);
-            this.spinFill_BookingID.Name = "spinFill_BookingID";
-            this.spinFill_BookingID.Size = new System.Drawing.Size(100, 22);
-            this.spinFill_BookingID.TabIndex = 37;
-            // 
-            // lblBooking_ID
-            // 
-            this.lblBooking_ID.AutoSize = true;
-            this.lblBooking_ID.Location = new System.Drawing.Point(97, 315);
-            this.lblBooking_ID.Name = "lblBooking_ID";
-            this.lblBooking_ID.Size = new System.Drawing.Size(84, 17);
-            this.lblBooking_ID.TabIndex = 36;
-            this.lblBooking_ID.Text = "Booking_ID:";
-            // 
-            // lblDeleteBooking
-            // 
-            this.lblDeleteBooking.AutoSize = true;
-            this.lblDeleteBooking.Location = new System.Drawing.Point(99, 364);
-            this.lblDeleteBooking.Name = "lblDeleteBooking";
-            this.lblDeleteBooking.Size = new System.Drawing.Size(143, 17);
-            this.lblDeleteBooking.TabIndex = 35;
-            this.lblDeleteBooking.Text = "DELETE A BOOKING";
-            // 
-            // spinDel_Booking
-            // 
-            this.spinDel_Booking.Location = new System.Drawing.Point(195, 403);
-            this.spinDel_Booking.Name = "spinDel_Booking";
-            this.spinDel_Booking.Size = new System.Drawing.Size(100, 22);
-            this.spinDel_Booking.TabIndex = 34;
-            // 
-            // btnUpdate_Booking
-            // 
-            this.btnUpdate_Booking.Location = new System.Drawing.Point(350, 94);
-            this.btnUpdate_Booking.Name = "btnUpdate_Booking";
-            this.btnUpdate_Booking.Size = new System.Drawing.Size(92, 23);
-            this.btnUpdate_Booking.TabIndex = 32;
-            this.btnUpdate_Booking.Text = "UPDATE";
-            this.btnUpdate_Booking.UseVisualStyleBackColor = true;
-            // 
-            // btnFill_Bookings
-            // 
-            this.btnFill_Bookings.Location = new System.Drawing.Point(322, 309);
-            this.btnFill_Bookings.Name = "btnFill_Bookings";
-            this.btnFill_Bookings.Size = new System.Drawing.Size(75, 23);
-            this.btnFill_Bookings.TabIndex = 31;
-            this.btnFill_Bookings.Text = "FILL";
-            this.btnFill_Bookings.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd_Booking
-            // 
-            this.btnAdd_Booking.Location = new System.Drawing.Point(367, 50);
-            this.btnAdd_Booking.Name = "btnAdd_Booking";
-            this.btnAdd_Booking.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd_Booking.TabIndex = 30;
-            this.btnAdd_Booking.Text = "ADD";
-            this.btnAdd_Booking.UseVisualStyleBackColor = true;
-            // 
-            // txtDate
-            // 
-            this.txtDate.Location = new System.Drawing.Point(199, 210);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(100, 22);
-            this.txtDate.TabIndex = 29;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(139, 213);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(42, 17);
-            this.lblDate.TabIndex = 28;
-            this.lblDate.Text = "Date:";
-            // 
-            // lblNumOfSeats
-            // 
-            this.lblNumOfSeats.AutoSize = true;
-            this.lblNumOfSeats.Location = new System.Drawing.Point(68, 172);
-            this.lblNumOfSeats.Name = "lblNumOfSeats";
-            this.lblNumOfSeats.Size = new System.Drawing.Size(118, 17);
-            this.lblNumOfSeats.TabIndex = 26;
-            this.lblNumOfSeats.Text = "Number of Seats:";
-            // 
-            // lblTicket_Cost
-            // 
-            this.lblTicket_Cost.AutoSize = true;
-            this.lblTicket_Cost.Location = new System.Drawing.Point(74, 134);
-            this.lblTicket_Cost.Name = "lblTicket_Cost";
-            this.lblTicket_Cost.Size = new System.Drawing.Size(109, 17);
-            this.lblTicket_Cost.TabIndex = 24;
-            this.lblTicket_Cost.Text = "Tickets Amount:";
-            // 
-            // lblCust_ID
-            // 
-            this.lblCust_ID.AutoSize = true;
-            this.lblCust_ID.Location = new System.Drawing.Point(93, 91);
-            this.lblCust_ID.Name = "lblCust_ID";
-            this.lblCust_ID.Size = new System.Drawing.Size(93, 17);
-            this.lblCust_ID.TabIndex = 22;
-            this.lblCust_ID.Text = "Customer_ID:";
-            // 
-            // lblMovie_ID
-            // 
-            this.lblMovie_ID.AutoSize = true;
-            this.lblMovie_ID.Location = new System.Drawing.Point(113, 50);
-            this.lblMovie_ID.Name = "lblMovie_ID";
-            this.lblMovie_ID.Size = new System.Drawing.Size(70, 17);
-            this.lblMovie_ID.TabIndex = 20;
-            this.lblMovie_ID.Text = "Movie_ID:";
-            // 
-            // txtTicket_Total
-            // 
-            this.txtTicket_Total.Location = new System.Drawing.Point(199, 129);
-            this.txtTicket_Total.Name = "txtTicket_Total";
-            this.txtTicket_Total.Size = new System.Drawing.Size(100, 22);
-            this.txtTicket_Total.TabIndex = 40;
-            // 
-            // txtNumOfSeats
-            // 
-            this.txtNumOfSeats.Location = new System.Drawing.Point(199, 167);
-            this.txtNumOfSeats.Name = "txtNumOfSeats";
-            this.txtNumOfSeats.Size = new System.Drawing.Size(100, 22);
-            this.txtNumOfSeats.TabIndex = 41;
-            // 
-            // spinCustID
-            // 
-            this.spinCustID.Location = new System.Drawing.Point(195, 86);
-            this.spinCustID.Name = "spinCustID";
-            this.spinCustID.Size = new System.Drawing.Size(104, 22);
-            this.spinCustID.TabIndex = 42;
-            // 
-            // spinMovieID
-            // 
-            this.spinMovieID.Location = new System.Drawing.Point(199, 45);
-            this.spinMovieID.Name = "spinMovieID";
-            this.spinMovieID.Size = new System.Drawing.Size(100, 22);
-            this.spinMovieID.TabIndex = 43;
-            // 
-            // lblDelete_BookingID
-            // 
-            this.lblDelete_BookingID.AutoSize = true;
-            this.lblDelete_BookingID.Location = new System.Drawing.Point(99, 408);
-            this.lblDelete_BookingID.Name = "lblDelete_BookingID";
-            this.lblDelete_BookingID.Size = new System.Drawing.Size(84, 17);
-            this.lblDelete_BookingID.TabIndex = 44;
-            this.lblDelete_BookingID.Text = "Booking_ID:";
             // 
             // groupMaintain_Customers
             // 
@@ -424,6 +200,27 @@
             this.groupMaintain_Customers.TabIndex = 3;
             this.groupMaintain_Customers.TabStop = false;
             this.groupMaintain_Customers.Text = "MAINTAIN CUSTOMERS";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(203, 45);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 22);
+            this.txtName.TabIndex = 47;
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.Location = new System.Drawing.Point(203, 84);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(100, 22);
+            this.txtSurname.TabIndex = 46;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(203, 167);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(100, 22);
+            this.txtEmail.TabIndex = 45;
             // 
             // lblDel_CustID
             // 
@@ -554,26 +351,229 @@
             this.lblName.TabIndex = 20;
             this.lblName.Text = "Name:";
             // 
-            // txtEmail
+            // groupMaintain_Bookings
             // 
-            this.txtEmail.Location = new System.Drawing.Point(203, 167);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 22);
-            this.txtEmail.TabIndex = 45;
+            this.groupMaintain_Bookings.Controls.Add(this.lblDelete_BookingID);
+            this.groupMaintain_Bookings.Controls.Add(this.spinMovieID);
+            this.groupMaintain_Bookings.Controls.Add(this.spinCustID);
+            this.groupMaintain_Bookings.Controls.Add(this.txtNumOfSeats);
+            this.groupMaintain_Bookings.Controls.Add(this.txtTicket_Total);
+            this.groupMaintain_Bookings.Controls.Add(this.btnDelete_Booking);
+            this.groupMaintain_Bookings.Controls.Add(this.lblFill_Booking);
+            this.groupMaintain_Bookings.Controls.Add(this.spinFill_BookingID);
+            this.groupMaintain_Bookings.Controls.Add(this.lblBooking_ID);
+            this.groupMaintain_Bookings.Controls.Add(this.lblDeleteBooking);
+            this.groupMaintain_Bookings.Controls.Add(this.spinDel_Booking);
+            this.groupMaintain_Bookings.Controls.Add(this.btnUpdate_Booking);
+            this.groupMaintain_Bookings.Controls.Add(this.btnFill_Bookings);
+            this.groupMaintain_Bookings.Controls.Add(this.btnAdd_Booking);
+            this.groupMaintain_Bookings.Controls.Add(this.txtDate);
+            this.groupMaintain_Bookings.Controls.Add(this.lblDate);
+            this.groupMaintain_Bookings.Controls.Add(this.lblNumOfSeats);
+            this.groupMaintain_Bookings.Controls.Add(this.lblTicket_Cost);
+            this.groupMaintain_Bookings.Controls.Add(this.lblCust_ID);
+            this.groupMaintain_Bookings.Controls.Add(this.lblMovie_ID);
+            this.groupMaintain_Bookings.Location = new System.Drawing.Point(50, 247);
+            this.groupMaintain_Bookings.Name = "groupMaintain_Bookings";
+            this.groupMaintain_Bookings.Size = new System.Drawing.Size(545, 461);
+            this.groupMaintain_Bookings.TabIndex = 1;
+            this.groupMaintain_Bookings.TabStop = false;
+            this.groupMaintain_Bookings.Text = "MAINTAIN BOOKINGS";
             // 
-            // txtSurname
+            // lblDelete_BookingID
             // 
-            this.txtSurname.Location = new System.Drawing.Point(203, 84);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(100, 22);
-            this.txtSurname.TabIndex = 46;
+            this.lblDelete_BookingID.AutoSize = true;
+            this.lblDelete_BookingID.Location = new System.Drawing.Point(99, 408);
+            this.lblDelete_BookingID.Name = "lblDelete_BookingID";
+            this.lblDelete_BookingID.Size = new System.Drawing.Size(84, 17);
+            this.lblDelete_BookingID.TabIndex = 44;
+            this.lblDelete_BookingID.Text = "Booking_ID:";
             // 
-            // txtName
+            // spinMovieID
             // 
-            this.txtName.Location = new System.Drawing.Point(203, 45);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 22);
-            this.txtName.TabIndex = 47;
+            this.spinMovieID.Location = new System.Drawing.Point(199, 45);
+            this.spinMovieID.Name = "spinMovieID";
+            this.spinMovieID.Size = new System.Drawing.Size(100, 22);
+            this.spinMovieID.TabIndex = 43;
+            // 
+            // spinCustID
+            // 
+            this.spinCustID.Location = new System.Drawing.Point(195, 86);
+            this.spinCustID.Name = "spinCustID";
+            this.spinCustID.Size = new System.Drawing.Size(104, 22);
+            this.spinCustID.TabIndex = 42;
+            // 
+            // txtNumOfSeats
+            // 
+            this.txtNumOfSeats.Location = new System.Drawing.Point(199, 167);
+            this.txtNumOfSeats.Name = "txtNumOfSeats";
+            this.txtNumOfSeats.Size = new System.Drawing.Size(100, 22);
+            this.txtNumOfSeats.TabIndex = 41;
+            // 
+            // txtTicket_Total
+            // 
+            this.txtTicket_Total.Location = new System.Drawing.Point(199, 129);
+            this.txtTicket_Total.Name = "txtTicket_Total";
+            this.txtTicket_Total.Size = new System.Drawing.Size(100, 22);
+            this.txtTicket_Total.TabIndex = 40;
+            // 
+            // btnDelete_Booking
+            // 
+            this.btnDelete_Booking.Location = new System.Drawing.Point(322, 402);
+            this.btnDelete_Booking.Name = "btnDelete_Booking";
+            this.btnDelete_Booking.Size = new System.Drawing.Size(92, 23);
+            this.btnDelete_Booking.TabIndex = 39;
+            this.btnDelete_Booking.Text = "DELETE";
+            this.btnDelete_Booking.UseVisualStyleBackColor = true;
+            // 
+            // lblFill_Booking
+            // 
+            this.lblFill_Booking.AutoSize = true;
+            this.lblFill_Booking.Location = new System.Drawing.Point(97, 271);
+            this.lblFill_Booking.Name = "lblFill_Booking";
+            this.lblFill_Booking.Size = new System.Drawing.Size(241, 17);
+            this.lblFill_Booking.TabIndex = 38;
+            this.lblFill_Booking.Text = "FILL INPUT CONTROLS WITH DATA";
+            // 
+            // spinFill_BookingID
+            // 
+            this.spinFill_BookingID.Location = new System.Drawing.Point(195, 310);
+            this.spinFill_BookingID.Name = "spinFill_BookingID";
+            this.spinFill_BookingID.Size = new System.Drawing.Size(100, 22);
+            this.spinFill_BookingID.TabIndex = 37;
+            // 
+            // lblBooking_ID
+            // 
+            this.lblBooking_ID.AutoSize = true;
+            this.lblBooking_ID.Location = new System.Drawing.Point(97, 315);
+            this.lblBooking_ID.Name = "lblBooking_ID";
+            this.lblBooking_ID.Size = new System.Drawing.Size(84, 17);
+            this.lblBooking_ID.TabIndex = 36;
+            this.lblBooking_ID.Text = "Booking_ID:";
+            // 
+            // lblDeleteBooking
+            // 
+            this.lblDeleteBooking.AutoSize = true;
+            this.lblDeleteBooking.Location = new System.Drawing.Point(99, 364);
+            this.lblDeleteBooking.Name = "lblDeleteBooking";
+            this.lblDeleteBooking.Size = new System.Drawing.Size(143, 17);
+            this.lblDeleteBooking.TabIndex = 35;
+            this.lblDeleteBooking.Text = "DELETE A BOOKING";
+            // 
+            // spinDel_Booking
+            // 
+            this.spinDel_Booking.Location = new System.Drawing.Point(195, 403);
+            this.spinDel_Booking.Name = "spinDel_Booking";
+            this.spinDel_Booking.Size = new System.Drawing.Size(100, 22);
+            this.spinDel_Booking.TabIndex = 34;
+            // 
+            // btnUpdate_Booking
+            // 
+            this.btnUpdate_Booking.Location = new System.Drawing.Point(350, 94);
+            this.btnUpdate_Booking.Name = "btnUpdate_Booking";
+            this.btnUpdate_Booking.Size = new System.Drawing.Size(92, 23);
+            this.btnUpdate_Booking.TabIndex = 32;
+            this.btnUpdate_Booking.Text = "UPDATE";
+            this.btnUpdate_Booking.UseVisualStyleBackColor = true;
+            // 
+            // btnFill_Bookings
+            // 
+            this.btnFill_Bookings.Location = new System.Drawing.Point(322, 309);
+            this.btnFill_Bookings.Name = "btnFill_Bookings";
+            this.btnFill_Bookings.Size = new System.Drawing.Size(75, 23);
+            this.btnFill_Bookings.TabIndex = 31;
+            this.btnFill_Bookings.Text = "FILL";
+            this.btnFill_Bookings.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd_Booking
+            // 
+            this.btnAdd_Booking.Location = new System.Drawing.Point(367, 50);
+            this.btnAdd_Booking.Name = "btnAdd_Booking";
+            this.btnAdd_Booking.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd_Booking.TabIndex = 30;
+            this.btnAdd_Booking.Text = "ADD";
+            this.btnAdd_Booking.UseVisualStyleBackColor = true;
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(199, 210);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(100, 22);
+            this.txtDate.TabIndex = 29;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(139, 213);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(42, 17);
+            this.lblDate.TabIndex = 28;
+            this.lblDate.Text = "Date:";
+            // 
+            // lblNumOfSeats
+            // 
+            this.lblNumOfSeats.AutoSize = true;
+            this.lblNumOfSeats.Location = new System.Drawing.Point(68, 172);
+            this.lblNumOfSeats.Name = "lblNumOfSeats";
+            this.lblNumOfSeats.Size = new System.Drawing.Size(118, 17);
+            this.lblNumOfSeats.TabIndex = 26;
+            this.lblNumOfSeats.Text = "Number of Seats:";
+            // 
+            // lblTicket_Cost
+            // 
+            this.lblTicket_Cost.AutoSize = true;
+            this.lblTicket_Cost.Location = new System.Drawing.Point(74, 134);
+            this.lblTicket_Cost.Name = "lblTicket_Cost";
+            this.lblTicket_Cost.Size = new System.Drawing.Size(109, 17);
+            this.lblTicket_Cost.TabIndex = 24;
+            this.lblTicket_Cost.Text = "Tickets Amount:";
+            // 
+            // lblCust_ID
+            // 
+            this.lblCust_ID.AutoSize = true;
+            this.lblCust_ID.Location = new System.Drawing.Point(93, 91);
+            this.lblCust_ID.Name = "lblCust_ID";
+            this.lblCust_ID.Size = new System.Drawing.Size(93, 17);
+            this.lblCust_ID.TabIndex = 22;
+            this.lblCust_ID.Text = "Customer_ID:";
+            // 
+            // lblMovie_ID
+            // 
+            this.lblMovie_ID.AutoSize = true;
+            this.lblMovie_ID.Location = new System.Drawing.Point(113, 50);
+            this.lblMovie_ID.Name = "lblMovie_ID";
+            this.lblMovie_ID.Size = new System.Drawing.Size(70, 17);
+            this.lblMovie_ID.TabIndex = 20;
+            this.lblMovie_ID.Text = "Movie_ID:";
+            // 
+            // dbBookings
+            // 
+            this.dbBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dbBookings.Location = new System.Drawing.Point(50, 34);
+            this.dbBookings.Name = "dbBookings";
+            this.dbBookings.RowTemplate.Height = 24;
+            this.dbBookings.Size = new System.Drawing.Size(545, 192);
+            this.dbBookings.TabIndex = 1;
+            // 
+            // dbCustomers
+            // 
+            this.dbCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dbCustomers.Location = new System.Drawing.Point(667, 34);
+            this.dbCustomers.Name = "dbCustomers";
+            this.dbCustomers.RowTemplate.Height = 24;
+            this.dbCustomers.Size = new System.Drawing.Size(545, 192);
+            this.dbCustomers.TabIndex = 2;
+            // 
+            // tbMovies_Control
+            // 
+            this.tbMovies_Control.Controls.Add(this.groupMovies);
+            this.tbMovies_Control.Location = new System.Drawing.Point(4, 25);
+            this.tbMovies_Control.Name = "tbMovies_Control";
+            this.tbMovies_Control.Padding = new System.Windows.Forms.Padding(3);
+            this.tbMovies_Control.Size = new System.Drawing.Size(1287, 786);
+            this.tbMovies_Control.TabIndex = 1;
+            this.tbMovies_Control.Text = "MOVIES";
+            this.tbMovies_Control.UseVisualStyleBackColor = true;
             // 
             // groupMovies
             // 
@@ -633,6 +633,7 @@
             this.btnDelete_Genres.TabIndex = 39;
             this.btnDelete_Genres.Text = "DELETE";
             this.btnDelete_Genres.UseVisualStyleBackColor = true;
+            this.btnDelete_Genres.Click += new System.EventHandler(this.btnDelete_Genres_Click);
             // 
             // lblFill_Genre
             // 
@@ -683,6 +684,7 @@
             this.btnUpdate_Genre.TabIndex = 32;
             this.btnUpdate_Genre.Text = "UPDATE";
             this.btnUpdate_Genre.UseVisualStyleBackColor = true;
+            this.btnUpdate_Genre.Click += new System.EventHandler(this.btnUpdate_Genre_Click);
             // 
             // btnFill_Genres
             // 
@@ -692,6 +694,7 @@
             this.btnFill_Genres.TabIndex = 31;
             this.btnFill_Genres.Text = "FILL";
             this.btnFill_Genres.UseVisualStyleBackColor = true;
+            this.btnFill_Genres.Click += new System.EventHandler(this.btnFill_Genres_Click);
             // 
             // btnAdd_Genre
             // 
@@ -701,6 +704,7 @@
             this.btnAdd_Genre.TabIndex = 30;
             this.btnAdd_Genre.Text = "ADD";
             this.btnAdd_Genre.UseVisualStyleBackColor = true;
+            this.btnAdd_Genre.Click += new System.EventHandler(this.btnAdd_Genre_Click);
             // 
             // lblDescription
             // 
@@ -713,12 +717,13 @@
             // 
             // groupMaintain_Movies
             // 
+            this.groupMaintain_Movies.Controls.Add(this.dateWithdrawal);
+            this.groupMaintain_Movies.Controls.Add(this.dateRelease);
             this.groupMaintain_Movies.Controls.Add(this.txtMovie);
             this.groupMaintain_Movies.Controls.Add(this.cmbAge);
-            this.groupMaintain_Movies.Controls.Add(this.txtWithdrawal);
             this.groupMaintain_Movies.Controls.Add(this.lblWithdrawal);
             this.groupMaintain_Movies.Controls.Add(this.lblDel_MovieID);
-            this.groupMaintain_Movies.Controls.Add(this.txtGenre_ID);
+            this.groupMaintain_Movies.Controls.Add(this.spinGenre_ID);
             this.groupMaintain_Movies.Controls.Add(this.txtDuration);
             this.groupMaintain_Movies.Controls.Add(this.btnDelete_Movie);
             this.groupMaintain_Movies.Controls.Add(this.lblFill_Movie);
@@ -729,7 +734,6 @@
             this.groupMaintain_Movies.Controls.Add(this.btnUpdate_Movie);
             this.groupMaintain_Movies.Controls.Add(this.btnFill_Movie);
             this.groupMaintain_Movies.Controls.Add(this.btnAdd_Movie);
-            this.groupMaintain_Movies.Controls.Add(this.txtRelease);
             this.groupMaintain_Movies.Controls.Add(this.lblRelease);
             this.groupMaintain_Movies.Controls.Add(this.lblAge);
             this.groupMaintain_Movies.Controls.Add(this.lblDuration);
@@ -742,6 +746,30 @@
             this.groupMaintain_Movies.TabStop = false;
             this.groupMaintain_Movies.Text = "MAINTAIN MOVIES";
             // 
+            // txtMovie
+            // 
+            this.txtMovie.Location = new System.Drawing.Point(184, 25);
+            this.txtMovie.Name = "txtMovie";
+            this.txtMovie.Size = new System.Drawing.Size(100, 22);
+            this.txtMovie.TabIndex = 48;
+            // 
+            // cmbAge
+            // 
+            this.cmbAge.FormattingEnabled = true;
+            this.cmbAge.Location = new System.Drawing.Point(184, 150);
+            this.cmbAge.Name = "cmbAge";
+            this.cmbAge.Size = new System.Drawing.Size(100, 24);
+            this.cmbAge.TabIndex = 47;
+            // 
+            // lblWithdrawal
+            // 
+            this.lblWithdrawal.AutoSize = true;
+            this.lblWithdrawal.Location = new System.Drawing.Point(46, 235);
+            this.lblWithdrawal.Name = "lblWithdrawal";
+            this.lblWithdrawal.Size = new System.Drawing.Size(115, 17);
+            this.lblWithdrawal.TabIndex = 45;
+            this.lblWithdrawal.Text = "Withdrawal Date:";
+            // 
             // lblDel_MovieID
             // 
             this.lblDel_MovieID.AutoSize = true;
@@ -751,12 +779,12 @@
             this.lblDel_MovieID.TabIndex = 44;
             this.lblDel_MovieID.Text = "Movie_ID:";
             // 
-            // txtGenre_ID
+            // spinGenre_ID
             // 
-            this.txtGenre_ID.Location = new System.Drawing.Point(184, 67);
-            this.txtGenre_ID.Name = "txtGenre_ID";
-            this.txtGenre_ID.Size = new System.Drawing.Size(100, 22);
-            this.txtGenre_ID.TabIndex = 42;
+            this.spinGenre_ID.Location = new System.Drawing.Point(184, 67);
+            this.spinGenre_ID.Name = "spinGenre_ID";
+            this.spinGenre_ID.Size = new System.Drawing.Size(100, 22);
+            this.spinGenre_ID.TabIndex = 42;
             // 
             // txtDuration
             // 
@@ -773,6 +801,7 @@
             this.btnDelete_Movie.TabIndex = 39;
             this.btnDelete_Movie.Text = "DELETE";
             this.btnDelete_Movie.UseVisualStyleBackColor = true;
+            this.btnDelete_Movie.Click += new System.EventHandler(this.btnDelete_Movie_Click);
             // 
             // lblFill_Movie
             // 
@@ -823,6 +852,7 @@
             this.btnUpdate_Movie.TabIndex = 32;
             this.btnUpdate_Movie.Text = "UPDATE";
             this.btnUpdate_Movie.UseVisualStyleBackColor = true;
+            this.btnUpdate_Movie.Click += new System.EventHandler(this.btnUpdate_Movie_Click);
             // 
             // btnFill_Movie
             // 
@@ -832,6 +862,7 @@
             this.btnFill_Movie.TabIndex = 31;
             this.btnFill_Movie.Text = "FILL";
             this.btnFill_Movie.UseVisualStyleBackColor = true;
+            this.btnFill_Movie.Click += new System.EventHandler(this.btnFill_Movie_Click);
             // 
             // btnAdd_Movie
             // 
@@ -841,13 +872,7 @@
             this.btnAdd_Movie.TabIndex = 30;
             this.btnAdd_Movie.Text = "ADD";
             this.btnAdd_Movie.UseVisualStyleBackColor = true;
-            // 
-            // txtRelease
-            // 
-            this.txtRelease.Location = new System.Drawing.Point(184, 191);
-            this.txtRelease.Name = "txtRelease";
-            this.txtRelease.Size = new System.Drawing.Size(100, 22);
-            this.txtRelease.TabIndex = 29;
+            this.btnAdd_Movie.Click += new System.EventHandler(this.btnAdd_Movie_Click);
             // 
             // lblRelease
             // 
@@ -912,36 +937,19 @@
             this.dbGenres.Size = new System.Drawing.Size(545, 192);
             this.dbGenres.TabIndex = 2;
             // 
-            // txtWithdrawal
+            // dateRelease
             // 
-            this.txtWithdrawal.Location = new System.Drawing.Point(184, 230);
-            this.txtWithdrawal.Name = "txtWithdrawal";
-            this.txtWithdrawal.Size = new System.Drawing.Size(100, 22);
-            this.txtWithdrawal.TabIndex = 46;
+            this.dateRelease.Location = new System.Drawing.Point(184, 191);
+            this.dateRelease.Name = "dateRelease";
+            this.dateRelease.Size = new System.Drawing.Size(100, 22);
+            this.dateRelease.TabIndex = 49;
             // 
-            // lblWithdrawal
+            // dateWithdrawal
             // 
-            this.lblWithdrawal.AutoSize = true;
-            this.lblWithdrawal.Location = new System.Drawing.Point(46, 235);
-            this.lblWithdrawal.Name = "lblWithdrawal";
-            this.lblWithdrawal.Size = new System.Drawing.Size(115, 17);
-            this.lblWithdrawal.TabIndex = 45;
-            this.lblWithdrawal.Text = "Withdrawal Date:";
-            // 
-            // cmbAge
-            // 
-            this.cmbAge.FormattingEnabled = true;
-            this.cmbAge.Location = new System.Drawing.Point(184, 150);
-            this.cmbAge.Name = "cmbAge";
-            this.cmbAge.Size = new System.Drawing.Size(100, 24);
-            this.cmbAge.TabIndex = 47;
-            // 
-            // txtMovie
-            // 
-            this.txtMovie.Location = new System.Drawing.Point(184, 25);
-            this.txtMovie.Name = "txtMovie";
-            this.txtMovie.Size = new System.Drawing.Size(100, 22);
-            this.txtMovie.TabIndex = 48;
+            this.dateWithdrawal.Location = new System.Drawing.Point(184, 230);
+            this.dateWithdrawal.Name = "dateWithdrawal";
+            this.dateWithdrawal.Size = new System.Drawing.Size(100, 22);
+            this.dateWithdrawal.TabIndex = 50;
             // 
             // Bookings_Movies
             // 
@@ -954,21 +962,21 @@
             this.Load += new System.EventHandler(this.Bookings_Movies_Load);
             this.tbBookings_Control.ResumeLayout(false);
             this.tbBookings_GUI.ResumeLayout(false);
-            this.tbMovies_Control.ResumeLayout(false);
             this.groupBookings.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dbBookings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbCustomers)).EndInit();
-            this.groupMaintain_Bookings.ResumeLayout(false);
-            this.groupMaintain_Bookings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinFill_BookingID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinDel_Booking)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumOfSeats)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinCustID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinMovieID)).EndInit();
             this.groupMaintain_Customers.ResumeLayout(false);
             this.groupMaintain_Customers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinFill_Customer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDel_CustID)).EndInit();
+            this.groupMaintain_Bookings.ResumeLayout(false);
+            this.groupMaintain_Bookings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinMovieID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinCustID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumOfSeats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinFill_BookingID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinDel_Booking)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbBookings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbCustomers)).EndInit();
+            this.tbMovies_Control.ResumeLayout(false);
             this.groupMovies.ResumeLayout(false);
             this.groupMaintain_Genres.ResumeLayout(false);
             this.groupMaintain_Genres.PerformLayout();
@@ -976,7 +984,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinDel_GenreID)).EndInit();
             this.groupMaintain_Movies.ResumeLayout(false);
             this.groupMaintain_Movies.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGenre_ID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinGenre_ID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinMovie_ID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinDel_MovieID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbMovies)).EndInit();
@@ -1049,7 +1057,7 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.GroupBox groupMaintain_Movies;
         private System.Windows.Forms.Label lblDel_MovieID;
-        private System.Windows.Forms.NumericUpDown txtGenre_ID;
+        private System.Windows.Forms.NumericUpDown spinGenre_ID;
         private System.Windows.Forms.TextBox txtDuration;
         private System.Windows.Forms.Button btnDelete_Movie;
         private System.Windows.Forms.Label lblFill_Movie;
@@ -1060,7 +1068,6 @@
         private System.Windows.Forms.Button btnUpdate_Movie;
         private System.Windows.Forms.Button btnFill_Movie;
         private System.Windows.Forms.Button btnAdd_Movie;
-        private System.Windows.Forms.TextBox txtRelease;
         private System.Windows.Forms.Label lblRelease;
         private System.Windows.Forms.Label lblAge;
         private System.Windows.Forms.Label lblDuration;
@@ -1068,9 +1075,10 @@
         private System.Windows.Forms.Label lblMovie;
         private System.Windows.Forms.DataGridView dbMovies;
         private System.Windows.Forms.DataGridView dbGenres;
-        private System.Windows.Forms.TextBox txtWithdrawal;
         private System.Windows.Forms.Label lblWithdrawal;
         private System.Windows.Forms.TextBox txtMovie;
         private System.Windows.Forms.ComboBox cmbAge;
+        private System.Windows.Forms.DateTimePicker dateWithdrawal;
+        private System.Windows.Forms.DateTimePicker dateRelease;
     }
 }
