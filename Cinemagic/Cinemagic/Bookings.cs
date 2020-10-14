@@ -26,6 +26,7 @@ namespace RandomProj
 
         private void Bookings_Movies_Load(object sender, EventArgs e)
         {
+            toolTipBack.SetToolTip(btnMain,"Go back to Cinemagic");
             DisplayGenres();
             DisplayMovies();
             cmbAge.Items.Add("General Audiences");
@@ -363,6 +364,39 @@ namespace RandomProj
             }
         }
 
+        private void DeleteAllMovies()
+        {
+            Main cinema = new Main();
+            string select_movies = "SELECT * FROM MOVIE WHERE Genre_ID = " + spinDeleteAll_Movies.Value.ToString() + ";";
+            SqlCommand cmd;
+            try
+            {
+                string delete_all = "DELETE FROM MOVIE WHERE Genre_ID = " + spinDeleteAll_Movies.Value.ToString();
+                cinema.conn = new SqlConnection(cinema.constr);
+                cinema.conn.Open();
+                cinema.com = new SqlCommand(select_movies, cinema.conn);
+                cmd = new SqlCommand(delete_all, cinema.conn);
+                cinema.adap = new SqlDataAdapter();
+                cinema.adap.SelectCommand = cinema.com;
+                cinema.adap.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    cmd.ExecuteNonQuery();
+                    cinema.conn.Close();
+                    MessageBox.Show($"Movies with Genre_ID {spinDeleteAll_Movies.Value} deleted successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DisplayMovies();
+                }
+                else
+                {
+                    MessageBox.Show("Genre_ID does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message + " Failed to delete selected records...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnAdd_Movie_Click(object sender, EventArgs e)
         {
             AddMovies();
@@ -403,8 +437,58 @@ namespace RandomProj
             DeleteGenre();
         }
 
+        private void btnDelete_AllMovies_Click(object sender, EventArgs e)
+        {
+            DeleteAllMovies();
+        }
+
+        private void txtDuration_Validating(object sender, CancelEventArgs e)
+        {
+            if (!txtDuration.Text.Contains(':'))
+            {
+                MessageBox.Show("Please enter Movie duration in format HH:MM:SS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbAge_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbAge.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an age restriction...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dateRelease_Validating(object sender, CancelEventArgs e)
+        {
+            if (DateTime.Compare(dateRelease.Value,dateWithdrawal.Value) >= 0)
+            {
+                MessageBox.Show("Release date cannot be after or on Withdrawal date", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dateWithdrawal_Validating(object sender, CancelEventArgs e)
+        {
+            if (DateTime.Compare(dateWithdrawal.Value, dateRelease.Value) <= 0)
+            {
+                MessageBox.Show("Withdrawal date cannot be before or on Release date", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtDescription.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show("Movie Genre cannot contain numbers...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         #endregion
 
-
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main main_GUI = new Main();
+            main_GUI.ShowDialog();
+        }
     }
 }

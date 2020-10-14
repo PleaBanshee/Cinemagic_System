@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbBookings_Control = new System.Windows.Forms.TabControl();
             this.tbBookings_GUI = new System.Windows.Forms.TabPage();
             this.groupBookings = new System.Windows.Forms.GroupBox();
@@ -89,6 +90,8 @@
             this.btnAdd_Genre = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.groupMaintain_Movies = new System.Windows.Forms.GroupBox();
+            this.dateWithdrawal = new System.Windows.Forms.DateTimePicker();
+            this.dateRelease = new System.Windows.Forms.DateTimePicker();
             this.txtMovie = new System.Windows.Forms.TextBox();
             this.cmbAge = new System.Windows.Forms.ComboBox();
             this.lblWithdrawal = new System.Windows.Forms.Label();
@@ -111,8 +114,13 @@
             this.lblMovie = new System.Windows.Forms.Label();
             this.dbMovies = new System.Windows.Forms.DataGridView();
             this.dbGenres = new System.Windows.Forms.DataGridView();
-            this.dateRelease = new System.Windows.Forms.DateTimePicker();
-            this.dateWithdrawal = new System.Windows.Forms.DateTimePicker();
+            this.groupDeleteMovies = new System.Windows.Forms.GroupBox();
+            this.btnDelete_AllMovies = new System.Windows.Forms.Button();
+            this.lblDelHeading = new System.Windows.Forms.Label();
+            this.spinDeleteAll_Movies = new System.Windows.Forms.NumericUpDown();
+            this.lblDeleteAllMovies = new System.Windows.Forms.Label();
+            this.btnMain = new System.Windows.Forms.Button();
+            this.toolTipBack = new System.Windows.Forms.ToolTip(this.components);
             this.tbBookings_Control.SuspendLayout();
             this.tbBookings_GUI.SuspendLayout();
             this.groupBookings.SuspendLayout();
@@ -138,6 +146,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinDel_MovieID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbGenres)).BeginInit();
+            this.groupDeleteMovies.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinDeleteAll_Movies)).BeginInit();
             this.SuspendLayout();
             // 
             // tbBookings_Control
@@ -147,7 +157,7 @@
             this.tbBookings_Control.Location = new System.Drawing.Point(12, 2);
             this.tbBookings_Control.Name = "tbBookings_Control";
             this.tbBookings_Control.SelectedIndex = 0;
-            this.tbBookings_Control.Size = new System.Drawing.Size(1295, 815);
+            this.tbBookings_Control.Size = new System.Drawing.Size(1295, 923);
             this.tbBookings_Control.TabIndex = 0;
             // 
             // tbBookings_GUI
@@ -156,7 +166,7 @@
             this.tbBookings_GUI.Location = new System.Drawing.Point(4, 25);
             this.tbBookings_GUI.Name = "tbBookings_GUI";
             this.tbBookings_GUI.Padding = new System.Windows.Forms.Padding(3);
-            this.tbBookings_GUI.Size = new System.Drawing.Size(1287, 786);
+            this.tbBookings_GUI.Size = new System.Drawing.Size(1287, 894);
             this.tbBookings_GUI.TabIndex = 0;
             this.tbBookings_GUI.Text = "BOOKINGS";
             this.tbBookings_GUI.UseVisualStyleBackColor = true;
@@ -169,7 +179,7 @@
             this.groupBookings.Controls.Add(this.dbCustomers);
             this.groupBookings.Location = new System.Drawing.Point(20, 10);
             this.groupBookings.Name = "groupBookings";
-            this.groupBookings.Size = new System.Drawing.Size(1249, 761);
+            this.groupBookings.Size = new System.Drawing.Size(1249, 884);
             this.groupBookings.TabIndex = 0;
             this.groupBookings.TabStop = false;
             this.groupBookings.Text = "MAKE A BOOKING";
@@ -570,20 +580,22 @@
             this.tbMovies_Control.Location = new System.Drawing.Point(4, 25);
             this.tbMovies_Control.Name = "tbMovies_Control";
             this.tbMovies_Control.Padding = new System.Windows.Forms.Padding(3);
-            this.tbMovies_Control.Size = new System.Drawing.Size(1287, 786);
+            this.tbMovies_Control.Size = new System.Drawing.Size(1287, 894);
             this.tbMovies_Control.TabIndex = 1;
             this.tbMovies_Control.Text = "MOVIES";
             this.tbMovies_Control.UseVisualStyleBackColor = true;
             // 
             // groupMovies
             // 
+            this.groupMovies.Controls.Add(this.btnMain);
+            this.groupMovies.Controls.Add(this.groupDeleteMovies);
             this.groupMovies.Controls.Add(this.groupMaintain_Genres);
             this.groupMovies.Controls.Add(this.groupMaintain_Movies);
             this.groupMovies.Controls.Add(this.dbMovies);
             this.groupMovies.Controls.Add(this.dbGenres);
             this.groupMovies.Location = new System.Drawing.Point(19, 13);
             this.groupMovies.Name = "groupMovies";
-            this.groupMovies.Size = new System.Drawing.Size(1249, 761);
+            this.groupMovies.Size = new System.Drawing.Size(1249, 847);
             this.groupMovies.TabIndex = 1;
             this.groupMovies.TabStop = false;
             this.groupMovies.Text = "CINEMAGIC MOVIES";
@@ -615,6 +627,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(100, 22);
             this.txtDescription.TabIndex = 47;
+            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // lblDel_GenreID
             // 
@@ -746,6 +759,22 @@
             this.groupMaintain_Movies.TabStop = false;
             this.groupMaintain_Movies.Text = "MAINTAIN MOVIES";
             // 
+            // dateWithdrawal
+            // 
+            this.dateWithdrawal.Location = new System.Drawing.Point(184, 230);
+            this.dateWithdrawal.Name = "dateWithdrawal";
+            this.dateWithdrawal.Size = new System.Drawing.Size(100, 22);
+            this.dateWithdrawal.TabIndex = 50;
+            this.dateWithdrawal.Validating += new System.ComponentModel.CancelEventHandler(this.dateWithdrawal_Validating);
+            // 
+            // dateRelease
+            // 
+            this.dateRelease.Location = new System.Drawing.Point(184, 191);
+            this.dateRelease.Name = "dateRelease";
+            this.dateRelease.Size = new System.Drawing.Size(100, 22);
+            this.dateRelease.TabIndex = 49;
+            this.dateRelease.Validating += new System.ComponentModel.CancelEventHandler(this.dateRelease_Validating);
+            // 
             // txtMovie
             // 
             this.txtMovie.Location = new System.Drawing.Point(184, 25);
@@ -760,6 +789,7 @@
             this.cmbAge.Name = "cmbAge";
             this.cmbAge.Size = new System.Drawing.Size(100, 24);
             this.cmbAge.TabIndex = 47;
+            this.cmbAge.Validating += new System.ComponentModel.CancelEventHandler(this.cmbAge_Validating);
             // 
             // lblWithdrawal
             // 
@@ -792,6 +822,7 @@
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(100, 22);
             this.txtDuration.TabIndex = 40;
+            this.txtDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtDuration_Validating);
             // 
             // btnDelete_Movie
             // 
@@ -937,25 +968,69 @@
             this.dbGenres.Size = new System.Drawing.Size(545, 192);
             this.dbGenres.TabIndex = 2;
             // 
-            // dateRelease
+            // groupDeleteMovies
             // 
-            this.dateRelease.Location = new System.Drawing.Point(184, 191);
-            this.dateRelease.Name = "dateRelease";
-            this.dateRelease.Size = new System.Drawing.Size(100, 22);
-            this.dateRelease.TabIndex = 49;
+            this.groupDeleteMovies.Controls.Add(this.btnDelete_AllMovies);
+            this.groupDeleteMovies.Controls.Add(this.lblDelHeading);
+            this.groupDeleteMovies.Controls.Add(this.spinDeleteAll_Movies);
+            this.groupDeleteMovies.Controls.Add(this.lblDeleteAllMovies);
+            this.groupDeleteMovies.Location = new System.Drawing.Point(752, 621);
+            this.groupDeleteMovies.Name = "groupDeleteMovies";
+            this.groupDeleteMovies.Size = new System.Drawing.Size(365, 180);
+            this.groupDeleteMovies.TabIndex = 23;
+            this.groupDeleteMovies.TabStop = false;
+            this.groupDeleteMovies.Text = "DELETE ALL MOVIES";
             // 
-            // dateWithdrawal
+            // btnDelete_AllMovies
             // 
-            this.dateWithdrawal.Location = new System.Drawing.Point(184, 230);
-            this.dateWithdrawal.Name = "dateWithdrawal";
-            this.dateWithdrawal.Size = new System.Drawing.Size(100, 22);
-            this.dateWithdrawal.TabIndex = 50;
+            this.btnDelete_AllMovies.Location = new System.Drawing.Point(34, 125);
+            this.btnDelete_AllMovies.Name = "btnDelete_AllMovies";
+            this.btnDelete_AllMovies.Size = new System.Drawing.Size(102, 23);
+            this.btnDelete_AllMovies.TabIndex = 23;
+            this.btnDelete_AllMovies.Text = "DELETE";
+            this.btnDelete_AllMovies.UseVisualStyleBackColor = true;
+            this.btnDelete_AllMovies.Click += new System.EventHandler(this.btnDelete_AllMovies_Click);
+            // 
+            // lblDelHeading
+            // 
+            this.lblDelHeading.AutoSize = true;
+            this.lblDelHeading.Location = new System.Drawing.Point(31, 55);
+            this.lblDelHeading.Name = "lblDelHeading";
+            this.lblDelHeading.Size = new System.Drawing.Size(264, 17);
+            this.lblDelHeading.TabIndex = 22;
+            this.lblDelHeading.Text = "DELETE ALL MOVIES WITH GENRE_ID:";
+            // 
+            // spinDeleteAll_Movies
+            // 
+            this.spinDeleteAll_Movies.Location = new System.Drawing.Point(122, 84);
+            this.spinDeleteAll_Movies.Name = "spinDeleteAll_Movies";
+            this.spinDeleteAll_Movies.Size = new System.Drawing.Size(100, 22);
+            this.spinDeleteAll_Movies.TabIndex = 21;
+            // 
+            // lblDeleteAllMovies
+            // 
+            this.lblDeleteAllMovies.AutoSize = true;
+            this.lblDeleteAllMovies.Location = new System.Drawing.Point(31, 86);
+            this.lblDeleteAllMovies.Name = "lblDeleteAllMovies";
+            this.lblDeleteAllMovies.Size = new System.Drawing.Size(73, 17);
+            this.lblDeleteAllMovies.TabIndex = 20;
+            this.lblDeleteAllMovies.Text = "Genre_ID:";
+            // 
+            // btnMain
+            // 
+            this.btnMain.Location = new System.Drawing.Point(50, 778);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(75, 23);
+            this.btnMain.TabIndex = 48;
+            this.btnMain.Text = "BACK";
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // Bookings_Movies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1319, 822);
+            this.ClientSize = new System.Drawing.Size(1319, 925);
             this.Controls.Add(this.tbBookings_Control);
             this.Name = "Bookings_Movies";
             this.Text = "Bookings_Movies";
@@ -989,6 +1064,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinDel_MovieID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbMovies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbGenres)).EndInit();
+            this.groupDeleteMovies.ResumeLayout(false);
+            this.groupDeleteMovies.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinDeleteAll_Movies)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1080,5 +1158,12 @@
         private System.Windows.Forms.ComboBox cmbAge;
         private System.Windows.Forms.DateTimePicker dateWithdrawal;
         private System.Windows.Forms.DateTimePicker dateRelease;
+        private System.Windows.Forms.GroupBox groupDeleteMovies;
+        private System.Windows.Forms.Button btnDelete_AllMovies;
+        private System.Windows.Forms.Label lblDelHeading;
+        private System.Windows.Forms.NumericUpDown spinDeleteAll_Movies;
+        private System.Windows.Forms.Label lblDeleteAllMovies;
+        private System.Windows.Forms.Button btnMain;
+        private System.Windows.Forms.ToolTip toolTipBack;
     }
 }
