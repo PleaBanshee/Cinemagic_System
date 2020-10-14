@@ -30,6 +30,7 @@
         {
             this.btnCommitSale = new System.Windows.Forms.Button();
             this.btnMake_A_Booking = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCommitSale
@@ -54,11 +55,22 @@
             this.btnMake_A_Booking.UseVisualStyleBackColor = true;
             this.btnMake_A_Booking.Click += new System.EventHandler(this.btnMake_A_Booking_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(929, 26);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(85, 23);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "EXIT";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1035, 503);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnMake_A_Booking);
             this.Controls.Add(this.btnCommitSale);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -73,5 +85,6 @@
 
         private System.Windows.Forms.Button btnCommitSale;
         private System.Windows.Forms.Button btnMake_A_Booking;
+        private System.Windows.Forms.Button btnExit;
     }
 }

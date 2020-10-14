@@ -56,5 +56,14 @@ namespace RandomProj
             Bookings_Movies booking = new Bookings_Movies();
             booking.ShowDialog();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult exit_system = MessageBox.Show("Are you sure you want to exit?","CINEMAGIC",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+            if (exit_system == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
