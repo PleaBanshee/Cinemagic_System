@@ -27,6 +27,8 @@ namespace RandomProj
         private void Bookings_Movies_Load(object sender, EventArgs e)
         {
             toolTipBack.SetToolTip(btnMain,"Go back to Cinemagic");
+            DisplayBookings();
+            DisplayCustomers();
             DisplayGenres();
             DisplayMovies();
             cmbAge.Items.Add("General Audiences");
@@ -37,6 +39,282 @@ namespace RandomProj
         }
 
         #region BOOKINGS
+
+        private void DisplayBookings()
+        {
+            dbBookings.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            Main cinema = new Main();
+            connection = cinema.constr;
+            cinema.conn = new SqlConnection(connection);
+            cinema.conn.Open();
+            string select_movies = "SELECT * FROM BOOKING";
+            cinema.com = new SqlCommand(select_movies, cinema.conn);
+            cinema.adap = new SqlDataAdapter();
+            cinema.ds = new DataSet();
+            cinema.adap = new SqlDataAdapter(select_movies, cinema.conn);
+            cinema.adap.Fill(cinema.ds, "Bookings");
+            dbBookings.DataSource = cinema.ds;
+            dbBookings.DataMember = "Bookings";
+            cinema.conn.Close();
+        }
+
+        private void DisplayCustomers()
+        {
+            dbCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            Main cinema = new Main();
+            connection = cinema.constr;
+            cinema.conn = new SqlConnection(connection);
+            cinema.conn.Open();
+            string select_customers = "SELECT * FROM CUSTOMER";
+            cinema.com = new SqlCommand(select_customers, cinema.conn);
+            cinema.adap = new SqlDataAdapter();
+            cinema.ds = new DataSet();
+            cinema.adap = new SqlDataAdapter(select_customers, cinema.conn);
+            cinema.adap.Fill(cinema.ds, "Customers");
+            dbCustomers.DataSource = cinema.ds;
+            dbCustomers.DataMember = "Customers";
+            cinema.conn.Close();
+        }
+
+        private bool CheckEmptyBookingInputs()
+        {
+            bool isEmpty = false;
+            if (String.IsNullOrEmpty(txtTicket_Total.Text))
+            {
+                isEmpty = true;
+            }
+            return isEmpty;
+        }
+
+        private bool CheckEmptyCustomerInputs()
+        {
+            bool isEmpty = false;
+            if (String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtSurname.Text) || String.IsNullOrEmpty(txtPhoneNum.Text) || String.IsNullOrEmpty(txtEmail.Text))
+            {
+                isEmpty = true;
+            }
+            return isEmpty;
+        }
+
+        private void AddCustomers()
+        {
+            if (CheckEmptyCustomerInputs())
+            {
+                MessageBox.Show("Please ensure all inputs contain a value", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Main cinema = new Main();
+                connection = cinema.constr;
+                try
+                {
+                    string insert_customers = @"INSERT INTO CUSTOMER VALUES(@Customer_Name,@Customer_Surname,@Customer_Phone,@Customer_Email)";
+                    cinema.conn = new SqlConnection(connection);
+                    cinema.conn.Open();
+                    cinema.com = new SqlCommand(insert_customers, cinema.conn);
+                    cinema.com.Parameters.AddWithValue("@Customer_Name", txtName.Text);
+                    cinema.com.Parameters.AddWithValue("@Customer_Surname", txtSurname.Text);
+                    cinema.com.Parameters.AddWithValue("@Customer_Phone", txtPhoneNum.Text);
+                    cinema.com.Parameters.AddWithValue("@Customer_Email", txtEmail.Text);
+                    cinema.com.ExecuteNonQuery();
+                    MessageBox.Show("Customer has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cinema.conn.Close();
+                    DisplayCustomers();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + " Failed to add customer... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void AddBookings()
+        {
+            if (CheckEmptyBookingInputs())
+            {
+                MessageBox.Show("Please ensure all inputs contain a value", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Main cinema = new Main();
+                connection = cinema.constr;
+                try
+                {
+                    string insert_bookings = @"INSERT INTO BOOKING VALUES(@Movie_ID,@Customer_ID,@Total_TicketCost,@NumberOfSeats,@Tickets_SaleDate)";
+                    cinema.conn = new SqlConnection(connection);
+                    cinema.conn.Open();
+                    cinema.com = new SqlCommand(insert_bookings, cinema.conn);
+                    cinema.com.Parameters.AddWithValue("@Movie_ID", spinMovieID.Value);
+                    cinema.com.Parameters.AddWithValue("@Customer_ID", spinCustID.Value);
+                    cinema.com.Parameters.AddWithValue("@Total_TicketCost", decimal.Parse(txtTicket_Total.Text));
+                    cinema.com.Parameters.AddWithValue("@NumberOfSeats", spinNumOfSeats.Value);
+                    cinema.com.Parameters.AddWithValue("@Tickets_SaleDate", DateTime.Now.ToString("yyyy/MM/dd"));
+                    cinema.com.ExecuteNonQuery();
+                    MessageBox.Show("Booking has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cinema.conn.Close();
+                    DisplayBookings();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + " Failed to add booking... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void FillCustomers()
+        {
+            Main cinema = new Main();
+            string select_customers = "SELECT * FROM CUSTOMER WHERE Customer_ID = " + spinFill_Customer.Value.ToString();
+            try
+            {
+                cinema.conn = new SqlConnection(cinema.constr);
+                cinema.conn.Open();
+                cinema.com = new SqlCommand(select_customers, cinema.conn);
+                SqlDataReader dr = cinema.com.ExecuteReader();
+                if (dr.Read())
+                {
+                    txtName.Text = dr.GetValue(1).ToString();
+                    txtSurname.Text = dr.GetValue(2).ToString();
+                    txtPhoneNum.Text= dr.GetValue(3).ToString();
+                    txtEmail.Text = dr.GetValue(4).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid Customer_ID", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                cinema.conn.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message + " Failed to fill inputs with data from selected record", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FillBookings()
+        {
+            Main cinema = new Main();
+            string select_bookings = "SELECT * FROM BOOKING WHERE Booking_ID = " + spinFill_BookingID.Value.ToString();
+            try
+            {
+                cinema.conn = new SqlConnection(cinema.constr);
+                cinema.conn.Open();
+                cinema.com = new SqlCommand(select_bookings, cinema.conn);
+                SqlDataReader dr = cinema.com.ExecuteReader();
+                if (dr.Read())
+                {
+                    spinMovieID.Value = int.Parse(dr.GetValue(1).ToString());
+                    spinCustID.Value = int.Parse(dr.GetValue(2).ToString());
+                    txtTicket_Total.Text = dr.GetValue(3).ToString();
+                    spinNumOfSeats.Value = int.Parse(dr.GetValue(4).ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid Booking_ID", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                cinema.conn.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message + " Failed to fill inputs with data from selected record", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateCustomers()
+        {
+            Main cinema = new Main();
+            cinema.conn = new SqlConnection(connection);
+            string select_customers = "SELECT * FROM CUSTOMER WHERE Customer_ID = " + spinFill_Customer.Value.ToString() + ";";
+            string update_customers = $"UPDATE CUSTOMER SET Customer_Name = '{txtName.Text}', Customer_Surname = '{txtSurname.Text}', Customer_Phone = '{txtPhoneNum.Text}'," +
+            $"Customer_Email = '{txtEmail.Text}' WHERE Customer_ID = {spinFill_Customer.Value.ToString()}";
+            cinema.com = new SqlCommand(update_customers, cinema.conn);
+            command = new SqlCommand(select_customers, cinema.conn);
+            cinema.adap = new SqlDataAdapter();
+            cinema.adap.SelectCommand = command;
+            cinema.adap.Fill(dt);
+            try
+            {
+                cinema.conn.Open();
+                if (dt.Rows.Count > 0)
+                {
+                    cinema.com.ExecuteNonQuery();
+                    cinema.conn.Close();
+                    DisplayCustomers();
+                    MessageBox.Show("Customer has been updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("The selected Customer_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message + " Failed to update the customer...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateBookings()
+        {
+            Main cinema = new Main();
+            cinema.conn = new SqlConnection(connection);
+            string select_bookings = "SELECT * FROM BOOKING WHERE Booking_ID = " + spinFill_BookingID.Value.ToString() + ";";
+            string update_bookings = $"UPDATE BOOKING SET Movie_ID = '{spinMovieID.Value}', Customer_ID = {spinCustID.Value}, " +
+            $"Total_TicketCost =  CAST(REPLACE('{txtTicket_Total.Text}', ',', '.') AS DECIMAL(10, 2)), NumberOfSeats = {spinNumOfSeats.Value}"+
+            $"WHERE Booking_ID = {spinFill_BookingID.Value.ToString()}";
+            cinema.com = new SqlCommand(update_bookings, cinema.conn);
+            command = new SqlCommand(select_bookings, cinema.conn);
+            cinema.adap = new SqlDataAdapter();
+            cinema.adap.SelectCommand = command;
+            cinema.adap.Fill(dt);
+            try
+            {
+                cinema.conn.Open();
+                if (dt.Rows.Count > 0)
+                {
+                    cinema.com.ExecuteNonQuery();
+                    cinema.conn.Close();
+                    DisplayBookings();
+                    MessageBox.Show("Booking has been updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("The selected Booking_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message + " Failed to update booking...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAdd_Customer_Click(object sender, EventArgs e)
+        {
+            AddCustomers();
+        }
+
+        private void btnAdd_Booking_Click(object sender, EventArgs e)
+        {
+            AddBookings();
+        }
+
+        private void btnFill_Bookings_Click(object sender, EventArgs e)
+        {
+            FillBookings();
+        }
+
+        private void btnFill_Customers_Click(object sender, EventArgs e)
+        {
+            FillCustomers();
+        }
+
+        private void btnUpdate_Customer_Click(object sender, EventArgs e)
+        {
+            UpdateCustomers();
+        }
+
+        private void btnUpdate_Booking_Click(object sender, EventArgs e)
+        {
+            UpdateBookings();
+        }
 
         #endregion
 
