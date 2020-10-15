@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RandomProj;
+using System.Text.RegularExpressions;
 
 namespace RandomProj
 {
@@ -40,7 +41,7 @@ namespace RandomProj
 
         #region BOOKINGS
 
-        private void DisplayBookings()
+        public void DisplayBookings()
         {
             dbBookings.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             Main cinema = new Main();
@@ -286,6 +287,72 @@ namespace RandomProj
             }
         }
 
+        private void DeleteCustomer()
+        {
+            Main cinema = new Main();
+            string select_customer = "SELECT * FROM CUSTOMER WHERE Customer_ID = " + spinDel_CustID.Value.ToString() + ";";
+            SqlCommand cmd;
+            try
+            {
+                string delete_customer = "DELETE FROM CUSTOMER WHERE Customer_ID = " + spinDel_CustID.Value.ToString();
+                cinema.conn = new SqlConnection(cinema.constr);
+                cinema.conn.Open();
+                cinema.com = new SqlCommand(select_customer, cinema.conn);
+                cmd = new SqlCommand(delete_customer, cinema.conn);
+                cinema.adap = new SqlDataAdapter();
+                cinema.adap.SelectCommand = cinema.com;
+                cinema.adap.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    cmd.ExecuteNonQuery();
+                    cinema.conn.Close();
+                    MessageBox.Show("Customer was deleted successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DisplayCustomers();
+                }
+                else
+                {
+                    MessageBox.Show("Customer_ID does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message + " Failed to delete record...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteBookings()
+        {
+            Main cinema = new Main();
+            string select_booking = "SELECT * FROM BOOKING WHERE Booking_ID = " + spinDel_Booking.Value.ToString() + ";";
+            SqlCommand cmd;
+            try
+            {
+                string delete_booking = "DELETE FROM BOOKING WHERE Booking_ID = " + spinDel_Booking.Value.ToString();
+                cinema.conn = new SqlConnection(cinema.constr);
+                cinema.conn.Open();
+                cinema.com = new SqlCommand(select_booking, cinema.conn);
+                cmd = new SqlCommand(delete_booking, cinema.conn);
+                cinema.adap = new SqlDataAdapter();
+                cinema.adap.SelectCommand = cinema.com;
+                cinema.adap.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    cmd.ExecuteNonQuery();
+                    cinema.conn.Close();
+                    MessageBox.Show("Booking was deleted successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DisplayBookings();
+                }
+                else
+                {
+                    MessageBox.Show("Booking_ID does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message + " Failed to delete record...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnAdd_Customer_Click(object sender, EventArgs e)
         {
             AddCustomers();
@@ -314,6 +381,47 @@ namespace RandomProj
         private void btnUpdate_Booking_Click(object sender, EventArgs e)
         {
             UpdateBookings();
+        }
+
+        private void btnDelete_Booking_Click(object sender, EventArgs e)
+        {
+            DeleteBookings();
+        }
+
+        private void btnDelete_Customers_Click(object sender, EventArgs e)
+        {
+            DeleteCustomer();
+        }
+
+        private void txtTicket_Total_Validated(object sender, EventArgs e)
+        {
+            decimal total;
+            if (!decimal.TryParse(txtTicket_Total.Text, out total))
+            {
+                MessageBox.Show("Must enter a decimal value", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtPhoneNum_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtPhoneNum.Text.Length != 10)
+            {
+                MessageBox.Show("Phone number must be ten digits long", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            Regex mRegxExpression;
+            if (txtEmail.Text.Trim() != string.Empty)
+            {
+                mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.)
+                {3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+                if (!mRegxExpression.IsMatch(txtEmail.Text.Trim()))
+                {
+                    MessageBox.Show("You entered an invalid email address", "EROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         #endregion
@@ -583,7 +691,7 @@ namespace RandomProj
             SqlCommand cmd;
             try
             {
-                string delete_genre = "DELETE FROM GENRE WHERE Genre_Id = " + spinDel_GenreID.Value.ToString();
+                string delete_genre = "DELETE FROM GENRE WHERE Genre_ID = " + spinDel_GenreID.Value.ToString();
                 cinema.conn = new SqlConnection(cinema.constr);
                 cinema.conn.Open();
                 cinema.com = new SqlCommand(select_genre, cinema.conn);
@@ -616,7 +724,7 @@ namespace RandomProj
             SqlCommand cmd;
             try
             {
-                string delete_movie = "DELETE FROM MOVIE WHERE Movie_Id = " + spinDel_MovieID.Value.ToString();
+                string delete_movie = "DELETE FROM MOVIE WHERE Movie_ID = " + spinDel_MovieID.Value.ToString();
                 cinema.conn = new SqlConnection(cinema.constr);
                 cinema.conn.Open();
                 cinema.com = new SqlCommand(select_movies, cinema.conn);
@@ -767,6 +875,28 @@ namespace RandomProj
             this.Hide();
             Main main_GUI = new Main();
             main_GUI.ShowDialog();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main main_GUI = new Main();
+            main_GUI.ShowDialog();
+        }
+
+        private void btnDelAllBookings_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeleteAllBookings del_Bookings = new DeleteAllBookings();
+            del_Bookings.ShowDialog();
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtName.Text.Any(char.IsDigit) || txtName.Text.Any(ch => Char.IsLetterOrDigit(ch)))
+            {
+                MessageBox.Show("Customer Name cannot contain numbers or special characters!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
