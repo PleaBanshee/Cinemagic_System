@@ -119,6 +119,8 @@
             this.dbMovies = new System.Windows.Forms.DataGridView();
             this.dbGenres = new System.Windows.Forms.DataGridView();
             this.toolTipBack = new System.Windows.Forms.ToolTip(this.components);
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnDelAllBookings = new System.Windows.Forms.Button();
             this.tbBookings_Control.SuspendLayout();
             this.tbBookings_GUI.SuspendLayout();
             this.groupBookings.SuspendLayout();
@@ -152,7 +154,7 @@
             // 
             this.tbBookings_Control.Controls.Add(this.tbBookings_GUI);
             this.tbBookings_Control.Controls.Add(this.tbMovies_Control);
-            this.tbBookings_Control.Location = new System.Drawing.Point(12, 2);
+            this.tbBookings_Control.Location = new System.Drawing.Point(12, 1);
             this.tbBookings_Control.Name = "tbBookings_Control";
             this.tbBookings_Control.SelectedIndex = 0;
             this.tbBookings_Control.Size = new System.Drawing.Size(1295, 923);
@@ -171,6 +173,8 @@
             // 
             // groupBookings
             // 
+            this.groupBookings.Controls.Add(this.btnDelAllBookings);
+            this.groupBookings.Controls.Add(this.btnBack);
             this.groupBookings.Controls.Add(this.groupMaintain_Customers);
             this.groupBookings.Controls.Add(this.groupMaintain_Bookings);
             this.groupBookings.Controls.Add(this.dbBookings);
@@ -215,6 +219,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 22);
             this.txtName.TabIndex = 47;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // txtSurname
             // 
@@ -229,6 +234,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 22);
             this.txtEmail.TabIndex = 45;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // lblDel_CustID
             // 
@@ -245,6 +251,7 @@
             this.txtPhoneNum.Name = "txtPhoneNum";
             this.txtPhoneNum.Size = new System.Drawing.Size(100, 22);
             this.txtPhoneNum.TabIndex = 40;
+            this.txtPhoneNum.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhoneNum_Validating);
             // 
             // btnDelete_Customers
             // 
@@ -254,6 +261,7 @@
             this.btnDelete_Customers.TabIndex = 39;
             this.btnDelete_Customers.Text = "DELETE";
             this.btnDelete_Customers.UseVisualStyleBackColor = true;
+            this.btnDelete_Customers.Click += new System.EventHandler(this.btnDelete_Customers_Click);
             // 
             // lblFill_Heading
             // 
@@ -425,6 +433,7 @@
             this.txtTicket_Total.Name = "txtTicket_Total";
             this.txtTicket_Total.Size = new System.Drawing.Size(100, 22);
             this.txtTicket_Total.TabIndex = 40;
+            this.txtTicket_Total.Validated += new System.EventHandler(this.txtTicket_Total_Validated);
             // 
             // btnDelete_Booking
             // 
@@ -434,6 +443,7 @@
             this.btnDelete_Booking.TabIndex = 39;
             this.btnDelete_Booking.Text = "DELETE";
             this.btnDelete_Booking.UseVisualStyleBackColor = true;
+            this.btnDelete_Booking.Click += new System.EventHandler(this.btnDelete_Booking_Click);
             // 
             // lblFill_Booking
             // 
@@ -1012,6 +1022,26 @@
             this.dbGenres.Size = new System.Drawing.Size(545, 192);
             this.dbGenres.TabIndex = 2;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(50, 739);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(161, 53);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "BACK";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnDelAllBookings
+            // 
+            this.btnDelAllBookings.Location = new System.Drawing.Point(1051, 739);
+            this.btnDelAllBookings.Name = "btnDelAllBookings";
+            this.btnDelAllBookings.Size = new System.Drawing.Size(161, 53);
+            this.btnDelAllBookings.TabIndex = 4;
+            this.btnDelAllBookings.Text = "DELETE ALL BOOKINGS";
+            this.btnDelAllBookings.UseVisualStyleBackColor = true;
+            this.btnDelAllBookings.Click += new System.EventHandler(this.btnDelAllBookings_Click);
+            // 
             // Bookings_Movies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1149,5 +1179,7 @@
         private System.Windows.Forms.Label lblDeleteAllMovies;
         private System.Windows.Forms.Button btnMain;
         private System.Windows.Forms.ToolTip toolTipBack;
+        private System.Windows.Forms.Button btnDelAllBookings;
+        private System.Windows.Forms.Button btnBack;
     }
 }
