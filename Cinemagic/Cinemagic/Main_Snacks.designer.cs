@@ -102,7 +102,7 @@
             this.groupSnacks.Controls.Add(this.groupMaintain_Snacks);
             this.groupSnacks.Location = new System.Drawing.Point(12, 12);
             this.groupSnacks.Name = "groupSnacks";
-            this.groupSnacks.Size = new System.Drawing.Size(471, 733);
+            this.groupSnacks.Size = new System.Drawing.Size(471, 755);
             this.groupSnacks.TabIndex = 0;
             this.groupSnacks.TabStop = false;
             this.groupSnacks.Text = "SNACKS";
@@ -140,14 +140,14 @@
             this.groupMaintain_Snacks.Controls.Add(this.lblItem);
             this.groupMaintain_Snacks.Location = new System.Drawing.Point(30, 259);
             this.groupMaintain_Snacks.Name = "groupMaintain_Snacks";
-            this.groupMaintain_Snacks.Size = new System.Drawing.Size(403, 438);
+            this.groupMaintain_Snacks.Size = new System.Drawing.Size(403, 474);
             this.groupMaintain_Snacks.TabIndex = 1;
             this.groupMaintain_Snacks.TabStop = false;
             this.groupMaintain_Snacks.Text = "MAINTAIN SNACKS";
             // 
             // btnDelete_Snack
             // 
-            this.btnDelete_Snack.Location = new System.Drawing.Point(236, 394);
+            this.btnDelete_Snack.Location = new System.Drawing.Point(236, 415);
             this.btnDelete_Snack.Name = "btnDelete_Snack";
             this.btnDelete_Snack.Size = new System.Drawing.Size(92, 23);
             this.btnDelete_Snack.TabIndex = 19;
@@ -158,7 +158,7 @@
             // lblFill_Snack
             // 
             this.lblFill_Snack.AutoSize = true;
-            this.lblFill_Snack.Location = new System.Drawing.Point(28, 269);
+            this.lblFill_Snack.Location = new System.Drawing.Point(28, 261);
             this.lblFill_Snack.Name = "lblFill_Snack";
             this.lblFill_Snack.Size = new System.Drawing.Size(241, 17);
             this.lblFill_Snack.TabIndex = 18;
@@ -166,7 +166,7 @@
             // 
             // spinFill_SnackID
             // 
-            this.spinFill_SnackID.Location = new System.Drawing.Point(109, 302);
+            this.spinFill_SnackID.Location = new System.Drawing.Point(109, 294);
             this.spinFill_SnackID.Name = "spinFill_SnackID";
             this.spinFill_SnackID.Size = new System.Drawing.Size(100, 22);
             this.spinFill_SnackID.TabIndex = 17;
@@ -174,7 +174,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 307);
+            this.label2.Location = new System.Drawing.Point(28, 299);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 16;
@@ -183,7 +183,7 @@
             // lblDeleteSnack
             // 
             this.lblDeleteSnack.AutoSize = true;
-            this.lblDeleteSnack.Location = new System.Drawing.Point(28, 362);
+            this.lblDeleteSnack.Location = new System.Drawing.Point(28, 383);
             this.lblDeleteSnack.Name = "lblDeleteSnack";
             this.lblDeleteSnack.Size = new System.Drawing.Size(125, 17);
             this.lblDeleteSnack.TabIndex = 15;
@@ -191,7 +191,7 @@
             // 
             // spinID
             // 
-            this.spinID.Location = new System.Drawing.Point(109, 395);
+            this.spinID.Location = new System.Drawing.Point(109, 416);
             this.spinID.Name = "spinID";
             this.spinID.Size = new System.Drawing.Size(100, 22);
             this.spinID.TabIndex = 14;
@@ -199,7 +199,7 @@
             // lbl_ID
             // 
             this.lbl_ID.AutoSize = true;
-            this.lbl_ID.Location = new System.Drawing.Point(28, 400);
+            this.lbl_ID.Location = new System.Drawing.Point(28, 421);
             this.lbl_ID.Name = "lbl_ID";
             this.lbl_ID.Size = new System.Drawing.Size(72, 17);
             this.lbl_ID.TabIndex = 13;
@@ -207,17 +207,17 @@
             // 
             // btnUpdate_Snacks
             // 
-            this.btnUpdate_Snacks.Location = new System.Drawing.Point(264, 86);
+            this.btnUpdate_Snacks.Location = new System.Drawing.Point(31, 333);
             this.btnUpdate_Snacks.Name = "btnUpdate_Snacks";
-            this.btnUpdate_Snacks.Size = new System.Drawing.Size(92, 23);
+            this.btnUpdate_Snacks.Size = new System.Drawing.Size(280, 23);
             this.btnUpdate_Snacks.TabIndex = 12;
-            this.btnUpdate_Snacks.Text = "UPDATE";
+            this.btnUpdate_Snacks.Text = "UPDATE SNACKS";
             this.btnUpdate_Snacks.UseVisualStyleBackColor = true;
             this.btnUpdate_Snacks.Click += new System.EventHandler(this.btnUpdate_Snacks_Click);
             // 
             // btnFill_Snacks
             // 
-            this.btnFill_Snacks.Location = new System.Drawing.Point(236, 301);
+            this.btnFill_Snacks.Location = new System.Drawing.Point(236, 293);
             this.btnFill_Snacks.Name = "btnFill_Snacks";
             this.btnFill_Snacks.Size = new System.Drawing.Size(75, 23);
             this.btnFill_Snacks.TabIndex = 11;
@@ -323,7 +323,7 @@
             this.groupTransact_Detail.Controls.Add(this.groupTransact_Details);
             this.groupTransact_Detail.Location = new System.Drawing.Point(501, 15);
             this.groupTransact_Detail.Name = "groupTransact_Detail";
-            this.groupTransact_Detail.Size = new System.Drawing.Size(517, 730);
+            this.groupTransact_Detail.Size = new System.Drawing.Size(517, 706);
             this.groupTransact_Detail.TabIndex = 1;
             this.groupTransact_Detail.TabStop = false;
             this.groupTransact_Detail.Text = "TRANSACTION DETAILS";
@@ -357,7 +357,7 @@
             this.groupTransact_Details.Controls.Add(this.lblSnack_ID);
             this.groupTransact_Details.Location = new System.Drawing.Point(27, 256);
             this.groupTransact_Details.Name = "groupTransact_Details";
-            this.groupTransact_Details.Size = new System.Drawing.Size(440, 438);
+            this.groupTransact_Details.Size = new System.Drawing.Size(440, 417);
             this.groupTransact_Details.TabIndex = 3;
             this.groupTransact_Details.TabStop = false;
             this.groupTransact_Details.Text = "MAINTAIN TRANSACTION DETAILS";
@@ -371,7 +371,7 @@
             // 
             // btnDelete_Transaction
             // 
-            this.btnDelete_Transaction.Location = new System.Drawing.Point(278, 356);
+            this.btnDelete_Transaction.Location = new System.Drawing.Point(278, 353);
             this.btnDelete_Transaction.Name = "btnDelete_Transaction";
             this.btnDelete_Transaction.Size = new System.Drawing.Size(102, 23);
             this.btnDelete_Transaction.TabIndex = 19;
@@ -382,7 +382,7 @@
             // lblFill_Transact
             // 
             this.lblFill_Transact.AutoSize = true;
-            this.lblFill_Transact.Location = new System.Drawing.Point(70, 231);
+            this.lblFill_Transact.Location = new System.Drawing.Point(70, 179);
             this.lblFill_Transact.Name = "lblFill_Transact";
             this.lblFill_Transact.Size = new System.Drawing.Size(241, 17);
             this.lblFill_Transact.TabIndex = 18;
@@ -390,7 +390,7 @@
             // 
             // spinFill_SnackSaleID
             // 
-            this.spinFill_SnackSaleID.Location = new System.Drawing.Point(151, 264);
+            this.spinFill_SnackSaleID.Location = new System.Drawing.Point(151, 212);
             this.spinFill_SnackSaleID.Name = "spinFill_SnackSaleID";
             this.spinFill_SnackSaleID.Size = new System.Drawing.Size(100, 22);
             this.spinFill_SnackSaleID.TabIndex = 17;
@@ -398,7 +398,7 @@
             // lblFill_SnackSaleID
             // 
             this.lblFill_SnackSaleID.AutoSize = true;
-            this.lblFill_SnackSaleID.Location = new System.Drawing.Point(37, 269);
+            this.lblFill_SnackSaleID.Location = new System.Drawing.Point(37, 217);
             this.lblFill_SnackSaleID.Name = "lblFill_SnackSaleID";
             this.lblFill_SnackSaleID.Size = new System.Drawing.Size(108, 17);
             this.lblFill_SnackSaleID.TabIndex = 16;
@@ -407,7 +407,7 @@
             // lblDelete_Transact
             // 
             this.lblDelete_Transact.AutoSize = true;
-            this.lblDelete_Transact.Location = new System.Drawing.Point(70, 324);
+            this.lblDelete_Transact.Location = new System.Drawing.Point(70, 321);
             this.lblDelete_Transact.Name = "lblDelete_Transact";
             this.lblDelete_Transact.Size = new System.Drawing.Size(177, 17);
             this.lblDelete_Transact.TabIndex = 15;
@@ -415,7 +415,7 @@
             // 
             // spinDelete_TransactID
             // 
-            this.spinDelete_TransactID.Location = new System.Drawing.Point(151, 357);
+            this.spinDelete_TransactID.Location = new System.Drawing.Point(151, 354);
             this.spinDelete_TransactID.Name = "spinDelete_TransactID";
             this.spinDelete_TransactID.Size = new System.Drawing.Size(100, 22);
             this.spinDelete_TransactID.TabIndex = 14;
@@ -423,7 +423,7 @@
             // lblDelete_TransactID
             // 
             this.lblDelete_TransactID.AutoSize = true;
-            this.lblDelete_TransactID.Location = new System.Drawing.Point(37, 362);
+            this.lblDelete_TransactID.Location = new System.Drawing.Point(37, 359);
             this.lblDelete_TransactID.Name = "lblDelete_TransactID";
             this.lblDelete_TransactID.Size = new System.Drawing.Size(108, 17);
             this.lblDelete_TransactID.TabIndex = 13;
@@ -431,17 +431,17 @@
             // 
             // btnUpdate_Transact
             // 
-            this.btnUpdate_Transact.Location = new System.Drawing.Point(311, 86);
+            this.btnUpdate_Transact.Location = new System.Drawing.Point(40, 255);
             this.btnUpdate_Transact.Name = "btnUpdate_Transact";
-            this.btnUpdate_Transact.Size = new System.Drawing.Size(92, 23);
+            this.btnUpdate_Transact.Size = new System.Drawing.Size(313, 23);
             this.btnUpdate_Transact.TabIndex = 12;
-            this.btnUpdate_Transact.Text = "UPDATE";
+            this.btnUpdate_Transact.Text = "UPDATE TRANSACTION";
             this.btnUpdate_Transact.UseVisualStyleBackColor = true;
             this.btnUpdate_Transact.Click += new System.EventHandler(this.btnUpdate_Transact_Click);
             // 
             // btnFill_Transact
             // 
-            this.btnFill_Transact.Location = new System.Drawing.Point(278, 263);
+            this.btnFill_Transact.Location = new System.Drawing.Point(278, 211);
             this.btnFill_Transact.Name = "btnFill_Transact";
             this.btnFill_Transact.Size = new System.Drawing.Size(75, 23);
             this.btnFill_Transact.TabIndex = 11;
