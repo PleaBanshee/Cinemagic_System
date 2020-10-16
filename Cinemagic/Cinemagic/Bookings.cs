@@ -27,6 +27,8 @@ namespace RandomProj
 
         private void Bookings_Movies_Load(object sender, EventArgs e)
         {
+            dateRelease.Value = DateTime.Now;
+            dateWithdrawal.Value = DateTime.Now.AddDays(7);
             this.Size = new Size(1050, 1000);
             toolTipBack.SetToolTip(btnMain,"Go back to Cinemagic");
             DisplayCustomers();
@@ -928,10 +930,42 @@ namespace RandomProj
 
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
-            if (txtName.Text.Any(char.IsDigit) || txtName.Text.Any(ch => Char.IsLetterOrDigit(ch)))
+            if (txtName.Text.Any(char.IsDigit) || !txtName.Text.Any(ch => Char.IsLetterOrDigit(ch)))
             {
                 MessageBox.Show("Customer Name cannot contain numbers or special characters!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtEmail.Text = "";
+            txtName.Text = "";
+            txtPhoneNum.Text = "";
+            txtSurname.Text = "";
+            txtTicket_Total.Text = "";
+            spinCustID.Value = 0;
+            spinDel_Booking.Value = 0;
+            spinDel_CustID.Value = 0;
+            spinFill_BookingID.Value = 0;
+            spinFill_Customer.Value = 0;
+            spinNumOfSeats.Value = 0;
+            spinMovieID.Value = 0;
+        }
+
+        private void btnClearMovies_Click(object sender, EventArgs e)
+        {
+            txtMovie.Text = "";
+            txtDescription.Text = "";
+            txtDuration.Text = "";
+            spinDeleteAll_Movies.Value = 0;
+            spinDel_GenreID.Value = 0;
+            spinDel_MovieID.Value = 0;
+            spinFill_GenreID.Value = 0;
+            spinGenre_ID.Value = 0;
+            spinMovie_ID.Value = 0;
+            cmbAge.SelectedIndex = -1;
+            dateRelease.Value = DateTime.Now;
+            dateWithdrawal.Value = DateTime.Now.AddDays(7);
         }
     }
 }
