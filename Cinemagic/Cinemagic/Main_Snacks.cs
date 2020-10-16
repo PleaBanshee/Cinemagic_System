@@ -42,6 +42,26 @@ namespace RandomProj
             DisplayTransact_Details();
         }
 
+        private void RenameDateColumns()
+        {
+            dbGridTransact_Dates.Columns[1].HeaderCell.Value = "Date";
+        }
+
+        private void RenameTransactionColumns()
+        {
+            dbTransaction_Details.Columns[2].HeaderCell.Value = "Quantity";
+            dbTransaction_Details.Columns[3].HeaderCell.Value = "Total";
+        }
+
+        private void RenameSnackColumns()
+        {
+            dbGridSnacks.Columns[1].HeaderCell.Value = "Item";
+            dbGridSnacks.Columns[2].HeaderCell.Value = "Description";
+            dbGridSnacks.Columns[3].HeaderCell.Value = "Quantity";
+            dbGridSnacks.Columns[4].HeaderCell.Value = "Unit Cost";
+            dbGridSnacks.Columns[5].HeaderCell.Value = "Price";
+        }
+
         private void DisplaySnacks()
         {
             dbGridSnacks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -57,6 +77,7 @@ namespace RandomProj
             cinema.adap.Fill(cinema.ds, "Snacks");
             dbGridSnacks.DataSource = cinema.ds;
             dbGridSnacks.DataMember = "Snacks";
+            RenameSnackColumns();
             cinema.conn.Close();
         }
 
@@ -75,12 +96,13 @@ namespace RandomProj
             cinema.adap.Fill(cinema.ds, "Transaction");
             dbTransaction_Details.DataSource = cinema.ds;
             dbTransaction_Details.DataMember = "Transaction";
+            RenameTransactionColumns();
             cinema.conn.Close();
         }
 
         private void DisplayDates()
         {
-            dbGridTransact_Dates.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dbGridTransact_Dates.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Main cinema = new Main();
             connection = cinema.constr;
             cinema.conn = new SqlConnection(connection);
@@ -93,6 +115,7 @@ namespace RandomProj
             cinema.adap.Fill(cinema.ds, "Dates");
             dbGridTransact_Dates.DataSource = cinema.ds;
             dbGridTransact_Dates.DataMember = "Dates";
+            RenameDateColumns();
             cinema.conn.Close();
         }
 

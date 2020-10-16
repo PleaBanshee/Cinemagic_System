@@ -27,9 +27,10 @@ namespace RandomProj
 
         private void Bookings_Movies_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(1050, 1000);
             toolTipBack.SetToolTip(btnMain,"Go back to Cinemagic");
-            DisplayBookings();
             DisplayCustomers();
+            DisplayBookings();
             DisplayGenres();
             DisplayMovies();
             cmbAge.Items.Add("General Audiences");
@@ -40,6 +41,21 @@ namespace RandomProj
         }
 
         #region BOOKINGS
+
+        private void RenameCustomerColumns()
+        {
+            dbCustomers.Columns[1].HeaderCell.Value = "Name";
+            dbCustomers.Columns[2].HeaderCell.Value = "Surname";
+            dbCustomers.Columns[3].HeaderCell.Value = "Cellphone Number";
+            dbCustomers.Columns[4].HeaderCell.Value = "Email";
+        }
+
+        private void RenameBookingColumns()
+        {
+            dbBookings.Columns[3].HeaderCell.Value = "Total Cost for Tickets";
+            dbBookings.Columns[4].HeaderCell.Value = "Number of seats";
+            dbBookings.Columns[5].HeaderCell.Value = "Date";
+        }
 
         public void DisplayBookings()
         {
@@ -56,6 +72,7 @@ namespace RandomProj
             cinema.adap.Fill(cinema.ds, "Bookings");
             dbBookings.DataSource = cinema.ds;
             dbBookings.DataMember = "Bookings";
+            RenameBookingColumns();
             cinema.conn.Close();
         }
 
@@ -74,7 +91,8 @@ namespace RandomProj
             cinema.adap.Fill(cinema.ds, "Customers");
             dbCustomers.DataSource = cinema.ds;
             dbCustomers.DataMember = "Customers";
-            cinema.conn.Close();
+            RenameCustomerColumns();
+            cinema.conn.Close();  
         }
 
         private bool CheckEmptyBookingInputs()
@@ -428,6 +446,21 @@ namespace RandomProj
 
         #region MOVIES
 
+        private void RenameMovieColumns()
+        {
+            dbMovies.Columns[1].HeaderCell.Value = "Movie";
+            dbMovies.Columns[3].HeaderCell.Value = "Duration";
+            dbMovies.Columns[4].HeaderCell.Value = "Age Restriction";
+            dbMovies.Columns[5].HeaderCell.Value = "Release Date";
+            dbMovies.Columns[6].HeaderCell.Value = "Withdrawal Date";
+
+        }
+
+        private void RenameGenreColumns()
+        {
+            dbGenres.Columns[1].HeaderCell.Value = "Description";
+        }
+
         private void DisplayMovies()
         {
             dbMovies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -443,6 +476,7 @@ namespace RandomProj
             cinema.adap.Fill(cinema.ds, "Movies");
             dbMovies.DataSource = cinema.ds;
             dbMovies.DataMember = "Movies";
+            RenameMovieColumns();
             cinema.conn.Close();
         }
 
@@ -461,6 +495,7 @@ namespace RandomProj
             cinema.adap.Fill(cinema.ds, "Genres");
             dbGenres.DataSource = cinema.ds;
             dbGenres.DataMember = "Genres";
+            RenameGenreColumns();
             cinema.conn.Close();
         }
 
