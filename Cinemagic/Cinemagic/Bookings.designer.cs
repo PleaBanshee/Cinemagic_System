@@ -32,6 +32,7 @@
             this.tbBookings_Control = new System.Windows.Forms.TabControl();
             this.tbBookings_GUI = new System.Windows.Forms.TabPage();
             this.groupBookings = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnDelAllBookings = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupMaintain_Customers = new System.Windows.Forms.GroupBox();
@@ -121,7 +122,7 @@
             this.dbMovies = new System.Windows.Forms.DataGridView();
             this.dbGenres = new System.Windows.Forms.DataGridView();
             this.toolTipBack = new System.Windows.Forms.ToolTip(this.components);
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnClearMovies = new System.Windows.Forms.Button();
             this.tbBookings_Control.SuspendLayout();
             this.tbBookings_GUI.SuspendLayout();
             this.groupBookings.SuspendLayout();
@@ -155,6 +156,7 @@
             // 
             this.tbBookings_Control.Controls.Add(this.tbBookings_GUI);
             this.tbBookings_Control.Controls.Add(this.tbMovies_Control);
+            this.tbBookings_Control.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBookings_Control.Location = new System.Drawing.Point(12, 1);
             this.tbBookings_Control.Name = "tbBookings_Control";
             this.tbBookings_Control.SelectedIndex = 0;
@@ -181,12 +183,23 @@
             this.groupBookings.Controls.Add(this.groupMaintain_Bookings);
             this.groupBookings.Controls.Add(this.dbBookings);
             this.groupBookings.Controls.Add(this.dbCustomers);
+            this.groupBookings.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBookings.Location = new System.Drawing.Point(20, 10);
             this.groupBookings.Name = "groupBookings";
             this.groupBookings.Size = new System.Drawing.Size(1249, 838);
             this.groupBookings.TabIndex = 0;
             this.groupBookings.TabStop = false;
             this.groupBookings.Text = "MAKE A BOOKING";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(556, 739);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(161, 53);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "CLEAR ALL INPUTS";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelAllBookings
             // 
@@ -237,6 +250,7 @@
             // 
             // txtName
             // 
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(203, 45);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 22);
@@ -245,6 +259,7 @@
             // 
             // txtSurname
             // 
+            this.txtSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSurname.Location = new System.Drawing.Point(203, 84);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(100, 22);
@@ -252,6 +267,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(203, 167);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 22);
@@ -261,6 +277,7 @@
             // lblDel_CustID
             // 
             this.lblDel_CustID.AutoSize = true;
+            this.lblDel_CustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDel_CustID.Location = new System.Drawing.Point(103, 393);
             this.lblDel_CustID.Name = "lblDel_CustID";
             this.lblDel_CustID.Size = new System.Drawing.Size(93, 17);
@@ -269,6 +286,7 @@
             // 
             // txtPhoneNum
             // 
+            this.txtPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhoneNum.Location = new System.Drawing.Point(203, 121);
             this.txtPhoneNum.Name = "txtPhoneNum";
             this.txtPhoneNum.Size = new System.Drawing.Size(100, 22);
@@ -290,12 +308,13 @@
             this.lblFill_Heading.AutoSize = true;
             this.lblFill_Heading.Location = new System.Drawing.Point(101, 233);
             this.lblFill_Heading.Name = "lblFill_Heading";
-            this.lblFill_Heading.Size = new System.Drawing.Size(241, 17);
+            this.lblFill_Heading.Size = new System.Drawing.Size(270, 17);
             this.lblFill_Heading.TabIndex = 38;
             this.lblFill_Heading.Text = "FILL INPUT CONTROLS WITH DATA";
             // 
             // spinFill_Customer
             // 
+            this.spinFill_Customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinFill_Customer.Location = new System.Drawing.Point(199, 267);
             this.spinFill_Customer.Name = "spinFill_Customer";
             this.spinFill_Customer.Size = new System.Drawing.Size(100, 22);
@@ -304,6 +323,7 @@
             // lblCustomer_ID
             // 
             this.lblCustomer_ID.AutoSize = true;
+            this.lblCustomer_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomer_ID.Location = new System.Drawing.Point(101, 272);
             this.lblCustomer_ID.Name = "lblCustomer_ID";
             this.lblCustomer_ID.Size = new System.Drawing.Size(93, 17);
@@ -315,12 +335,13 @@
             this.lblDelete_Customer.AutoSize = true;
             this.lblDelete_Customer.Location = new System.Drawing.Point(103, 354);
             this.lblDelete_Customer.Name = "lblDelete_Customer";
-            this.lblDelete_Customer.Size = new System.Drawing.Size(157, 17);
+            this.lblDelete_Customer.Size = new System.Drawing.Size(174, 17);
             this.lblDelete_Customer.TabIndex = 35;
             this.lblDelete_Customer.Text = "DELETE A CUSTOMER";
             // 
             // spinDel_CustID
             // 
+            this.spinDel_CustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDel_CustID.Location = new System.Drawing.Point(199, 388);
             this.spinDel_CustID.Name = "spinDel_CustID";
             this.spinDel_CustID.Size = new System.Drawing.Size(100, 22);
@@ -359,6 +380,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(141, 173);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 17);
@@ -368,6 +390,7 @@
             // lblPhoneNum
             // 
             this.lblPhoneNum.AutoSize = true;
+            this.lblPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhoneNum.Location = new System.Drawing.Point(96, 126);
             this.lblPhoneNum.Name = "lblPhoneNum";
             this.lblPhoneNum.Size = new System.Drawing.Size(89, 17);
@@ -377,6 +400,7 @@
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
+            this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSurname.Location = new System.Drawing.Point(118, 92);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(69, 17);
@@ -386,6 +410,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(136, 51);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(49, 17);
@@ -422,6 +447,7 @@
             // lblDelete_BookingID
             // 
             this.lblDelete_BookingID.AutoSize = true;
+            this.lblDelete_BookingID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelete_BookingID.Location = new System.Drawing.Point(104, 407);
             this.lblDelete_BookingID.Name = "lblDelete_BookingID";
             this.lblDelete_BookingID.Size = new System.Drawing.Size(84, 17);
@@ -430,6 +456,7 @@
             // 
             // spinMovieID
             // 
+            this.spinMovieID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinMovieID.Location = new System.Drawing.Point(199, 45);
             this.spinMovieID.Name = "spinMovieID";
             this.spinMovieID.Size = new System.Drawing.Size(100, 22);
@@ -437,6 +464,7 @@
             // 
             // spinCustID
             // 
+            this.spinCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinCustID.Location = new System.Drawing.Point(195, 86);
             this.spinCustID.Name = "spinCustID";
             this.spinCustID.Size = new System.Drawing.Size(104, 22);
@@ -444,6 +472,7 @@
             // 
             // spinNumOfSeats
             // 
+            this.spinNumOfSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinNumOfSeats.Location = new System.Drawing.Point(199, 167);
             this.spinNumOfSeats.Name = "spinNumOfSeats";
             this.spinNumOfSeats.Size = new System.Drawing.Size(100, 22);
@@ -451,6 +480,7 @@
             // 
             // txtTicket_Total
             // 
+            this.txtTicket_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTicket_Total.Location = new System.Drawing.Point(199, 129);
             this.txtTicket_Total.Name = "txtTicket_Total";
             this.txtTicket_Total.Size = new System.Drawing.Size(100, 22);
@@ -472,12 +502,13 @@
             this.lblFill_Booking.AutoSize = true;
             this.lblFill_Booking.Location = new System.Drawing.Point(104, 243);
             this.lblFill_Booking.Name = "lblFill_Booking";
-            this.lblFill_Booking.Size = new System.Drawing.Size(241, 17);
+            this.lblFill_Booking.Size = new System.Drawing.Size(270, 17);
             this.lblFill_Booking.TabIndex = 38;
             this.lblFill_Booking.Text = "FILL INPUT CONTROLS WITH DATA";
             // 
             // spinFill_BookingID
             // 
+            this.spinFill_BookingID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinFill_BookingID.Location = new System.Drawing.Point(202, 282);
             this.spinFill_BookingID.Name = "spinFill_BookingID";
             this.spinFill_BookingID.Size = new System.Drawing.Size(100, 22);
@@ -486,6 +517,7 @@
             // lblBooking_ID
             // 
             this.lblBooking_ID.AutoSize = true;
+            this.lblBooking_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBooking_ID.Location = new System.Drawing.Point(104, 287);
             this.lblBooking_ID.Name = "lblBooking_ID";
             this.lblBooking_ID.Size = new System.Drawing.Size(84, 17);
@@ -497,12 +529,13 @@
             this.lblDeleteBooking.AutoSize = true;
             this.lblDeleteBooking.Location = new System.Drawing.Point(104, 363);
             this.lblDeleteBooking.Name = "lblDeleteBooking";
-            this.lblDeleteBooking.Size = new System.Drawing.Size(143, 17);
+            this.lblDeleteBooking.Size = new System.Drawing.Size(159, 17);
             this.lblDeleteBooking.TabIndex = 35;
             this.lblDeleteBooking.Text = "DELETE A BOOKING";
             // 
             // spinDel_Booking
             // 
+            this.spinDel_Booking.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDel_Booking.Location = new System.Drawing.Point(200, 402);
             this.spinDel_Booking.Name = "spinDel_Booking";
             this.spinDel_Booking.Size = new System.Drawing.Size(100, 22);
@@ -541,6 +574,7 @@
             // lblNumOfSeats
             // 
             this.lblNumOfSeats.AutoSize = true;
+            this.lblNumOfSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumOfSeats.Location = new System.Drawing.Point(68, 172);
             this.lblNumOfSeats.Name = "lblNumOfSeats";
             this.lblNumOfSeats.Size = new System.Drawing.Size(118, 17);
@@ -550,6 +584,7 @@
             // lblTicket_Cost
             // 
             this.lblTicket_Cost.AutoSize = true;
+            this.lblTicket_Cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTicket_Cost.Location = new System.Drawing.Point(74, 134);
             this.lblTicket_Cost.Name = "lblTicket_Cost";
             this.lblTicket_Cost.Size = new System.Drawing.Size(109, 17);
@@ -559,6 +594,7 @@
             // lblCust_ID
             // 
             this.lblCust_ID.AutoSize = true;
+            this.lblCust_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCust_ID.Location = new System.Drawing.Point(93, 91);
             this.lblCust_ID.Name = "lblCust_ID";
             this.lblCust_ID.Size = new System.Drawing.Size(93, 17);
@@ -568,6 +604,7 @@
             // lblMovie_ID
             // 
             this.lblMovie_ID.AutoSize = true;
+            this.lblMovie_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMovie_ID.Location = new System.Drawing.Point(113, 50);
             this.lblMovie_ID.Name = "lblMovie_ID";
             this.lblMovie_ID.Size = new System.Drawing.Size(70, 17);
@@ -605,6 +642,7 @@
             // 
             // groupMovies
             // 
+            this.groupMovies.Controls.Add(this.btnClearMovies);
             this.groupMovies.Controls.Add(this.btnMain);
             this.groupMovies.Controls.Add(this.groupDeleteMovies);
             this.groupMovies.Controls.Add(this.groupMaintain_Genres);
@@ -656,12 +694,13 @@
             this.lblDelHeading.AutoSize = true;
             this.lblDelHeading.Location = new System.Drawing.Point(31, 55);
             this.lblDelHeading.Name = "lblDelHeading";
-            this.lblDelHeading.Size = new System.Drawing.Size(264, 17);
+            this.lblDelHeading.Size = new System.Drawing.Size(296, 17);
             this.lblDelHeading.TabIndex = 22;
             this.lblDelHeading.Text = "DELETE ALL MOVIES WITH GENRE_ID:";
             // 
             // spinDeleteAll_Movies
             // 
+            this.spinDeleteAll_Movies.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDeleteAll_Movies.Location = new System.Drawing.Point(122, 84);
             this.spinDeleteAll_Movies.Name = "spinDeleteAll_Movies";
             this.spinDeleteAll_Movies.Size = new System.Drawing.Size(100, 22);
@@ -672,7 +711,7 @@
             this.lblDeleteAllMovies.AutoSize = true;
             this.lblDeleteAllMovies.Location = new System.Drawing.Point(31, 86);
             this.lblDeleteAllMovies.Name = "lblDeleteAllMovies";
-            this.lblDeleteAllMovies.Size = new System.Drawing.Size(73, 17);
+            this.lblDeleteAllMovies.Size = new System.Drawing.Size(82, 17);
             this.lblDeleteAllMovies.TabIndex = 20;
             this.lblDeleteAllMovies.Text = "Genre_ID:";
             // 
@@ -699,6 +738,7 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(240, 47);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(100, 22);
@@ -708,9 +748,9 @@
             // lblDel_GenreID
             // 
             this.lblDel_GenreID.AutoSize = true;
-            this.lblDel_GenreID.Location = new System.Drawing.Point(116, 339);
+            this.lblDel_GenreID.Location = new System.Drawing.Point(107, 339);
             this.lblDel_GenreID.Name = "lblDel_GenreID";
-            this.lblDel_GenreID.Size = new System.Drawing.Size(73, 17);
+            this.lblDel_GenreID.Size = new System.Drawing.Size(82, 17);
             this.lblDel_GenreID.TabIndex = 44;
             this.lblDel_GenreID.Text = "Genre_ID:";
             // 
@@ -729,12 +769,13 @@
             this.lblFill_Genre.AutoSize = true;
             this.lblFill_Genre.Location = new System.Drawing.Point(99, 174);
             this.lblFill_Genre.Name = "lblFill_Genre";
-            this.lblFill_Genre.Size = new System.Drawing.Size(241, 17);
+            this.lblFill_Genre.Size = new System.Drawing.Size(270, 17);
             this.lblFill_Genre.TabIndex = 38;
             this.lblFill_Genre.Text = "FILL INPUT CONTROLS WITH DATA";
             // 
             // spinFill_GenreID
             // 
+            this.spinFill_GenreID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinFill_GenreID.Location = new System.Drawing.Point(197, 208);
             this.spinFill_GenreID.Name = "spinFill_GenreID";
             this.spinFill_GenreID.Size = new System.Drawing.Size(100, 22);
@@ -743,9 +784,9 @@
             // lblFill_GenreID
             // 
             this.lblFill_GenreID.AutoSize = true;
-            this.lblFill_GenreID.Location = new System.Drawing.Point(118, 213);
+            this.lblFill_GenreID.Location = new System.Drawing.Point(109, 213);
             this.lblFill_GenreID.Name = "lblFill_GenreID";
-            this.lblFill_GenreID.Size = new System.Drawing.Size(73, 17);
+            this.lblFill_GenreID.Size = new System.Drawing.Size(82, 17);
             this.lblFill_GenreID.TabIndex = 36;
             this.lblFill_GenreID.Text = "Genre_ID:";
             // 
@@ -754,12 +795,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(99, 300);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 17);
+            this.label4.Size = new System.Drawing.Size(174, 17);
             this.label4.TabIndex = 35;
             this.label4.Text = "DELETE A CUSTOMER";
             // 
             // spinDel_GenreID
             // 
+            this.spinDel_GenreID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDel_GenreID.Location = new System.Drawing.Point(195, 334);
             this.spinDel_GenreID.Name = "spinDel_GenreID";
             this.spinDel_GenreID.Size = new System.Drawing.Size(100, 22);
@@ -798,9 +840,9 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(148, 52);
+            this.lblDescription.Location = new System.Drawing.Point(139, 52);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(83, 17);
+            this.lblDescription.Size = new System.Drawing.Size(95, 17);
             this.lblDescription.TabIndex = 20;
             this.lblDescription.Text = "Description:";
             // 
@@ -837,6 +879,7 @@
             // 
             // dateWithdrawal
             // 
+            this.dateWithdrawal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateWithdrawal.Location = new System.Drawing.Point(184, 230);
             this.dateWithdrawal.Name = "dateWithdrawal";
             this.dateWithdrawal.Size = new System.Drawing.Size(100, 22);
@@ -845,6 +888,7 @@
             // 
             // dateRelease
             // 
+            this.dateRelease.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateRelease.Location = new System.Drawing.Point(184, 191);
             this.dateRelease.Name = "dateRelease";
             this.dateRelease.Size = new System.Drawing.Size(100, 22);
@@ -853,6 +897,7 @@
             // 
             // txtMovie
             // 
+            this.txtMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovie.Location = new System.Drawing.Point(184, 25);
             this.txtMovie.Name = "txtMovie";
             this.txtMovie.Size = new System.Drawing.Size(100, 22);
@@ -860,6 +905,7 @@
             // 
             // cmbAge
             // 
+            this.cmbAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAge.FormattingEnabled = true;
             this.cmbAge.Location = new System.Drawing.Point(184, 150);
             this.cmbAge.Name = "cmbAge";
@@ -872,21 +918,22 @@
             this.lblWithdrawal.AutoSize = true;
             this.lblWithdrawal.Location = new System.Drawing.Point(46, 235);
             this.lblWithdrawal.Name = "lblWithdrawal";
-            this.lblWithdrawal.Size = new System.Drawing.Size(115, 17);
+            this.lblWithdrawal.Size = new System.Drawing.Size(131, 17);
             this.lblWithdrawal.TabIndex = 45;
             this.lblWithdrawal.Text = "Withdrawal Date:";
             // 
             // lblDel_MovieID
             // 
             this.lblDel_MovieID.AutoSize = true;
-            this.lblDel_MovieID.Location = new System.Drawing.Point(85, 457);
+            this.lblDel_MovieID.Location = new System.Drawing.Point(76, 457);
             this.lblDel_MovieID.Name = "lblDel_MovieID";
-            this.lblDel_MovieID.Size = new System.Drawing.Size(70, 17);
+            this.lblDel_MovieID.Size = new System.Drawing.Size(79, 17);
             this.lblDel_MovieID.TabIndex = 44;
             this.lblDel_MovieID.Text = "Movie_ID:";
             // 
             // spinGenre_ID
             // 
+            this.spinGenre_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinGenre_ID.Location = new System.Drawing.Point(184, 67);
             this.spinGenre_ID.Name = "spinGenre_ID";
             this.spinGenre_ID.Size = new System.Drawing.Size(100, 22);
@@ -894,6 +941,7 @@
             // 
             // txtDuration
             // 
+            this.txtDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDuration.Location = new System.Drawing.Point(184, 110);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(100, 22);
@@ -915,12 +963,13 @@
             this.lblFill_Movie.AutoSize = true;
             this.lblFill_Movie.Location = new System.Drawing.Point(88, 288);
             this.lblFill_Movie.Name = "lblFill_Movie";
-            this.lblFill_Movie.Size = new System.Drawing.Size(241, 17);
+            this.lblFill_Movie.Size = new System.Drawing.Size(270, 17);
             this.lblFill_Movie.TabIndex = 38;
             this.lblFill_Movie.Text = "FILL INPUT CONTROLS WITH DATA";
             // 
             // spinMovie_ID
             // 
+            this.spinMovie_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinMovie_ID.Location = new System.Drawing.Point(161, 329);
             this.spinMovie_ID.Name = "spinMovie_ID";
             this.spinMovie_ID.Size = new System.Drawing.Size(100, 22);
@@ -929,9 +978,9 @@
             // lblFill_MovieID
             // 
             this.lblFill_MovieID.AutoSize = true;
-            this.lblFill_MovieID.Location = new System.Drawing.Point(85, 334);
+            this.lblFill_MovieID.Location = new System.Drawing.Point(76, 333);
             this.lblFill_MovieID.Name = "lblFill_MovieID";
-            this.lblFill_MovieID.Size = new System.Drawing.Size(70, 17);
+            this.lblFill_MovieID.Size = new System.Drawing.Size(79, 17);
             this.lblFill_MovieID.TabIndex = 36;
             this.lblFill_MovieID.Text = "Movie_ID:";
             // 
@@ -940,12 +989,13 @@
             this.lblDelete_Movie.AutoSize = true;
             this.lblDelete_Movie.Location = new System.Drawing.Point(85, 414);
             this.lblDelete_Movie.Name = "lblDelete_Movie";
-            this.lblDelete_Movie.Size = new System.Drawing.Size(143, 17);
+            this.lblDelete_Movie.Size = new System.Drawing.Size(159, 17);
             this.lblDelete_Movie.TabIndex = 35;
             this.lblDelete_Movie.Text = "DELETE A BOOKING";
             // 
             // spinDel_MovieID
             // 
+            this.spinDel_MovieID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDel_MovieID.Location = new System.Drawing.Point(161, 452);
             this.spinDel_MovieID.Name = "spinDel_MovieID";
             this.spinDel_MovieID.Size = new System.Drawing.Size(100, 22);
@@ -986,7 +1036,7 @@
             this.lblRelease.AutoSize = true;
             this.lblRelease.Location = new System.Drawing.Point(63, 196);
             this.lblRelease.Name = "lblRelease";
-            this.lblRelease.Size = new System.Drawing.Size(98, 17);
+            this.lblRelease.Size = new System.Drawing.Size(111, 17);
             this.lblRelease.TabIndex = 28;
             this.lblRelease.Text = "Release Date:";
             // 
@@ -995,7 +1045,7 @@
             this.lblAge.AutoSize = true;
             this.lblAge.Location = new System.Drawing.Point(53, 153);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(108, 17);
+            this.lblAge.Size = new System.Drawing.Size(124, 17);
             this.lblAge.TabIndex = 26;
             this.lblAge.Text = "Age Restriction:";
             // 
@@ -1004,7 +1054,7 @@
             this.lblDuration.AutoSize = true;
             this.lblDuration.Location = new System.Drawing.Point(59, 115);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(102, 17);
+            this.lblDuration.Size = new System.Drawing.Size(117, 17);
             this.lblDuration.TabIndex = 24;
             this.lblDuration.Text = "Duration (Hrs):";
             // 
@@ -1013,7 +1063,7 @@
             this.lblGenre_ID.AutoSize = true;
             this.lblGenre_ID.Location = new System.Drawing.Point(88, 72);
             this.lblGenre_ID.Name = "lblGenre_ID";
-            this.lblGenre_ID.Size = new System.Drawing.Size(73, 17);
+            this.lblGenre_ID.Size = new System.Drawing.Size(82, 17);
             this.lblGenre_ID.TabIndex = 22;
             this.lblGenre_ID.Text = "Genre_ID:";
             // 
@@ -1022,7 +1072,7 @@
             this.lblMovie.AutoSize = true;
             this.lblMovie.Location = new System.Drawing.Point(112, 30);
             this.lblMovie.Name = "lblMovie";
-            this.lblMovie.Size = new System.Drawing.Size(49, 17);
+            this.lblMovie.Size = new System.Drawing.Size(55, 17);
             this.lblMovie.TabIndex = 20;
             this.lblMovie.Text = "Movie:";
             // 
@@ -1044,14 +1094,15 @@
             this.dbGenres.Size = new System.Drawing.Size(545, 192);
             this.dbGenres.TabIndex = 2;
             // 
-            // btnClear
+            // btnClearMovies
             // 
-            this.btnClear.Location = new System.Drawing.Point(556, 739);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(161, 53);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "CLEAR ALL INPUTS";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClearMovies.Location = new System.Drawing.Point(520, 778);
+            this.btnClearMovies.Name = "btnClearMovies";
+            this.btnClearMovies.Size = new System.Drawing.Size(75, 23);
+            this.btnClearMovies.TabIndex = 49;
+            this.btnClearMovies.Text = "CLEAR";
+            this.btnClearMovies.UseVisualStyleBackColor = true;
+            this.btnClearMovies.Click += new System.EventHandler(this.btnClearMovies_Click);
             // 
             // Bookings_Movies
             // 
@@ -1193,5 +1244,6 @@
         private System.Windows.Forms.Button btnDelAllBookings;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnClearMovies;
     }
 }

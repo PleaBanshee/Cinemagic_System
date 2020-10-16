@@ -100,6 +100,7 @@
             // 
             this.groupSnacks.Controls.Add(this.dbGridSnacks);
             this.groupSnacks.Controls.Add(this.groupMaintain_Snacks);
+            this.groupSnacks.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupSnacks.Location = new System.Drawing.Point(12, 12);
             this.groupSnacks.Name = "groupSnacks";
             this.groupSnacks.Size = new System.Drawing.Size(471, 755);
@@ -160,7 +161,7 @@
             this.lblFill_Snack.AutoSize = true;
             this.lblFill_Snack.Location = new System.Drawing.Point(28, 261);
             this.lblFill_Snack.Name = "lblFill_Snack";
-            this.lblFill_Snack.Size = new System.Drawing.Size(241, 17);
+            this.lblFill_Snack.Size = new System.Drawing.Size(270, 17);
             this.lblFill_Snack.TabIndex = 18;
             this.lblFill_Snack.Text = "FILL INPUT CONTROLS WITH DATA";
             // 
@@ -174,6 +175,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(28, 299);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
@@ -185,7 +187,7 @@
             this.lblDeleteSnack.AutoSize = true;
             this.lblDeleteSnack.Location = new System.Drawing.Point(28, 383);
             this.lblDeleteSnack.Name = "lblDeleteSnack";
-            this.lblDeleteSnack.Size = new System.Drawing.Size(125, 17);
+            this.lblDeleteSnack.Size = new System.Drawing.Size(139, 17);
             this.lblDeleteSnack.TabIndex = 15;
             this.lblDeleteSnack.Text = "DELETE A SNACK";
             // 
@@ -199,6 +201,7 @@
             // lbl_ID
             // 
             this.lbl_ID.AutoSize = true;
+            this.lbl_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ID.Location = new System.Drawing.Point(28, 421);
             this.lbl_ID.Name = "lbl_ID";
             this.lbl_ID.Size = new System.Drawing.Size(72, 17);
@@ -246,6 +249,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.Location = new System.Drawing.Point(53, 205);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(44, 17);
@@ -263,6 +267,7 @@
             // lblUnit_Cost
             // 
             this.lblUnit_Cost.AutoSize = true;
+            this.lblUnit_Cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnit_Cost.Location = new System.Drawing.Point(28, 164);
             this.lblUnit_Cost.Name = "lblUnit_Cost";
             this.lblUnit_Cost.Size = new System.Drawing.Size(69, 17);
@@ -279,6 +284,7 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantity.Location = new System.Drawing.Point(32, 127);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(65, 17);
@@ -295,6 +301,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.Location = new System.Drawing.Point(14, 86);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(83, 17);
@@ -311,6 +318,7 @@
             // lblItem
             // 
             this.lblItem.AutoSize = true;
+            this.lblItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItem.Location = new System.Drawing.Point(59, 45);
             this.lblItem.Name = "lblItem";
             this.lblItem.Size = new System.Drawing.Size(38, 17);
@@ -321,6 +329,7 @@
             // 
             this.groupTransact_Detail.Controls.Add(this.dbTransaction_Details);
             this.groupTransact_Detail.Controls.Add(this.groupTransact_Details);
+            this.groupTransact_Detail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupTransact_Detail.Location = new System.Drawing.Point(501, 15);
             this.groupTransact_Detail.Name = "groupTransact_Detail";
             this.groupTransact_Detail.Size = new System.Drawing.Size(517, 706);
@@ -384,7 +393,7 @@
             this.lblFill_Transact.AutoSize = true;
             this.lblFill_Transact.Location = new System.Drawing.Point(70, 179);
             this.lblFill_Transact.Name = "lblFill_Transact";
-            this.lblFill_Transact.Size = new System.Drawing.Size(241, 17);
+            this.lblFill_Transact.Size = new System.Drawing.Size(270, 17);
             this.lblFill_Transact.TabIndex = 18;
             this.lblFill_Transact.Text = "FILL INPUT CONTROLS WITH DATA";
             // 
@@ -398,6 +407,7 @@
             // lblFill_SnackSaleID
             // 
             this.lblFill_SnackSaleID.AutoSize = true;
+            this.lblFill_SnackSaleID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFill_SnackSaleID.Location = new System.Drawing.Point(37, 217);
             this.lblFill_SnackSaleID.Name = "lblFill_SnackSaleID";
             this.lblFill_SnackSaleID.Size = new System.Drawing.Size(108, 17);
@@ -409,7 +419,7 @@
             this.lblDelete_Transact.AutoSize = true;
             this.lblDelete_Transact.Location = new System.Drawing.Point(70, 321);
             this.lblDelete_Transact.Name = "lblDelete_Transact";
-            this.lblDelete_Transact.Size = new System.Drawing.Size(177, 17);
+            this.lblDelete_Transact.Size = new System.Drawing.Size(197, 17);
             this.lblDelete_Transact.TabIndex = 15;
             this.lblDelete_Transact.Text = "DELETE A TRANSACTION";
             // 
@@ -423,6 +433,7 @@
             // lblDelete_TransactID
             // 
             this.lblDelete_TransactID.AutoSize = true;
+            this.lblDelete_TransactID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelete_TransactID.Location = new System.Drawing.Point(37, 359);
             this.lblDelete_TransactID.Name = "lblDelete_TransactID";
             this.lblDelete_TransactID.Size = new System.Drawing.Size(108, 17);
@@ -470,6 +481,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.Location = new System.Drawing.Point(98, 132);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(44, 17);
@@ -486,6 +498,7 @@
             // lblQuantity_Ordered
             // 
             this.lblQuantity_Ordered.AutoSize = true;
+            this.lblQuantity_Ordered.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantity_Ordered.Location = new System.Drawing.Point(20, 92);
             this.lblQuantity_Ordered.Name = "lblQuantity_Ordered";
             this.lblQuantity_Ordered.Size = new System.Drawing.Size(122, 17);
@@ -495,6 +508,7 @@
             // lblSnack_ID
             // 
             this.lblSnack_ID.AutoSize = true;
+            this.lblSnack_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSnack_ID.Location = new System.Drawing.Point(70, 50);
             this.lblSnack_ID.Name = "lblSnack_ID";
             this.lblSnack_ID.Size = new System.Drawing.Size(72, 17);
@@ -504,6 +518,7 @@
             // groupDate
             // 
             this.groupDate.Controls.Add(this.dbGridTransact_Dates);
+            this.groupDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupDate.Location = new System.Drawing.Point(1041, 23);
             this.groupDate.Name = "groupDate";
             this.groupDate.Size = new System.Drawing.Size(423, 310);
@@ -526,9 +541,10 @@
             this.groupDeleteTransacts.Controls.Add(this.lblDeleteAllTransactions);
             this.groupDeleteTransacts.Controls.Add(this.spinDeleteAll);
             this.groupDeleteTransacts.Controls.Add(this.lblDeleteAll);
+            this.groupDeleteTransacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupDeleteTransacts.Location = new System.Drawing.Point(1041, 377);
             this.groupDeleteTransacts.Name = "groupDeleteTransacts";
-            this.groupDeleteTransacts.Size = new System.Drawing.Size(365, 180);
+            this.groupDeleteTransacts.Size = new System.Drawing.Size(397, 180);
             this.groupDeleteTransacts.TabIndex = 21;
             this.groupDeleteTransacts.TabStop = false;
             this.groupDeleteTransacts.Text = "DELETE ALL TRANSACTIONS";
@@ -548,7 +564,7 @@
             this.lblDeleteAllTransactions.AutoSize = true;
             this.lblDeleteAllTransactions.Location = new System.Drawing.Point(31, 55);
             this.lblDeleteAllTransactions.Name = "lblDeleteAllTransactions";
-            this.lblDeleteAllTransactions.Size = new System.Drawing.Size(316, 17);
+            this.lblDeleteAllTransactions.Size = new System.Drawing.Size(354, 17);
             this.lblDeleteAllTransactions.TabIndex = 22;
             this.lblDeleteAllTransactions.Text = "DELETE ALL TRANSACTIONS WITH SNACK_ID:";
             // 
@@ -562,6 +578,7 @@
             // lblDeleteAll
             // 
             this.lblDeleteAll.AutoSize = true;
+            this.lblDeleteAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeleteAll.Location = new System.Drawing.Point(31, 86);
             this.lblDeleteAll.Name = "lblDeleteAll";
             this.lblDeleteAll.Size = new System.Drawing.Size(72, 17);
