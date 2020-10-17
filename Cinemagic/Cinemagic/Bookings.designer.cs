@@ -77,6 +77,7 @@
             this.dbCustomers = new System.Windows.Forms.DataGridView();
             this.tbMovies_Control = new System.Windows.Forms.TabPage();
             this.groupMovies = new System.Windows.Forms.GroupBox();
+            this.btnClearMovies = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
             this.groupDeleteMovies = new System.Windows.Forms.GroupBox();
             this.btnDelete_AllMovies = new System.Windows.Forms.Button();
@@ -122,7 +123,6 @@
             this.dbMovies = new System.Windows.Forms.DataGridView();
             this.dbGenres = new System.Windows.Forms.DataGridView();
             this.toolTipBack = new System.Windows.Forms.ToolTip(this.components);
-            this.btnClearMovies = new System.Windows.Forms.Button();
             this.tbBookings_Control.SuspendLayout();
             this.tbBookings_GUI.SuspendLayout();
             this.groupBookings.SuspendLayout();
@@ -656,6 +656,16 @@
             this.groupMovies.TabStop = false;
             this.groupMovies.Text = "CINEMAGIC MOVIES";
             // 
+            // btnClearMovies
+            // 
+            this.btnClearMovies.Location = new System.Drawing.Point(520, 778);
+            this.btnClearMovies.Name = "btnClearMovies";
+            this.btnClearMovies.Size = new System.Drawing.Size(75, 23);
+            this.btnClearMovies.TabIndex = 49;
+            this.btnClearMovies.Text = "CLEAR";
+            this.btnClearMovies.UseVisualStyleBackColor = true;
+            this.btnClearMovies.Click += new System.EventHandler(this.btnClearMovies_Click);
+            // 
             // btnMain
             // 
             this.btnMain.Location = new System.Drawing.Point(50, 778);
@@ -709,9 +719,10 @@
             // lblDeleteAllMovies
             // 
             this.lblDeleteAllMovies.AutoSize = true;
+            this.lblDeleteAllMovies.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeleteAllMovies.Location = new System.Drawing.Point(31, 86);
             this.lblDeleteAllMovies.Name = "lblDeleteAllMovies";
-            this.lblDeleteAllMovies.Size = new System.Drawing.Size(82, 17);
+            this.lblDeleteAllMovies.Size = new System.Drawing.Size(73, 17);
             this.lblDeleteAllMovies.TabIndex = 20;
             this.lblDeleteAllMovies.Text = "Genre_ID:";
             // 
@@ -748,9 +759,10 @@
             // lblDel_GenreID
             // 
             this.lblDel_GenreID.AutoSize = true;
+            this.lblDel_GenreID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDel_GenreID.Location = new System.Drawing.Point(107, 339);
             this.lblDel_GenreID.Name = "lblDel_GenreID";
-            this.lblDel_GenreID.Size = new System.Drawing.Size(82, 17);
+            this.lblDel_GenreID.Size = new System.Drawing.Size(73, 17);
             this.lblDel_GenreID.TabIndex = 44;
             this.lblDel_GenreID.Text = "Genre_ID:";
             // 
@@ -784,9 +796,10 @@
             // lblFill_GenreID
             // 
             this.lblFill_GenreID.AutoSize = true;
+            this.lblFill_GenreID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFill_GenreID.Location = new System.Drawing.Point(109, 213);
             this.lblFill_GenreID.Name = "lblFill_GenreID";
-            this.lblFill_GenreID.Size = new System.Drawing.Size(82, 17);
+            this.lblFill_GenreID.Size = new System.Drawing.Size(73, 17);
             this.lblFill_GenreID.TabIndex = 36;
             this.lblFill_GenreID.Text = "Genre_ID:";
             // 
@@ -840,9 +853,10 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.Location = new System.Drawing.Point(139, 52);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(95, 17);
+            this.lblDescription.Size = new System.Drawing.Size(83, 17);
             this.lblDescription.TabIndex = 20;
             this.lblDescription.Text = "Description:";
             // 
@@ -916,18 +930,20 @@
             // lblWithdrawal
             // 
             this.lblWithdrawal.AutoSize = true;
+            this.lblWithdrawal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWithdrawal.Location = new System.Drawing.Point(46, 235);
             this.lblWithdrawal.Name = "lblWithdrawal";
-            this.lblWithdrawal.Size = new System.Drawing.Size(131, 17);
+            this.lblWithdrawal.Size = new System.Drawing.Size(115, 17);
             this.lblWithdrawal.TabIndex = 45;
             this.lblWithdrawal.Text = "Withdrawal Date:";
             // 
             // lblDel_MovieID
             // 
             this.lblDel_MovieID.AutoSize = true;
+            this.lblDel_MovieID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDel_MovieID.Location = new System.Drawing.Point(76, 457);
             this.lblDel_MovieID.Name = "lblDel_MovieID";
-            this.lblDel_MovieID.Size = new System.Drawing.Size(79, 17);
+            this.lblDel_MovieID.Size = new System.Drawing.Size(70, 17);
             this.lblDel_MovieID.TabIndex = 44;
             this.lblDel_MovieID.Text = "Movie_ID:";
             // 
@@ -978,9 +994,10 @@
             // lblFill_MovieID
             // 
             this.lblFill_MovieID.AutoSize = true;
+            this.lblFill_MovieID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFill_MovieID.Location = new System.Drawing.Point(76, 333);
             this.lblFill_MovieID.Name = "lblFill_MovieID";
-            this.lblFill_MovieID.Size = new System.Drawing.Size(79, 17);
+            this.lblFill_MovieID.Size = new System.Drawing.Size(70, 17);
             this.lblFill_MovieID.TabIndex = 36;
             this.lblFill_MovieID.Text = "Movie_ID:";
             // 
@@ -1034,45 +1051,50 @@
             // lblRelease
             // 
             this.lblRelease.AutoSize = true;
+            this.lblRelease.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRelease.Location = new System.Drawing.Point(63, 196);
             this.lblRelease.Name = "lblRelease";
-            this.lblRelease.Size = new System.Drawing.Size(111, 17);
+            this.lblRelease.Size = new System.Drawing.Size(98, 17);
             this.lblRelease.TabIndex = 28;
             this.lblRelease.Text = "Release Date:";
             // 
             // lblAge
             // 
             this.lblAge.AutoSize = true;
+            this.lblAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAge.Location = new System.Drawing.Point(53, 153);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(124, 17);
+            this.lblAge.Size = new System.Drawing.Size(108, 17);
             this.lblAge.TabIndex = 26;
             this.lblAge.Text = "Age Restriction:";
             // 
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
+            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDuration.Location = new System.Drawing.Point(59, 115);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(117, 17);
+            this.lblDuration.Size = new System.Drawing.Size(102, 17);
             this.lblDuration.TabIndex = 24;
             this.lblDuration.Text = "Duration (Hrs):";
             // 
             // lblGenre_ID
             // 
             this.lblGenre_ID.AutoSize = true;
+            this.lblGenre_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenre_ID.Location = new System.Drawing.Point(88, 72);
             this.lblGenre_ID.Name = "lblGenre_ID";
-            this.lblGenre_ID.Size = new System.Drawing.Size(82, 17);
+            this.lblGenre_ID.Size = new System.Drawing.Size(73, 17);
             this.lblGenre_ID.TabIndex = 22;
             this.lblGenre_ID.Text = "Genre_ID:";
             // 
             // lblMovie
             // 
             this.lblMovie.AutoSize = true;
+            this.lblMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMovie.Location = new System.Drawing.Point(112, 30);
             this.lblMovie.Name = "lblMovie";
-            this.lblMovie.Size = new System.Drawing.Size(55, 17);
+            this.lblMovie.Size = new System.Drawing.Size(49, 17);
             this.lblMovie.TabIndex = 20;
             this.lblMovie.Text = "Movie:";
             // 
@@ -1093,16 +1115,6 @@
             this.dbGenres.RowTemplate.Height = 24;
             this.dbGenres.Size = new System.Drawing.Size(545, 192);
             this.dbGenres.TabIndex = 2;
-            // 
-            // btnClearMovies
-            // 
-            this.btnClearMovies.Location = new System.Drawing.Point(520, 778);
-            this.btnClearMovies.Name = "btnClearMovies";
-            this.btnClearMovies.Size = new System.Drawing.Size(75, 23);
-            this.btnClearMovies.TabIndex = 49;
-            this.btnClearMovies.Text = "CLEAR";
-            this.btnClearMovies.UseVisualStyleBackColor = true;
-            this.btnClearMovies.Click += new System.EventHandler(this.btnClearMovies_Click);
             // 
             // Bookings_Movies
             // 

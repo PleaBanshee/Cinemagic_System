@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RandomProj;
+using System.Windows.Forms;
 
 namespace Cinemagic
 {
@@ -24,7 +25,13 @@ namespace Cinemagic
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.BackgroundImage = Properties.Resources.Cinemagic_Login;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             txtPassword.PasswordChar = '*';
+            lblHeading.BackColor = Color.Transparent;
+            lblPassword.BackColor = Color.Transparent;
+            lblUsername.BackColor = Color.Transparent;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
