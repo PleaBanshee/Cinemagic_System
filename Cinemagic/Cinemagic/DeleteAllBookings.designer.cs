@@ -108,6 +108,7 @@
             this.Controls.Add(this.groupDeleteAllBookings);
             this.Name = "DeleteAllBookings";
             this.Text = "DeleteAllBookings";
+            this.Load += new System.EventHandler(this.DeleteAllBookings_Load);
             this.groupDeleteAllBookings.ResumeLayout(false);
             this.groupDeleteAllBookings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinDeleteAll_Bookings)).EndInit();

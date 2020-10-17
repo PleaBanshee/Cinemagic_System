@@ -29,17 +29,15 @@ namespace RandomProj
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // Use this code to test whether you can connect to the database
             try
             {
                 conn = new SqlConnection(constr);
                 conn.Open();
-                MessageBox.Show("Connection Successfull");
                 conn.Close();
             }
             catch
             {
-                MessageBox.Show("Could not connect to db");
+                MessageBox.Show("Could not connect to database","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
