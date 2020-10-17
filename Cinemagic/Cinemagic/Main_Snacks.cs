@@ -31,8 +31,23 @@ namespace RandomProj
             snack_Sale.ShowDialog();
         }
 
+        private void setColors()
+        {
+            this.BackColor = Color.CadetBlue;
+            foreach (GroupBox box in this.Controls)
+            {
+                box.BackColor = Color.LightSkyBlue;
+            }
+            groupMaintain_Snacks.BackColor = Color.DodgerBlue;
+            groupTransact_Details.BackColor = Color.DodgerBlue;
+            groupDeleteTransacts.BackColor = Color.DodgerBlue;
+        }
+
         private void Main_Snacks_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = Cinemagic.Properties.Resources.System_Light;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            setColors();
             dbGridSnacks.Font = new Font(DefaultFont, FontStyle.Regular);
             dbGridSnacks.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
             dbTransaction_Details.Font = new Font(DefaultFont, FontStyle.Regular);
@@ -56,7 +71,7 @@ namespace RandomProj
         private void RenameTransactionColumns()
         {
             dbTransaction_Details.Columns[2].HeaderCell.Value = "Quantity";
-            dbTransaction_Details.Columns[3].HeaderCell.Value = "Total";
+            dbTransaction_Details.Columns[3].HeaderCell.Value = "Total (R)";
         }
 
         private void RenameSnackColumns()
@@ -64,8 +79,8 @@ namespace RandomProj
             dbGridSnacks.Columns[1].HeaderCell.Value = "Item";
             dbGridSnacks.Columns[2].HeaderCell.Value = "Description";
             dbGridSnacks.Columns[3].HeaderCell.Value = "Quantity";
-            dbGridSnacks.Columns[4].HeaderCell.Value = "Unit Cost";
-            dbGridSnacks.Columns[5].HeaderCell.Value = "Price";
+            dbGridSnacks.Columns[4].HeaderCell.Value = "Unit Cost (R)";
+            dbGridSnacks.Columns[5].HeaderCell.Value = "Price (R)";
         }
 
         private void DisplaySnacks()
@@ -84,12 +99,19 @@ namespace RandomProj
             dbGridSnacks.DataSource = cinema.ds;
             dbGridSnacks.DataMember = "Snacks";
             RenameSnackColumns();
+            for (int i = 0; i < this.dbGridSnacks.Columns.Count; i++)
+            {
+                if (i == 4 || i == 5)
+                {
+                    this.dbGridSnacks.Columns[i].DefaultCellStyle.Format = "0.00";
+                }
+            }
             cinema.conn.Close();
         }
 
         private void DisplayTransact_Details()
         {
-            dbTransaction_Details.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dbTransaction_Details.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Main cinema = new Main();
             connection = cinema.constr;
             cinema.conn = new SqlConnection(connection);
@@ -103,6 +125,13 @@ namespace RandomProj
             dbTransaction_Details.DataSource = cinema.ds;
             dbTransaction_Details.DataMember = "Transaction";
             RenameTransactionColumns();
+            for (int i = 0; i < this.dbTransaction_Details.Columns.Count; i++)
+            {
+                if (i == 3)
+                {
+                    this.dbTransaction_Details.Columns[i].DefaultCellStyle.Format = "0.00";
+                }
+            }
             cinema.conn.Close();
         }
 
@@ -537,6 +566,11 @@ namespace RandomProj
             {
                 MessageBox.Show("Must enter a decimal value", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void lblDescription_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

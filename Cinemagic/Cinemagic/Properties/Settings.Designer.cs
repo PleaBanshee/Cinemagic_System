@@ -27,7 +27,7 @@ namespace Cinemagic.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-QKV1G6CM\\SQLEXPRESS;Initial Catalog=Cinemagic_DB;Integrated Se" +
-            "curity=True")]
+            "curity=True;MultipleActiveResultSets=true;")]
         public string Setting {
             get {
                 return ((string)(this["Setting"]));
