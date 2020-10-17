@@ -33,7 +33,6 @@ namespace RandomProj
 
         private void setColors()
         {
-            this.BackColor = Color.CadetBlue;
             foreach (GroupBox box in this.Controls)
             {
                 box.BackColor = Color.LightSkyBlue;
@@ -422,6 +421,19 @@ namespace RandomProj
                 else
                 {
                     MessageBox.Show("Snack_ID does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (SqlException sql_err)
+            {
+                int err_num = sql_err.Number;
+                if (err_num == 547)
+                {
+                    MessageBox.Show($"Failed to delete record... Please delete all records in Transaction Details with Snack_ID {spinID.Value}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(sql_err.Message + " Failed to delete record...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
             catch (Exception err)

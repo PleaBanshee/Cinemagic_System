@@ -25,8 +25,29 @@ namespace RandomProj
             InitializeComponent();
         }
 
+        private void SetColors()
+        {
+            foreach (GroupBox box in this.tbBookings_GUI.Controls)
+            {
+                box.BackColor = Color.LightSkyBlue;
+            }
+            groupDeleteMovies.BackColor = Color.DodgerBlue;
+            groupMaintain_Bookings.BackColor = Color.DodgerBlue;
+            groupMaintain_Customers.BackColor = Color.DodgerBlue;
+            tbBookings_GUI.BackColor = Color.CadetBlue;
+            foreach (GroupBox box in this.tbMovies_Control.Controls)
+            {
+                box.BackColor = Color.LightSkyBlue;
+            }
+            groupMaintain_Genres.BackColor = Color.DodgerBlue;
+            groupMaintain_Movies.BackColor = Color.DodgerBlue;
+            tbMovies_Control.BackColor = Color.CadetBlue;
+        }
+
         private void Bookings_Movies_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = Cinemagic.Properties.Resources.System_Light;
+            SetColors();
             dbBookings.Font = new Font(DefaultFont, FontStyle.Regular);
             dbBookings.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
             dbCustomers.Font = new Font(DefaultFont, FontStyle.Regular);
@@ -190,6 +211,10 @@ namespace RandomProj
                     cinema.conn.Close();
                     DisplayBookings();
                 }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Ticket amount must contain a comma as currency seperator... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message + " Failed to add booking... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -316,6 +341,10 @@ namespace RandomProj
                     MessageBox.Show("The selected Booking_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Ticket amount must contain a comma as currency seperator... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception error)
             {
                 MessageBox.Show(error.Message + " Failed to update booking...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -347,6 +376,18 @@ namespace RandomProj
                 else
                 {
                     MessageBox.Show("Customer_ID does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (SqlException sql_err)
+            {
+                int err_num = sql_err.Number;
+                if (err_num == 547)
+                {
+                    MessageBox.Show($"Failed to delete record... Please click on DELETE ALL BOOKINGS button and delete all records in Bookings with Customer_ID {spinDel_CustID.Value}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(sql_err.Message + " Failed to delete record...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception err)
@@ -608,6 +649,10 @@ namespace RandomProj
                     cinema.conn.Close();
                     DisplayMovies();
                 }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Movie duration must have format HH:MM:SS","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message + " Failed to add movie... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -745,6 +790,10 @@ namespace RandomProj
                         MessageBox.Show("The selected Movie_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Movie duration must have format HH:MM:SS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception error)
                 {
                     MessageBox.Show(error.Message + " Failed to update movie...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -777,6 +826,18 @@ namespace RandomProj
                 else
                 {
                     MessageBox.Show("Genre_ID does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (SqlException sql_err)
+            {
+                int err_num = sql_err.Number;
+                if (err_num == 547)
+                {
+                    MessageBox.Show($"Failed to delete record... Please delete all records in Movies with Genre_ID {spinDel_GenreID.Value}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(sql_err.Message + " Failed to delete record...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception err)

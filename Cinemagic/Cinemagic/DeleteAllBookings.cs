@@ -64,5 +64,11 @@ namespace RandomProj
             this.Hide();
             bookings.ShowDialog();
         }
+
+        private void DeleteAllBookings_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImage = Cinemagic.Properties.Resources.System_Light;
+            groupDeleteAllBookings.BackColor = Color.LightSkyBlue;
+        }
     }
 }
