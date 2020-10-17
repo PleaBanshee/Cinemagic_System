@@ -33,6 +33,12 @@ namespace RandomProj
 
         private void Main_Snacks_Load(object sender, EventArgs e)
         {
+            dbGridSnacks.Font = new Font(DefaultFont, FontStyle.Regular);
+            dbGridSnacks.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
+            dbTransaction_Details.Font = new Font(DefaultFont, FontStyle.Regular);
+            dbTransaction_Details.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
+            dbGridTransact_Dates.Font = new Font(DefaultFont, FontStyle.Regular);
+            dbGridTransact_Dates.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
             spinID.Maximum = Int32.MaxValue;
             spinQuantity.Maximum = 300;
             spinSnack_ID.Maximum = Int32.MaxValue;

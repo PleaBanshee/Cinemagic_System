@@ -132,6 +132,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Snack_Sale.resx">
       <DependentUpon>Snack_Sale.cs</DependentUpon>
@@ -153,6 +154,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\Resources\Cinemagic_Login.jpg" />
     <Content Include="CinemagicDB.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -167,6 +167,7 @@
             // 
             // spinFill_SnackID
             // 
+            this.spinFill_SnackID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinFill_SnackID.Location = new System.Drawing.Point(109, 294);
             this.spinFill_SnackID.Name = "spinFill_SnackID";
             this.spinFill_SnackID.Size = new System.Drawing.Size(100, 22);
@@ -193,6 +194,7 @@
             // 
             // spinID
             // 
+            this.spinID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinID.Location = new System.Drawing.Point(109, 416);
             this.spinID.Name = "spinID";
             this.spinID.Size = new System.Drawing.Size(100, 22);
@@ -240,6 +242,7 @@
             // 
             // txtPrice
             // 
+            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.Location = new System.Drawing.Point(113, 202);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 22);
@@ -258,6 +261,7 @@
             // 
             // txtUnit_Cost
             // 
+            this.txtUnit_Cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnit_Cost.Location = new System.Drawing.Point(113, 161);
             this.txtUnit_Cost.Name = "txtUnit_Cost";
             this.txtUnit_Cost.Size = new System.Drawing.Size(100, 22);
@@ -276,6 +280,7 @@
             // 
             // spinQuantity
             // 
+            this.spinQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinQuantity.Location = new System.Drawing.Point(113, 122);
             this.spinQuantity.Name = "spinQuantity";
             this.spinQuantity.Size = new System.Drawing.Size(100, 22);
@@ -293,6 +298,7 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(113, 83);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(100, 22);
@@ -310,6 +316,7 @@
             // 
             // txtItem
             // 
+            this.txtItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItem.Location = new System.Drawing.Point(113, 42);
             this.txtItem.Name = "txtItem";
             this.txtItem.Size = new System.Drawing.Size(100, 22);
@@ -373,6 +380,7 @@
             // 
             // spinSnack_ID
             // 
+            this.spinSnack_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinSnack_ID.Location = new System.Drawing.Point(157, 45);
             this.spinSnack_ID.Name = "spinSnack_ID";
             this.spinSnack_ID.Size = new System.Drawing.Size(100, 22);
@@ -399,6 +407,7 @@
             // 
             // spinFill_SnackSaleID
             // 
+            this.spinFill_SnackSaleID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinFill_SnackSaleID.Location = new System.Drawing.Point(151, 212);
             this.spinFill_SnackSaleID.Name = "spinFill_SnackSaleID";
             this.spinFill_SnackSaleID.Size = new System.Drawing.Size(100, 22);
@@ -425,6 +434,7 @@
             // 
             // spinDelete_TransactID
             // 
+            this.spinDelete_TransactID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDelete_TransactID.Location = new System.Drawing.Point(151, 354);
             this.spinDelete_TransactID.Name = "spinDelete_TransactID";
             this.spinDelete_TransactID.Size = new System.Drawing.Size(100, 22);
@@ -472,6 +482,7 @@
             // 
             // txtTotal
             // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(157, 127);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 22);
@@ -490,6 +501,7 @@
             // 
             // spinQuantity_Ordered
             // 
+            this.spinQuantity_Ordered.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinQuantity_Ordered.Location = new System.Drawing.Point(157, 87);
             this.spinQuantity_Ordered.Name = "spinQuantity_Ordered";
             this.spinQuantity_Ordered.Size = new System.Drawing.Size(100, 22);
@@ -570,6 +582,7 @@
             // 
             // spinDeleteAll
             // 
+            this.spinDeleteAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDeleteAll.Location = new System.Drawing.Point(122, 84);
             this.spinDeleteAll.Name = "spinDeleteAll";
             this.spinDeleteAll.Size = new System.Drawing.Size(100, 22);
@@ -594,6 +607,7 @@
             this.Controls.Add(this.groupDate);
             this.Controls.Add(this.groupTransact_Detail);
             this.Controls.Add(this.groupSnacks);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Main_Snacks";
             this.Text = "Main_Snacks";
             this.Load += new System.EventHandler(this.Main_Snacks_Load);

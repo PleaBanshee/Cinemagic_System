@@ -27,6 +27,14 @@ namespace RandomProj
 
         private void Bookings_Movies_Load(object sender, EventArgs e)
         {
+            dbBookings.Font = new Font(DefaultFont, FontStyle.Regular);
+            dbBookings.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
+            dbCustomers.Font = new Font(DefaultFont, FontStyle.Regular);
+            dbCustomers.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
+            dbMovies.Font = new Font(DefaultFont, FontStyle.Regular);
+            dbMovies.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
+            dbGenres.Font = new Font(DefaultFont, FontStyle.Regular);
+            dbGenres.ColumnHeadersDefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
             dateRelease.Value = DateTime.Now;
             dateWithdrawal.Value = DateTime.Now.AddDays(7);
             this.Size = new Size(1050, 1000);

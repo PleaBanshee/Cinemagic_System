@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupDeleteAllBookings = new System.Windows.Forms.GroupBox();
+            this.btnBack_To_Bookings = new System.Windows.Forms.Button();
             this.btnDelete_AllBookings = new System.Windows.Forms.Button();
             this.lblDelAllBookings = new System.Windows.Forms.Label();
             this.spinDeleteAll_Bookings = new System.Windows.Forms.NumericUpDown();
             this.lblDeleteAllBookings = new System.Windows.Forms.Label();
-            this.btnBack_To_Bookings = new System.Windows.Forms.Button();
             this.groupDeleteAllBookings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinDeleteAll_Bookings)).BeginInit();
             this.SuspendLayout();
@@ -45,12 +45,23 @@
             this.groupDeleteAllBookings.Controls.Add(this.lblDelAllBookings);
             this.groupDeleteAllBookings.Controls.Add(this.spinDeleteAll_Bookings);
             this.groupDeleteAllBookings.Controls.Add(this.lblDeleteAllBookings);
+            this.groupDeleteAllBookings.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupDeleteAllBookings.Location = new System.Drawing.Point(-3, 3);
             this.groupDeleteAllBookings.Name = "groupDeleteAllBookings";
             this.groupDeleteAllBookings.Size = new System.Drawing.Size(572, 323);
             this.groupDeleteAllBookings.TabIndex = 24;
             this.groupDeleteAllBookings.TabStop = false;
             this.groupDeleteAllBookings.Text = "DELETE ALL MOVIES";
+            // 
+            // btnBack_To_Bookings
+            // 
+            this.btnBack_To_Bookings.Location = new System.Drawing.Point(15, 277);
+            this.btnBack_To_Bookings.Name = "btnBack_To_Bookings";
+            this.btnBack_To_Bookings.Size = new System.Drawing.Size(85, 36);
+            this.btnBack_To_Bookings.TabIndex = 25;
+            this.btnBack_To_Bookings.Text = "BACK";
+            this.btnBack_To_Bookings.UseVisualStyleBackColor = true;
+            this.btnBack_To_Bookings.Click += new System.EventHandler(this.btnBack_To_Bookings_Click);
             // 
             // btnDelete_AllBookings
             // 
@@ -67,12 +78,13 @@
             this.lblDelAllBookings.AutoSize = true;
             this.lblDelAllBookings.Location = new System.Drawing.Point(102, 74);
             this.lblDelAllBookings.Name = "lblDelAllBookings";
-            this.lblDelAllBookings.Size = new System.Drawing.Size(314, 17);
+            this.lblDelAllBookings.Size = new System.Drawing.Size(351, 17);
             this.lblDelAllBookings.TabIndex = 22;
             this.lblDelAllBookings.Text = "DELETE ALL BOOKINGS WITH CUSTOMER_ID:";
             // 
             // spinDeleteAll_Bookings
             // 
+            this.spinDeleteAll_Bookings.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDeleteAll_Bookings.Location = new System.Drawing.Point(201, 103);
             this.spinDeleteAll_Bookings.Name = "spinDeleteAll_Bookings";
             this.spinDeleteAll_Bookings.Size = new System.Drawing.Size(100, 22);
@@ -81,21 +93,12 @@
             // lblDeleteAllBookings
             // 
             this.lblDeleteAllBookings.AutoSize = true;
+            this.lblDeleteAllBookings.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeleteAllBookings.Location = new System.Drawing.Point(102, 105);
             this.lblDeleteAllBookings.Name = "lblDeleteAllBookings";
             this.lblDeleteAllBookings.Size = new System.Drawing.Size(93, 17);
             this.lblDeleteAllBookings.TabIndex = 20;
             this.lblDeleteAllBookings.Text = "Customer_ID:";
-            // 
-            // btnBack_To_Bookings
-            // 
-            this.btnBack_To_Bookings.Location = new System.Drawing.Point(15, 277);
-            this.btnBack_To_Bookings.Name = "btnBack_To_Bookings";
-            this.btnBack_To_Bookings.Size = new System.Drawing.Size(85, 36);
-            this.btnBack_To_Bookings.TabIndex = 25;
-            this.btnBack_To_Bookings.Text = "BACK";
-            this.btnBack_To_Bookings.UseVisualStyleBackColor = true;
-            this.btnBack_To_Bookings.Click += new System.EventHandler(this.btnBack_To_Bookings_Click);
             // 
             // DeleteAllBookings
             // 
