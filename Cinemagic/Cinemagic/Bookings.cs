@@ -62,7 +62,7 @@ namespace RandomProj
 
         private void RenameBookingColumns()
         {
-            dbBookings.Columns[3].HeaderCell.Value = "Total Cost for Tickets";
+            dbBookings.Columns[3].HeaderCell.Value = "Total Cost for Tickets (R)";
             dbBookings.Columns[4].HeaderCell.Value = "Number of seats";
             dbBookings.Columns[5].HeaderCell.Value = "Date";
         }
@@ -83,6 +83,13 @@ namespace RandomProj
             dbBookings.DataSource = cinema.ds;
             dbBookings.DataMember = "Bookings";
             RenameBookingColumns();
+            for (int i = 0; i < this.dbBookings.Columns.Count; i++)
+            {
+                if (i == 3)
+                {
+                    this.dbBookings.Columns[i].DefaultCellStyle.Format = "0.00";
+                }
+            }
             cinema.conn.Close();
         }
 
@@ -449,6 +456,22 @@ namespace RandomProj
                 {
                     MessageBox.Show("You entered an invalid email address", "EROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtName.Text.Any(char.IsDigit) || !txtName.Text.Any(ch => Char.IsLetterOrDigit(ch)))
+            {
+                MessageBox.Show("Customer Name cannot contain numbers or special characters!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtSurname_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtSurname.Text.Any(char.IsDigit) || !txtSurname.Text.Any(ch => Char.IsLetterOrDigit(ch)))
+            {
+                MessageBox.Show("Customer Surname cannot contain numbers or special characters!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -936,14 +959,6 @@ namespace RandomProj
             del_Bookings.ShowDialog();
         }
 
-        private void txtName_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtName.Text.Any(char.IsDigit) || !txtName.Text.Any(ch => Char.IsLetterOrDigit(ch)))
-            {
-                MessageBox.Show("Customer Name cannot contain numbers or special characters!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtEmail.Text = "";
@@ -975,5 +990,6 @@ namespace RandomProj
             dateRelease.Value = DateTime.Now;
             dateWithdrawal.Value = DateTime.Now.AddDays(7);
         }
+
     }
 }

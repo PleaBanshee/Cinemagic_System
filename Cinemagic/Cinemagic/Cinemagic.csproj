@@ -162,6 +162,9 @@
       <DependentUpon>CinemagicDB.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\System_Light.jpg" />
+    <None Include="Resources\System_Screen.jpg" />
+    <None Include="Resources\System_Wallpaper.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
