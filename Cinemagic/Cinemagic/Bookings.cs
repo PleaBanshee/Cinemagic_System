@@ -19,6 +19,10 @@ namespace RandomProj
         private SqlCommand command;
         private DataTable dt = new DataTable();
         private SqlDataReader dr;
+        private bool isInvalid_CustomerInputs;
+        private bool isInvalid_BookingInputs;
+        private bool isInvalid_GenreInputs;
+        private bool isInvalid_MovieInputs;
 
         public Bookings_Movies()
         {
@@ -46,6 +50,10 @@ namespace RandomProj
 
         private void Bookings_Movies_Load(object sender, EventArgs e)
         {
+            isInvalid_CustomerInputs = false;
+            isInvalid_BookingInputs = false;
+            isInvalid_GenreInputs = false;
+            isInvalid_MovieInputs = false;
             this.BackgroundImage = Cinemagic.Properties.Resources.System_Light;
             SetColors();
             dbBookings.Font = new Font(DefaultFont, FontStyle.Regular);
@@ -161,26 +169,33 @@ namespace RandomProj
             }
             else
             {
-                Main cinema = new Main();
-                connection = cinema.constr;
-                try
+                if (isInvalid_CustomerInputs)
                 {
-                    string insert_customers = @"INSERT INTO CUSTOMER VALUES(@Customer_Name,@Customer_Surname,@Customer_Phone,@Customer_Email)";
-                    cinema.conn = new SqlConnection(connection);
-                    cinema.conn.Open();
-                    cinema.com = new SqlCommand(insert_customers, cinema.conn);
-                    cinema.com.Parameters.AddWithValue("@Customer_Name", txtName.Text);
-                    cinema.com.Parameters.AddWithValue("@Customer_Surname", txtSurname.Text);
-                    cinema.com.Parameters.AddWithValue("@Customer_Phone", txtPhoneNum.Text);
-                    cinema.com.Parameters.AddWithValue("@Customer_Email", txtEmail.Text);
-                    cinema.com.ExecuteNonQuery();
-                    MessageBox.Show("Customer has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cinema.conn.Close();
-                    DisplayCustomers();
+                    MessageBox.Show("Please ensure all inputs contain the correct types and format", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message + " Failed to add customer... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    connection = cinema.constr;
+                    try
+                    {
+                        string insert_customers = @"INSERT INTO CUSTOMER VALUES(@Customer_Name,@Customer_Surname,@Customer_Phone,@Customer_Email)";
+                        cinema.conn = new SqlConnection(connection);
+                        cinema.conn.Open();
+                        cinema.com = new SqlCommand(insert_customers, cinema.conn);
+                        cinema.com.Parameters.AddWithValue("@Customer_Name", txtName.Text);
+                        cinema.com.Parameters.AddWithValue("@Customer_Surname", txtSurname.Text);
+                        cinema.com.Parameters.AddWithValue("@Customer_Phone", txtPhoneNum.Text);
+                        cinema.com.Parameters.AddWithValue("@Customer_Email", txtEmail.Text);
+                        cinema.com.ExecuteNonQuery();
+                        MessageBox.Show("Customer has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cinema.conn.Close();
+                        DisplayCustomers();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " Failed to add customer... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -193,31 +208,38 @@ namespace RandomProj
             }
             else
             {
-                Main cinema = new Main();
-                connection = cinema.constr;
-                try
+                if (isInvalid_BookingInputs)
                 {
-                    string insert_bookings = @"INSERT INTO BOOKING VALUES(@Movie_ID,@Customer_ID,@Total_TicketCost,@NumberOfSeats,@Tickets_SaleDate)";
-                    cinema.conn = new SqlConnection(connection);
-                    cinema.conn.Open();
-                    cinema.com = new SqlCommand(insert_bookings, cinema.conn);
-                    cinema.com.Parameters.AddWithValue("@Movie_ID", spinMovieID.Value);
-                    cinema.com.Parameters.AddWithValue("@Customer_ID", spinCustID.Value);
-                    cinema.com.Parameters.AddWithValue("@Total_TicketCost", decimal.Parse(txtTicket_Total.Text));
-                    cinema.com.Parameters.AddWithValue("@NumberOfSeats", spinNumOfSeats.Value);
-                    cinema.com.Parameters.AddWithValue("@Tickets_SaleDate", DateTime.Now.ToString("yyyy/MM/dd"));
-                    cinema.com.ExecuteNonQuery();
-                    MessageBox.Show("Booking has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cinema.conn.Close();
-                    DisplayBookings();
+                    MessageBox.Show("Please ensure all inputs contain the correct type and format", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (FormatException)
+                else
                 {
-                    MessageBox.Show("Ticket amount must contain a comma as currency seperator... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + " Failed to add booking... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    connection = cinema.constr;
+                    try
+                    {
+                        string insert_bookings = @"INSERT INTO BOOKING VALUES(@Movie_ID,@Customer_ID,@Total_TicketCost,@NumberOfSeats,@Tickets_SaleDate)";
+                        cinema.conn = new SqlConnection(connection);
+                        cinema.conn.Open();
+                        cinema.com = new SqlCommand(insert_bookings, cinema.conn);
+                        cinema.com.Parameters.AddWithValue("@Movie_ID", spinMovieID.Value);
+                        cinema.com.Parameters.AddWithValue("@Customer_ID", spinCustID.Value);
+                        cinema.com.Parameters.AddWithValue("@Total_TicketCost", decimal.Parse(txtTicket_Total.Text));
+                        cinema.com.Parameters.AddWithValue("@NumberOfSeats", spinNumOfSeats.Value);
+                        cinema.com.Parameters.AddWithValue("@Tickets_SaleDate", DateTime.Now.ToString("yyyy/MM/dd"));
+                        cinema.com.ExecuteNonQuery();
+                        MessageBox.Show("Booking has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cinema.conn.Close();
+                        DisplayBookings();
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Ticket amount must contain a comma as currency seperator... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " Failed to add booking... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -282,77 +304,108 @@ namespace RandomProj
 
         private void UpdateCustomers()
         {
-            Main cinema = new Main();
-            cinema.conn = new SqlConnection(connection);
-            string select_customers = "SELECT * FROM CUSTOMER WHERE Customer_ID = " + spinFill_Customer.Value.ToString() + ";";
-            string update_customers = $"UPDATE CUSTOMER SET Customer_Name = '{txtName.Text}', Customer_Surname = '{txtSurname.Text}', Customer_Phone = '{txtPhoneNum.Text}'," +
-            $"Customer_Email = '{txtEmail.Text}' WHERE Customer_ID = {spinFill_Customer.Value.ToString()}";
-            cinema.com = new SqlCommand(update_customers, cinema.conn);
-            command = new SqlCommand(select_customers, cinema.conn);
-            cinema.adap = new SqlDataAdapter();
-            cinema.adap.SelectCommand = command;
-            cinema.adap.Fill(dt);
-            try
+            dt.Clear();
+            if (CheckEmptyCustomerInputs())
             {
-                cinema.conn.Open();
-                if (dt.Rows.Count > 0)
+                MessageBox.Show("Please ensure all inputs contain a value", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (isInvalid_CustomerInputs)
                 {
-                    cinema.com.ExecuteNonQuery();
-                    cinema.conn.Close();
-                    DisplayCustomers();
-                    MessageBox.Show("Customer has been updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please ensure all inputs contain the correct type and format", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("The selected Customer_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    cinema.conn = new SqlConnection(connection);
+                    string select_customers = "SELECT * FROM CUSTOMER WHERE Customer_ID = " + spinFill_Customer.Value.ToString() + ";";
+                    string update_customers = $"UPDATE CUSTOMER SET Customer_Name = '{txtName.Text}', Customer_Surname = '{txtSurname.Text}', Customer_Phone = '{txtPhoneNum.Text}'," +
+                    $"Customer_Email = '{txtEmail.Text}' WHERE Customer_ID = {spinFill_Customer.Value.ToString()}";
+                    cinema.com = new SqlCommand(update_customers, cinema.conn);
+                    command = new SqlCommand(select_customers, cinema.conn);
+                    cinema.adap = new SqlDataAdapter();
+                    cinema.adap.SelectCommand = command;
+                    cinema.adap.Fill(dt);
+                    try
+                    {
+                        cinema.conn.Open();
+                        if (dt.Rows.Count > 0)
+                        {
+                            cinema.com.ExecuteNonQuery();
+                            cinema.conn.Close();
+                            DisplayCustomers();
+                            MessageBox.Show("Customer has been updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The selected Customer_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message + " Failed to update the customer...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message + " Failed to update the customer...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void UpdateBookings()
         {
-            Main cinema = new Main();
-            cinema.conn = new SqlConnection(connection);
-            string select_bookings = "SELECT * FROM BOOKING WHERE Booking_ID = " + spinFill_BookingID.Value.ToString() + ";";
-            string update_bookings = $"UPDATE BOOKING SET Movie_ID = '{spinMovieID.Value}', Customer_ID = {spinCustID.Value}, " +
-            $"Total_TicketCost =  CAST(REPLACE('{txtTicket_Total.Text}', ',', '.') AS DECIMAL(10, 2)), NumberOfSeats = {spinNumOfSeats.Value}"+
-            $"WHERE Booking_ID = {spinFill_BookingID.Value.ToString()}";
-            cinema.com = new SqlCommand(update_bookings, cinema.conn);
-            command = new SqlCommand(select_bookings, cinema.conn);
-            cinema.adap = new SqlDataAdapter();
-            cinema.adap.SelectCommand = command;
-            cinema.adap.Fill(dt);
-            try
+            dt.Clear();
+            if (CheckEmptyBookingInputs())
             {
-                cinema.conn.Open();
-                if (dt.Rows.Count > 0)
+                MessageBox.Show("Please ensure all inputs contain a value", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (isInvalid_BookingInputs)
                 {
-                    cinema.com.ExecuteNonQuery();
-                    cinema.conn.Close();
-                    DisplayBookings();
-                    MessageBox.Show("Booking has been updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please ensure all inputs contain the correct type and format", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("The selected Booking_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    cinema.conn = new SqlConnection(connection);
+                    string select_bookings = "SELECT * FROM BOOKING WHERE Booking_ID = " + spinFill_BookingID.Value.ToString() + ";";
+                    string update_bookings = $"UPDATE BOOKING SET Movie_ID = '{spinMovieID.Value}', Customer_ID = {spinCustID.Value}, " +
+                    $"Total_TicketCost =  CAST(REPLACE('{txtTicket_Total.Text}', ',', '.') AS DECIMAL(10, 2)), NumberOfSeats = {spinNumOfSeats.Value}" +
+                    $"WHERE Booking_ID = {spinFill_BookingID.Value.ToString()}";
+                    cinema.com = new SqlCommand(update_bookings, cinema.conn);
+                    command = new SqlCommand(select_bookings, cinema.conn);
+                    cinema.adap = new SqlDataAdapter();
+                    cinema.adap.SelectCommand = command;
+                    cinema.adap.Fill(dt);
+                    try
+                    {
+                        cinema.conn.Open();
+                        if (dt.Rows.Count > 0)
+                        {
+                            cinema.com.ExecuteNonQuery();
+                            cinema.conn.Close();
+                            DisplayBookings();
+                            MessageBox.Show("Booking has been updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The selected Booking_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Ticket amount must contain a comma as currency seperator... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message + " Failed to update booking...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Ticket amount must contain a comma as currency seperator... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message + " Failed to update booking...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void DeleteCustomer()
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_customer = "SELECT * FROM CUSTOMER WHERE Customer_ID = " + spinDel_CustID.Value.ToString() + ";";
             SqlCommand cmd;
@@ -398,6 +451,7 @@ namespace RandomProj
 
         private void DeleteBookings()
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_booking = "SELECT * FROM BOOKING WHERE Booking_ID = " + spinDel_Booking.Value.ToString() + ";";
             SqlCommand cmd;
@@ -471,23 +525,28 @@ namespace RandomProj
 
         private void txtTicket_Total_Validated(object sender, EventArgs e)
         {
+            isInvalid_BookingInputs = false;
             decimal total;
             if (!decimal.TryParse(txtTicket_Total.Text, out total))
             {
+                isInvalid_BookingInputs = true;
                 MessageBox.Show("Must enter a decimal value", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void txtPhoneNum_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_CustomerInputs = false;
             if (txtPhoneNum.Text.Length != 10)
             {
+                isInvalid_CustomerInputs = true;
                 MessageBox.Show("Phone number must be ten digits long", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_CustomerInputs = false;
             Regex mRegxExpression;
             if (txtEmail.Text.Trim() != string.Empty)
             {
@@ -495,6 +554,7 @@ namespace RandomProj
                 {3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
                 if (!mRegxExpression.IsMatch(txtEmail.Text.Trim()))
                 {
+                    isInvalid_CustomerInputs = true;
                     MessageBox.Show("You entered an invalid email address", "EROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -502,16 +562,20 @@ namespace RandomProj
 
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_CustomerInputs = false;
             if (txtName.Text.Any(char.IsDigit) || !txtName.Text.Any(ch => Char.IsLetterOrDigit(ch)))
             {
+                isInvalid_CustomerInputs = true;
                 MessageBox.Show("Customer Name cannot contain numbers or special characters!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void txtSurname_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_CustomerInputs = false;
             if (txtSurname.Text.Any(char.IsDigit) || !txtSurname.Text.Any(ch => Char.IsLetterOrDigit(ch)))
             {
+                isInvalid_CustomerInputs = true;
                 MessageBox.Show("Customer Surname cannot contain numbers or special characters!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -601,23 +665,30 @@ namespace RandomProj
             }
             else
             {
-                Main cinema = new Main();
-                connection = cinema.constr;
-                try
+                if (isInvalid_GenreInputs)
                 {
-                    string insert_genres = @"INSERT INTO GENRE VALUES(@Genre_Description)";
-                    cinema.conn = new SqlConnection(connection);
-                    cinema.conn.Open();
-                    cinema.com = new SqlCommand(insert_genres, cinema.conn);
-                    cinema.com.Parameters.AddWithValue("@Genre_Description", txtDescription.Text);
-                    cinema.com.ExecuteNonQuery();
-                    MessageBox.Show("Movie Genre has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cinema.conn.Close();
-                    DisplayGenres();
+                    MessageBox.Show("Please ensure all inputs contain the correct type and format", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message + " Failed to add Genre... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    connection = cinema.constr;
+                    try
+                    {
+                        string insert_genres = @"INSERT INTO GENRE VALUES(@Genre_Description)";
+                        cinema.conn = new SqlConnection(connection);
+                        cinema.conn.Open();
+                        cinema.com = new SqlCommand(insert_genres, cinema.conn);
+                        cinema.com.Parameters.AddWithValue("@Genre_Description", txtDescription.Text);
+                        cinema.com.ExecuteNonQuery();
+                        MessageBox.Show("Movie Genre has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cinema.conn.Close();
+                        DisplayGenres();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " Failed to add Genre... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -630,32 +701,39 @@ namespace RandomProj
             }
             else
             {
-                Main cinema = new Main();
-                connection = cinema.constr;
-                try
+                if (isInvalid_MovieInputs)
                 {
-                    string insert_movies = @"INSERT INTO MOVIE VALUES(@Movie_Name,@Genre_ID,@Movie_Duration,@Age_Restriction,@Release_Date,@Withdrawal_Date)";
-                    cinema.conn = new SqlConnection(connection);
-                    cinema.conn.Open();
-                    cinema.com = new SqlCommand(insert_movies, cinema.conn);
-                    cinema.com.Parameters.AddWithValue("@Movie_Name", txtMovie.Text);
-                    cinema.com.Parameters.AddWithValue("@Genre_ID", spinGenre_ID.Value);
-                    cinema.com.Parameters.AddWithValue("@Movie_Duration", DateTime.Parse(txtDuration.Text).ToString("HH:mm:ss"));
-                    cinema.com.Parameters.AddWithValue("@Age_Restriction", cmbAge.SelectedItem.ToString());
-                    cinema.com.Parameters.AddWithValue("@Release_Date", dateRelease.Value.ToString("yyyy/MM/dd"));
-                    cinema.com.Parameters.AddWithValue("@Withdrawal_Date", dateWithdrawal.Value.ToString("yyyy/MM/dd"));
-                    cinema.com.ExecuteNonQuery();
-                    MessageBox.Show("Movie has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cinema.conn.Close();
-                    DisplayMovies();
+                    MessageBox.Show("Please ensure all inputs contain the correct type and format", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (FormatException)
+                else
                 {
-                    MessageBox.Show("Movie duration must have format HH:MM:SS","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + " Failed to add movie... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    connection = cinema.constr;
+                    try
+                    {
+                        string insert_movies = @"INSERT INTO MOVIE VALUES(@Movie_Name,@Genre_ID,@Movie_Duration,@Age_Restriction,@Release_Date,@Withdrawal_Date)";
+                        cinema.conn = new SqlConnection(connection);
+                        cinema.conn.Open();
+                        cinema.com = new SqlCommand(insert_movies, cinema.conn);
+                        cinema.com.Parameters.AddWithValue("@Movie_Name", txtMovie.Text);
+                        cinema.com.Parameters.AddWithValue("@Genre_ID", spinGenre_ID.Value);
+                        cinema.com.Parameters.AddWithValue("@Movie_Duration", DateTime.Parse(txtDuration.Text).ToString("HH:mm:ss"));
+                        cinema.com.Parameters.AddWithValue("@Age_Restriction", cmbAge.SelectedItem.ToString());
+                        cinema.com.Parameters.AddWithValue("@Release_Date", dateRelease.Value.ToString("yyyy/MM/dd"));
+                        cinema.com.Parameters.AddWithValue("@Withdrawal_Date", dateWithdrawal.Value.ToString("yyyy/MM/dd"));
+                        cinema.com.ExecuteNonQuery();
+                        MessageBox.Show("Movie has been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cinema.conn.Close();
+                        DisplayMovies();
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Movie duration must have format HH:MM:SS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " Failed to add movie... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -725,33 +803,40 @@ namespace RandomProj
             }
             else
             {
-                Main cinema = new Main();
-                cinema.conn = new SqlConnection(connection);
-                string select_genres = "SELECT * FROM GENRE WHERE Genre_ID = " + spinFill_GenreID.Value.ToString() + ";";
-                string update_genres = $"UPDATE GENRE SET Genre_Description = '{txtDescription.Text}' WHERE Genre_ID = {spinFill_GenreID.Value.ToString()}";
-                cinema.com = new SqlCommand(update_genres, cinema.conn);
-                command = new SqlCommand(select_genres, cinema.conn);
-                cinema.adap = new SqlDataAdapter();
-                cinema.adap.SelectCommand = command;
-                cinema.adap.Fill(dt);
-                try
+                if (isInvalid_GenreInputs)
                 {
-                    cinema.conn.Open();
-                    if (dt.Rows.Count > 0)
-                    {
-                        cinema.com.ExecuteNonQuery();
-                        cinema.conn.Close();
-                        DisplayGenres();
-                        MessageBox.Show("Movie Genre updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("The selected Genre_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Please ensure all inputs contain the correct type and format", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception error)
+                else
                 {
-                    MessageBox.Show(error.Message + " Failed to update Genre...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    cinema.conn = new SqlConnection(connection);
+                    string select_genres = "SELECT * FROM GENRE WHERE Genre_ID = " + spinFill_GenreID.Value.ToString() + ";";
+                    string update_genres = $"UPDATE GENRE SET Genre_Description = '{txtDescription.Text}' WHERE Genre_ID = {spinFill_GenreID.Value.ToString()}";
+                    cinema.com = new SqlCommand(update_genres, cinema.conn);
+                    command = new SqlCommand(select_genres, cinema.conn);
+                    cinema.adap = new SqlDataAdapter();
+                    cinema.adap.SelectCommand = command;
+                    cinema.adap.Fill(dt);
+                    try
+                    {
+                        cinema.conn.Open();
+                        if (dt.Rows.Count > 0)
+                        {
+                            cinema.com.ExecuteNonQuery();
+                            cinema.conn.Close();
+                            DisplayGenres();
+                            MessageBox.Show("Movie Genre updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The selected Genre_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message + " Failed to update Genre...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -764,45 +849,49 @@ namespace RandomProj
             }
             else
             {
-                Main cinema = new Main();
-                cinema.conn = new SqlConnection(connection);
-                string select_movies = "SELECT * FROM MOVIE WHERE Movie_ID = " + spinMovie_ID.Value.ToString() + ";";
-                string update_movies = $"UPDATE MOVIE SET Movie_Name = '{txtMovie.Text}', Genre_ID = {spinGenre_ID.Value}, Movie_Duration = '{txtDuration.Text}'," +
-                $"Age_Restriction = '{cmbAge.SelectedItem.ToString()}', " +
-                $"Release_Date = '{dateRelease.Value.ToString("yyyy/MM/dd")}', Withdrawal_Date = '{dateWithdrawal.Value.ToString("yyyy/MM/dd")}' WHERE Movie_ID = {spinMovie_ID.Value.ToString()}";
-                cinema.com = new SqlCommand(update_movies, cinema.conn);
-                command = new SqlCommand(select_movies, cinema.conn);
-                cinema.adap = new SqlDataAdapter();
-                cinema.adap.SelectCommand = command;
-                cinema.adap.Fill(dt);
-                try
+                if (isInvalid_MovieInputs)
                 {
-                    cinema.conn.Open();
-                    if (dt.Rows.Count > 0)
-                    {
-                        cinema.com.ExecuteNonQuery();
-                        cinema.conn.Close();
-                        DisplayMovies();
-                        MessageBox.Show("Movie updates successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("The selected Movie_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Please ensure all inputs contain the correct type and format", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (FormatException)
+                else
                 {
-                    MessageBox.Show("Movie duration must have format HH:MM:SS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception error)
-                {
-                    MessageBox.Show(error.Message + " Failed to update movie...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    cinema.conn = new SqlConnection(connection);
+                    string select_movies = "SELECT * FROM MOVIE WHERE Movie_ID = " + spinMovie_ID.Value.ToString() + ";";
+                    string update_movies = $"UPDATE MOVIE SET Movie_Name = '{txtMovie.Text}', Genre_ID = {spinGenre_ID.Value}, Movie_Duration = '{txtDuration.Text}'," +
+                    $"Age_Restriction = '{cmbAge.SelectedItem.ToString()}', " +
+                    $"Release_Date = '{dateRelease.Value.ToString("yyyy/MM/dd")}', Withdrawal_Date = '{dateWithdrawal.Value.ToString("yyyy/MM/dd")}' WHERE Movie_ID = {spinMovie_ID.Value.ToString()}";
+                    cinema.com = new SqlCommand(update_movies, cinema.conn);
+                    command = new SqlCommand(select_movies, cinema.conn);
+                    cinema.adap = new SqlDataAdapter();
+                    cinema.adap.SelectCommand = command;
+                    cinema.adap.Fill(dt);
+                    try
+                    {
+                        cinema.conn.Open();
+                        if (dt.Rows.Count > 0)
+                        {
+                            cinema.com.ExecuteNonQuery();
+                            cinema.conn.Close();
+                            DisplayMovies();
+                            MessageBox.Show("Movie updates successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The selected Movie_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message + " Failed to update movie...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
         private void DeleteGenre()
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_genre = "SELECT * FROM GENRE WHERE Genre_ID = " + spinDel_GenreID.Value.ToString() + ";";
             SqlCommand cmd;
@@ -848,6 +937,7 @@ namespace RandomProj
 
         private void DeleteMovie()
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_movies = "SELECT * FROM MOVIE WHERE Movie_ID = " + spinDel_MovieID.Value.ToString() + ";";
             SqlCommand cmd;
@@ -881,6 +971,7 @@ namespace RandomProj
 
         private void DeleteAllMovies()
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_movies = "SELECT * FROM MOVIE WHERE Genre_ID = " + spinDeleteAll_Movies.Value.ToString() + ";";
             SqlCommand cmd;
@@ -959,41 +1050,51 @@ namespace RandomProj
 
         private void txtDuration_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_MovieInputs = false;
             if (!txtDuration.Text.Contains(':'))
             {
+                isInvalid_MovieInputs = true;
                 MessageBox.Show("Please enter Movie duration in format HH:MM:SS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void cmbAge_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_MovieInputs = false;
             if (cmbAge.SelectedIndex == -1)
             {
+                isInvalid_MovieInputs = true;
                 MessageBox.Show("Please select an age restriction...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void dateRelease_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_MovieInputs = false;
             if (DateTime.Compare(dateRelease.Value,dateWithdrawal.Value) >= 0)
             {
+                isInvalid_MovieInputs = true;
                 MessageBox.Show("Release date cannot be after or on Withdrawal date", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void dateWithdrawal_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_MovieInputs = false;
             if (DateTime.Compare(dateWithdrawal.Value, dateRelease.Value) <= 0)
             {
+                isInvalid_MovieInputs = true;
                 MessageBox.Show("Withdrawal date cannot be before or on Release date", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-            if (txtDescription.Text.Any(char.IsDigit))
+            isInvalid_GenreInputs = false;
+            if (txtDescription.Text.Any(char.IsDigit) || !txtDescription.Text.Any(ch => Char.IsLetterOrDigit(ch)))
             {
-                MessageBox.Show("Movie Genre cannot contain numbers...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isInvalid_GenreInputs = true;
+                MessageBox.Show("Movie Genre cannot contain numbers or special characters", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1051,6 +1152,5 @@ namespace RandomProj
             dateRelease.Value = DateTime.Now;
             dateWithdrawal.Value = DateTime.Now.AddDays(7);
         }
-
     }
 }
