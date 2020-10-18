@@ -24,6 +24,7 @@ namespace RandomProj
 
         private void btnDelete_AllBookings_Click(object sender, EventArgs e)
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_movies = "SELECT * FROM BOOKING WHERE Customer_ID = " + spinDeleteAll_Bookings.Value.ToString() + ";";
             SqlCommand cmd;

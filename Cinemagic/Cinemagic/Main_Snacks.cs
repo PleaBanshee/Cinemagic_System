@@ -18,17 +18,12 @@ namespace RandomProj
         private SqlCommand command;
         private DataTable dt = new DataTable();
         private SqlDataReader dr;
+        private bool isInvalid_SnackInputs;
+        private bool isInvalid_TransactionInputs;
 
         public Main_Snacks()
         {
             InitializeComponent();
-        }
-
-        private void btnSnack_Sale_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Snack_Sale snack_Sale = new Snack_Sale();
-            snack_Sale.ShowDialog();
         }
 
         private void setColors()
@@ -44,6 +39,8 @@ namespace RandomProj
 
         private void Main_Snacks_Load(object sender, EventArgs e)
         {
+            isInvalid_SnackInputs = false;
+            isInvalid_TransactionInputs = false;
             this.BackgroundImage = Cinemagic.Properties.Resources.System_Light;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             setColors();
@@ -182,27 +179,34 @@ namespace RandomProj
             }
             else
             {
-                Main cinema = new Main();
-                connection = cinema.constr;
-                try
+                if (isInvalid_SnackInputs)
                 {
-                    string insert_snacks = @"INSERT INTO SNACK VALUES(@Snack_Name,@Snack_Description,@Snack_Quantity,@Snack_UnitCost,@Snack_Price)";
-                    cinema.conn = new SqlConnection(connection);
-                    cinema.conn.Open();
-                    cinema.com = new SqlCommand(insert_snacks, cinema.conn);
-                    cinema.com.Parameters.AddWithValue("@Snack_Name", txtItem.Text);
-                    cinema.com.Parameters.AddWithValue("@Snack_Description", txtDescription.Text);
-                    cinema.com.Parameters.AddWithValue("@Snack_Quantity", spinQuantity.Value);
-                    cinema.com.Parameters.AddWithValue("@Snack_UnitCost", decimal.Parse(txtUnit_Cost.Text));
-                    cinema.com.Parameters.AddWithValue("@Snack_Price", decimal.Parse(txtPrice.Text));
-                    cinema.com.ExecuteNonQuery();
-                    MessageBox.Show("Snack have been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cinema.conn.Close();
-                    DisplaySnacks();
+                    MessageBox.Show("Please ensure all inputs contain the correct types and format", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message + " Failed to add snack... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    connection = cinema.constr;
+                    try
+                    {
+                        string insert_snacks = @"INSERT INTO SNACK VALUES(@Snack_Name,@Snack_Description,@Snack_Quantity,@Snack_UnitCost,@Snack_Price)";
+                        cinema.conn = new SqlConnection(connection);
+                        cinema.conn.Open();
+                        cinema.com = new SqlCommand(insert_snacks, cinema.conn);
+                        cinema.com.Parameters.AddWithValue("@Snack_Name", txtItem.Text);
+                        cinema.com.Parameters.AddWithValue("@Snack_Description", txtDescription.Text);
+                        cinema.com.Parameters.AddWithValue("@Snack_Quantity", spinQuantity.Value);
+                        cinema.com.Parameters.AddWithValue("@Snack_UnitCost", decimal.Parse(txtUnit_Cost.Text));
+                        cinema.com.Parameters.AddWithValue("@Snack_Price", decimal.Parse(txtPrice.Text));
+                        cinema.com.ExecuteNonQuery();
+                        MessageBox.Show("Snack have been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cinema.conn.Close();
+                        DisplaySnacks();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " Failed to add snack... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -215,123 +219,146 @@ namespace RandomProj
             }
             else
             {
-                Main cinema = new Main();
-                connection = cinema.constr;
-                SqlCommand cmd;
-                SqlCommand comm;
-                try
+                if (isInvalid_TransactionInputs)
                 {
-                    string insert_date = $"INSERT INTO SNACK_SALE VALUES('{System.DateTime.Now.ToString("yyyy/MM/dd")}')";
-                    string select_date = @"SELECT TOP 1 * FROM SNACK_SALE ORDER BY Snack_Sale_ID DESC";
-                    string insert_transaction = @"INSERT INTO SNACK_TRANSACTION VALUES(@Snack_Sale_ID,@Snack_ID,@Quantity_Ordered,@Unit_Price)";
-                    cinema.conn = new SqlConnection(connection);
-                    cinema.conn.Open();
-                    cinema.com = new SqlCommand(insert_transaction, cinema.conn);
-                    cmd = new SqlCommand(insert_date, cinema.conn);
-                    cmd.ExecuteNonQuery();
-                    comm = new SqlCommand(select_date, cinema.conn);
-                    dr = comm.ExecuteReader();
-                    if (dr.Read())
-                    {
-                        cinema.com.Parameters.AddWithValue("@Snack_Sale_ID", dr.GetValue(0));
-                        cinema.com.Parameters.AddWithValue("@Snack_ID", spinSnack_ID.Value);
-                        cinema.com.Parameters.AddWithValue("@Quantity_Ordered", spinQuantity_Ordered.Value);
-                        cinema.com.Parameters.AddWithValue("@Unit_Price", decimal.Parse(txtTotal.Text));
-                        cinema.com.ExecuteNonQuery();
-                        cinema.conn.Close();
-                        MessageBox.Show("The transaction have been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        DisplayTransact_Details();
-                        DisplayDates();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid Transaction Date", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Please ensure all inputs contain the correct types and format", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message + " Failed to add transaction... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    connection = cinema.constr;
+                    SqlCommand cmd;
+                    SqlCommand comm;
+                    try
+                    {
+                        string insert_date = $"INSERT INTO SNACK_SALE VALUES('{System.DateTime.Now.ToString("yyyy/MM/dd")}')";
+                        string select_date = @"SELECT TOP 1 * FROM SNACK_SALE ORDER BY Snack_Sale_ID DESC";
+                        string insert_transaction = @"INSERT INTO SNACK_TRANSACTION VALUES(@Snack_Sale_ID,@Snack_ID,@Quantity_Ordered,@Unit_Price)";
+                        cinema.conn = new SqlConnection(connection);
+                        cinema.conn.Open();
+                        cinema.com = new SqlCommand(insert_transaction, cinema.conn);
+                        cmd = new SqlCommand(insert_date, cinema.conn);
+                        cmd.ExecuteNonQuery();
+                        comm = new SqlCommand(select_date, cinema.conn);
+                        dr = comm.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            cinema.com.Parameters.AddWithValue("@Snack_Sale_ID", dr.GetValue(0));
+                            cinema.com.Parameters.AddWithValue("@Snack_ID", spinSnack_ID.Value);
+                            cinema.com.Parameters.AddWithValue("@Quantity_Ordered", spinQuantity_Ordered.Value);
+                            cinema.com.Parameters.AddWithValue("@Unit_Price", decimal.Parse(txtTotal.Text));
+                            cinema.com.ExecuteNonQuery();
+                            cinema.conn.Close();
+                            MessageBox.Show("The transaction have been added successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DisplayTransact_Details();
+                            DisplayDates();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Transaction Date", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + " Failed to add transaction... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
         private void UpdateSnacks()
         {
+            dt.Clear();
             if (CheckEmptySnackInputs())
             {
                 MessageBox.Show("Please ensure all inputs contain a value", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Main cinema = new Main();
-                cinema.conn = new SqlConnection(connection);
-                string select_snacks = "SELECT * FROM SNACK WHERE Snack_ID = " + spinFill_SnackID.Value.ToString() + ";";
-                string update_snacks = $"UPDATE SNACK SET Snack_Name = '{txtItem.Text}', Snack_Description = '{txtDescription.Text}', Snack_Quantity = {spinQuantity.Value.ToString()}," +
-                $"Snack_UnitCost = CAST(REPLACE('{txtUnit_Cost.Text}', ',', '.') AS DECIMAL(10, 2)), " +
-                $"Snack_Price = CAST(REPLACE('{txtPrice.Text}', ',', '.') AS DECIMAL(10, 2)) WHERE Snack_ID = {spinFill_SnackID.Value.ToString()}";
-                cinema.com = new SqlCommand(update_snacks, cinema.conn);
-                command = new SqlCommand(select_snacks, cinema.conn);
-                cinema.adap = new SqlDataAdapter();
-                cinema.adap.SelectCommand = command;
-                cinema.adap.Fill(dt);
-                try
+                if (isInvalid_SnackInputs)
                 {
-                    cinema.conn.Open();
-                    if (dt.Rows.Count > 0)
-                    {
-                        cinema.com.ExecuteNonQuery();
-                        cinema.conn.Close();
-                        DisplaySnacks();
-                        MessageBox.Show("Snack updates successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("The selected Snack_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Please ensure all inputs contain the correct types and format", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception error)
+                else
                 {
-                    MessageBox.Show(error.Message + " Failed to update snack...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    cinema.conn = new SqlConnection(connection);
+                    string select_snacks = "SELECT * FROM SNACK WHERE Snack_ID = " + spinFill_SnackID.Value.ToString() + ";";
+                    string update_snacks = $"UPDATE SNACK SET Snack_Name = '{txtItem.Text}', Snack_Description = '{txtDescription.Text}', Snack_Quantity = {spinQuantity.Value.ToString()}," +
+                    $"Snack_UnitCost = CAST(REPLACE('{txtUnit_Cost.Text}', ',', '.') AS DECIMAL(10, 2)), " +
+                    $"Snack_Price = CAST(REPLACE('{txtPrice.Text}', ',', '.') AS DECIMAL(10, 2)) WHERE Snack_ID = {spinFill_SnackID.Value.ToString()}";
+                    cinema.com = new SqlCommand(update_snacks, cinema.conn);
+                    command = new SqlCommand(select_snacks, cinema.conn);
+                    cinema.adap = new SqlDataAdapter();
+                    cinema.adap.SelectCommand = command;
+                    cinema.adap.Fill(dt);
+                    try
+                    {
+                        cinema.conn.Open();
+                        if (dt.Rows.Count > 0)
+                        {
+                            cinema.com.ExecuteNonQuery();
+                            cinema.conn.Close();
+                            DisplaySnacks();
+                            MessageBox.Show("Snack updates successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The selected Snack_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message + " Failed to update snack...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
         private void UpdateTransactions()
         {
+            dt.Clear();
             if (CheckEmptyTransactInputs())
             {
                 MessageBox.Show("Please ensure all inputs contain a value", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Main cinema = new Main();
-                cinema.conn = new SqlConnection(connection);
-                string select_transactions = "SELECT * FROM SNACK_TRANSACTION WHERE Snack_Sale_ID = " + spinFill_SnackSaleID.Value.ToString() + ";";
-                string update_transactions = $"UPDATE SNACK_TRANSACTION SET Snack_ID = '{spinSnack_ID.Value.ToString()}',  Quantity_Ordered = " +
-                $"{spinQuantity_Ordered.Value.ToString()}, Unit_Price = CAST(REPLACE('{txtTotal.Text}', ',', '.') AS DECIMAL(10, 2)) WHERE Snack_Sale_ID = { spinFill_SnackSaleID.Value.ToString()}";
-                cinema.com = new SqlCommand(update_transactions, cinema.conn);
-                command = new SqlCommand(select_transactions, cinema.conn);
-                cinema.adap = new SqlDataAdapter();
-                cinema.adap.SelectCommand = command;
-                cinema.adap.Fill(dt);
-                try
+                if (isInvalid_TransactionInputs)
                 {
-                    cinema.conn.Open();
-                    if (dt.Rows.Count > 0)
-                    {
-                        cinema.com.ExecuteNonQuery();
-                        cinema.conn.Close();
-                        DisplayTransact_Details();
-                        MessageBox.Show("Transaction updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("The selected Snack_Sale_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Please ensure all inputs contain the correct types and format", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception error)
+                else
                 {
-                    MessageBox.Show(error.Message + " Failed to update transaction...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main cinema = new Main();
+                    cinema.conn = new SqlConnection(connection);
+                    string select_transactions = "SELECT * FROM SNACK_TRANSACTION WHERE Snack_Sale_ID = " + spinFill_SnackSaleID.Value.ToString() + ";";
+                    string update_transactions = $"UPDATE SNACK_TRANSACTION SET Snack_ID = '{spinSnack_ID.Value.ToString()}',  Quantity_Ordered = " +
+                    $"{spinQuantity_Ordered.Value.ToString()}, Unit_Price = CAST(REPLACE('{txtTotal.Text}', ',', '.') AS DECIMAL(10, 2)) WHERE Snack_Sale_ID = { spinFill_SnackSaleID.Value.ToString()}";
+                    cinema.com = new SqlCommand(update_transactions, cinema.conn);
+                    command = new SqlCommand(select_transactions, cinema.conn);
+                    cinema.adap = new SqlDataAdapter();
+                    cinema.adap.SelectCommand = command;
+                    cinema.adap.Fill(dt);
+                    try
+                    {
+                        cinema.conn.Open();
+                        if (dt.Rows.Count > 0)
+                        {
+                            cinema.com.ExecuteNonQuery();
+                            cinema.conn.Close();
+                            DisplayTransact_Details();
+                            MessageBox.Show("Transaction updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The selected Snack_Sale_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message + " Failed to update transaction...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -361,7 +388,6 @@ namespace RandomProj
                 cinema.conn.Close();
             }
             catch (Exception err)
-
             {
                 MessageBox.Show(err.Message+" Failed to fill inputs with data from selected record", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -390,7 +416,6 @@ namespace RandomProj
                 cinema.conn.Close();
             }
             catch (Exception err)
-
             {
                 MessageBox.Show(err.Message + " Failed to fill inputs with data from selected record", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -398,6 +423,7 @@ namespace RandomProj
 
         private void DeleteSnacks()
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_snacks = "SELECT * FROM SNACK WHERE Snack_ID = " + spinID.Value.ToString() + ";";
             SqlCommand cmd;
@@ -444,6 +470,7 @@ namespace RandomProj
 
         private void DeleteAllTransactions()
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_transactions = "SELECT * FROM SNACK_TRANSACTION WHERE Snack_ID = " + spinDeleteAll.Value.ToString() + ";";
             SqlCommand cmd;
@@ -477,6 +504,7 @@ namespace RandomProj
 
         private void DeleteTransactions()
         {
+            dt.Clear();
             Main cinema = new Main();
             string select_transactions = "SELECT * FROM SNACK_TRANSACTION WHERE Snack_ID = " + spinDelete_TransactID.Value.ToString() + ";";
             SqlCommand cmd;
@@ -515,9 +543,11 @@ namespace RandomProj
 
         private void txtUnit_Cost_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_SnackInputs = false;
             decimal unit_cost;
             if (!decimal.TryParse(txtUnit_Cost.Text,out unit_cost))
             {
+                isInvalid_SnackInputs = true;
                 MessageBox.Show("Must enter a decimal value", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -529,9 +559,11 @@ namespace RandomProj
 
         private void txtPrice_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_SnackInputs = false;
             decimal price;
             if (!decimal.TryParse(txtPrice.Text, out price))
             {
+                isInvalid_SnackInputs = true;
                 MessageBox.Show("Must enter a decimal value", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -573,16 +605,23 @@ namespace RandomProj
 
         private void txtTotal_Validating(object sender, CancelEventArgs e)
         {
+            isInvalid_TransactionInputs = false;
             decimal total;
             if (!decimal.TryParse(txtTotal.Text, out total))
             {
+                isInvalid_TransactionInputs = true;
                 MessageBox.Show("Must enter a decimal value", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void lblDescription_Click(object sender, EventArgs e)
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-
+            isInvalid_SnackInputs = false;
+            if (txtDescription.Text.Any(char.IsDigit) || !txtDescription.Text.Any(ch => Char.IsLetterOrDigit(ch)))
+            {
+                isInvalid_SnackInputs = true;
+                MessageBox.Show("Snack Description cannot contain numbers or special characters", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
