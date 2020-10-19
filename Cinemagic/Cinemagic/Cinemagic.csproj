@@ -83,6 +83,12 @@
     <Compile Include="DeleteAllBookings.designer.cs">
       <DependentUpon>DeleteAllBookings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteAllBookings.resx">
       <DependentUpon>DeleteAllBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -153,6 +162,7 @@
       <DependentUpon>CinemagicDB.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Main_Wallpaper.jpg" />
     <None Include="Resources\System_Light.jpg" />
     <None Include="Resources\System_Screen.jpg" />
     <None Include="Resources\System_Wallpaper.jpg" />

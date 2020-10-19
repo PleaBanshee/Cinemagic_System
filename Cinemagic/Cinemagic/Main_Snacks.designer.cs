@@ -77,6 +77,8 @@
             this.lblDeleteAllTransactions = new System.Windows.Forms.Label();
             this.spinDeleteAll = new System.Windows.Forms.NumericUpDown();
             this.lblDeleteAll = new System.Windows.Forms.Label();
+            this.btnExit_Transactions = new System.Windows.Forms.Button();
+            this.btnClearAll = new System.Windows.Forms.Button();
             this.groupSnacks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dbGridSnacks)).BeginInit();
             this.groupMaintain_Snacks.SuspendLayout();
@@ -102,9 +104,9 @@
             this.groupSnacks.Controls.Add(this.groupMaintain_Snacks);
             this.groupSnacks.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupSnacks.Location = new System.Drawing.Point(16, 15);
-            this.groupSnacks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupSnacks.Margin = new System.Windows.Forms.Padding(4);
             this.groupSnacks.Name = "groupSnacks";
-            this.groupSnacks.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupSnacks.Padding = new System.Windows.Forms.Padding(4);
             this.groupSnacks.Size = new System.Drawing.Size(628, 929);
             this.groupSnacks.TabIndex = 0;
             this.groupSnacks.TabStop = false;
@@ -114,7 +116,7 @@
             // 
             this.dbGridSnacks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbGridSnacks.Location = new System.Drawing.Point(40, 49);
-            this.dbGridSnacks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dbGridSnacks.Margin = new System.Windows.Forms.Padding(4);
             this.dbGridSnacks.Name = "dbGridSnacks";
             this.dbGridSnacks.RowTemplate.Height = 24;
             this.dbGridSnacks.Size = new System.Drawing.Size(537, 249);
@@ -143,9 +145,9 @@
             this.groupMaintain_Snacks.Controls.Add(this.txtItem);
             this.groupMaintain_Snacks.Controls.Add(this.lblItem);
             this.groupMaintain_Snacks.Location = new System.Drawing.Point(40, 319);
-            this.groupMaintain_Snacks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupMaintain_Snacks.Margin = new System.Windows.Forms.Padding(4);
             this.groupMaintain_Snacks.Name = "groupMaintain_Snacks";
-            this.groupMaintain_Snacks.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupMaintain_Snacks.Padding = new System.Windows.Forms.Padding(4);
             this.groupMaintain_Snacks.Size = new System.Drawing.Size(537, 583);
             this.groupMaintain_Snacks.TabIndex = 1;
             this.groupMaintain_Snacks.TabStop = false;
@@ -154,7 +156,7 @@
             // btnDelete_Snack
             // 
             this.btnDelete_Snack.Location = new System.Drawing.Point(315, 511);
-            this.btnDelete_Snack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete_Snack.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete_Snack.Name = "btnDelete_Snack";
             this.btnDelete_Snack.Size = new System.Drawing.Size(123, 28);
             this.btnDelete_Snack.TabIndex = 19;
@@ -176,7 +178,7 @@
             // 
             this.spinFill_SnackID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinFill_SnackID.Location = new System.Drawing.Point(145, 362);
-            this.spinFill_SnackID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinFill_SnackID.Margin = new System.Windows.Forms.Padding(4);
             this.spinFill_SnackID.Name = "spinFill_SnackID";
             this.spinFill_SnackID.Size = new System.Drawing.Size(133, 22);
             this.spinFill_SnackID.TabIndex = 17;
@@ -206,7 +208,7 @@
             // 
             this.spinID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinID.Location = new System.Drawing.Point(145, 512);
-            this.spinID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinID.Margin = new System.Windows.Forms.Padding(4);
             this.spinID.Name = "spinID";
             this.spinID.Size = new System.Drawing.Size(133, 22);
             this.spinID.TabIndex = 14;
@@ -225,7 +227,7 @@
             // btnUpdate_Snacks
             // 
             this.btnUpdate_Snacks.Location = new System.Drawing.Point(41, 410);
-            this.btnUpdate_Snacks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate_Snacks.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate_Snacks.Name = "btnUpdate_Snacks";
             this.btnUpdate_Snacks.Size = new System.Drawing.Size(373, 28);
             this.btnUpdate_Snacks.TabIndex = 12;
@@ -236,7 +238,7 @@
             // btnFill_Snacks
             // 
             this.btnFill_Snacks.Location = new System.Drawing.Point(315, 361);
-            this.btnFill_Snacks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFill_Snacks.Margin = new System.Windows.Forms.Padding(4);
             this.btnFill_Snacks.Name = "btnFill_Snacks";
             this.btnFill_Snacks.Size = new System.Drawing.Size(100, 28);
             this.btnFill_Snacks.TabIndex = 11;
@@ -247,7 +249,7 @@
             // btnAdd_Snacks
             // 
             this.btnAdd_Snacks.Location = new System.Drawing.Point(375, 52);
-            this.btnAdd_Snacks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd_Snacks.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd_Snacks.Name = "btnAdd_Snacks";
             this.btnAdd_Snacks.Size = new System.Drawing.Size(100, 28);
             this.btnAdd_Snacks.TabIndex = 10;
@@ -259,7 +261,7 @@
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.Location = new System.Drawing.Point(151, 249);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(132, 22);
             this.txtPrice.TabIndex = 9;
@@ -280,7 +282,7 @@
             // 
             this.txtUnit_Cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnit_Cost.Location = new System.Drawing.Point(151, 198);
-            this.txtUnit_Cost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUnit_Cost.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnit_Cost.Name = "txtUnit_Cost";
             this.txtUnit_Cost.Size = new System.Drawing.Size(132, 22);
             this.txtUnit_Cost.TabIndex = 7;
@@ -290,18 +292,18 @@
             // 
             this.lblUnit_Cost.AutoSize = true;
             this.lblUnit_Cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnit_Cost.Location = new System.Drawing.Point(73, 206);
+            this.lblUnit_Cost.Location = new System.Drawing.Point(51, 203);
             this.lblUnit_Cost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnit_Cost.Name = "lblUnit_Cost";
-            this.lblUnit_Cost.Size = new System.Drawing.Size(69, 17);
+            this.lblUnit_Cost.Size = new System.Drawing.Size(93, 17);
             this.lblUnit_Cost.TabIndex = 6;
-            this.lblUnit_Cost.Text = "Unit Cost:";
+            this.lblUnit_Cost.Text = "Unit Cost (R):";
             // 
             // spinQuantity
             // 
             this.spinQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinQuantity.Location = new System.Drawing.Point(151, 150);
-            this.spinQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.spinQuantity.Name = "spinQuantity";
             this.spinQuantity.Size = new System.Drawing.Size(133, 22);
             this.spinQuantity.TabIndex = 5;
@@ -321,7 +323,7 @@
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(151, 102);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(132, 22);
             this.txtDescription.TabIndex = 3;
@@ -342,7 +344,7 @@
             // 
             this.txtItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItem.Location = new System.Drawing.Point(151, 52);
-            this.txtItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtItem.Name = "txtItem";
             this.txtItem.Size = new System.Drawing.Size(132, 22);
             this.txtItem.TabIndex = 1;
@@ -364,9 +366,9 @@
             this.groupTransact_Detail.Controls.Add(this.groupTransact_Details);
             this.groupTransact_Detail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupTransact_Detail.Location = new System.Drawing.Point(668, 18);
-            this.groupTransact_Detail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupTransact_Detail.Margin = new System.Windows.Forms.Padding(4);
             this.groupTransact_Detail.Name = "groupTransact_Detail";
-            this.groupTransact_Detail.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupTransact_Detail.Padding = new System.Windows.Forms.Padding(4);
             this.groupTransact_Detail.Size = new System.Drawing.Size(689, 869);
             this.groupTransact_Detail.TabIndex = 1;
             this.groupTransact_Detail.TabStop = false;
@@ -376,7 +378,7 @@
             // 
             this.dbTransaction_Details.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbTransaction_Details.Location = new System.Drawing.Point(36, 46);
-            this.dbTransaction_Details.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dbTransaction_Details.Margin = new System.Windows.Forms.Padding(4);
             this.dbTransaction_Details.Name = "dbTransaction_Details";
             this.dbTransaction_Details.RowTemplate.Height = 24;
             this.dbTransaction_Details.Size = new System.Drawing.Size(587, 249);
@@ -401,9 +403,9 @@
             this.groupTransact_Details.Controls.Add(this.lblQuantity_Ordered);
             this.groupTransact_Details.Controls.Add(this.lblSnack_ID);
             this.groupTransact_Details.Location = new System.Drawing.Point(36, 315);
-            this.groupTransact_Details.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupTransact_Details.Margin = new System.Windows.Forms.Padding(4);
             this.groupTransact_Details.Name = "groupTransact_Details";
-            this.groupTransact_Details.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupTransact_Details.Padding = new System.Windows.Forms.Padding(4);
             this.groupTransact_Details.Size = new System.Drawing.Size(587, 513);
             this.groupTransact_Details.TabIndex = 3;
             this.groupTransact_Details.TabStop = false;
@@ -413,7 +415,7 @@
             // 
             this.spinSnack_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinSnack_ID.Location = new System.Drawing.Point(209, 55);
-            this.spinSnack_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinSnack_ID.Margin = new System.Windows.Forms.Padding(4);
             this.spinSnack_ID.Name = "spinSnack_ID";
             this.spinSnack_ID.Size = new System.Drawing.Size(133, 22);
             this.spinSnack_ID.TabIndex = 20;
@@ -421,7 +423,7 @@
             // btnDelete_Transaction
             // 
             this.btnDelete_Transaction.Location = new System.Drawing.Point(371, 434);
-            this.btnDelete_Transaction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete_Transaction.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete_Transaction.Name = "btnDelete_Transaction";
             this.btnDelete_Transaction.Size = new System.Drawing.Size(136, 28);
             this.btnDelete_Transaction.TabIndex = 19;
@@ -443,7 +445,7 @@
             // 
             this.spinFill_SnackSaleID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinFill_SnackSaleID.Location = new System.Drawing.Point(201, 261);
-            this.spinFill_SnackSaleID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinFill_SnackSaleID.Margin = new System.Windows.Forms.Padding(4);
             this.spinFill_SnackSaleID.Name = "spinFill_SnackSaleID";
             this.spinFill_SnackSaleID.Size = new System.Drawing.Size(133, 22);
             this.spinFill_SnackSaleID.TabIndex = 17;
@@ -473,7 +475,7 @@
             // 
             this.spinDelete_TransactID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDelete_TransactID.Location = new System.Drawing.Point(201, 436);
-            this.spinDelete_TransactID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinDelete_TransactID.Margin = new System.Windows.Forms.Padding(4);
             this.spinDelete_TransactID.Name = "spinDelete_TransactID";
             this.spinDelete_TransactID.Size = new System.Drawing.Size(133, 22);
             this.spinDelete_TransactID.TabIndex = 14;
@@ -492,7 +494,7 @@
             // btnUpdate_Transact
             // 
             this.btnUpdate_Transact.Location = new System.Drawing.Point(53, 314);
-            this.btnUpdate_Transact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate_Transact.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate_Transact.Name = "btnUpdate_Transact";
             this.btnUpdate_Transact.Size = new System.Drawing.Size(417, 28);
             this.btnUpdate_Transact.TabIndex = 12;
@@ -503,7 +505,7 @@
             // btnFill_Transact
             // 
             this.btnFill_Transact.Location = new System.Drawing.Point(371, 260);
-            this.btnFill_Transact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFill_Transact.Margin = new System.Windows.Forms.Padding(4);
             this.btnFill_Transact.Name = "btnFill_Transact";
             this.btnFill_Transact.Size = new System.Drawing.Size(100, 28);
             this.btnFill_Transact.TabIndex = 11;
@@ -514,7 +516,7 @@
             // btnAdd_Transact
             // 
             this.btnAdd_Transact.Location = new System.Drawing.Point(437, 50);
-            this.btnAdd_Transact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd_Transact.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd_Transact.Name = "btnAdd_Transact";
             this.btnAdd_Transact.Size = new System.Drawing.Size(100, 28);
             this.btnAdd_Transact.TabIndex = 10;
@@ -526,7 +528,7 @@
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(209, 156);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(132, 22);
             this.txtTotal.TabIndex = 7;
@@ -536,18 +538,18 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(163, 164);
+            this.lblTotal.Location = new System.Drawing.Point(142, 161);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(44, 17);
+            this.lblTotal.Size = new System.Drawing.Size(68, 17);
             this.lblTotal.TabIndex = 6;
-            this.lblTotal.Text = "Total:";
+            this.lblTotal.Text = "Total (R):";
             // 
             // spinQuantity_Ordered
             // 
             this.spinQuantity_Ordered.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinQuantity_Ordered.Location = new System.Drawing.Point(209, 107);
-            this.spinQuantity_Ordered.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinQuantity_Ordered.Margin = new System.Windows.Forms.Padding(4);
             this.spinQuantity_Ordered.Name = "spinQuantity_Ordered";
             this.spinQuantity_Ordered.Size = new System.Drawing.Size(133, 22);
             this.spinQuantity_Ordered.TabIndex = 5;
@@ -579,9 +581,9 @@
             this.groupDate.Controls.Add(this.dbGridTransact_Dates);
             this.groupDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupDate.Location = new System.Drawing.Point(1388, 28);
-            this.groupDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupDate.Margin = new System.Windows.Forms.Padding(4);
             this.groupDate.Name = "groupDate";
-            this.groupDate.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupDate.Padding = new System.Windows.Forms.Padding(4);
             this.groupDate.Size = new System.Drawing.Size(564, 382);
             this.groupDate.TabIndex = 1;
             this.groupDate.TabStop = false;
@@ -591,7 +593,7 @@
             // 
             this.dbGridTransact_Dates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbGridTransact_Dates.Location = new System.Drawing.Point(40, 36);
-            this.dbGridTransact_Dates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dbGridTransact_Dates.Margin = new System.Windows.Forms.Padding(4);
             this.dbGridTransact_Dates.Name = "dbGridTransact_Dates";
             this.dbGridTransact_Dates.RowTemplate.Height = 24;
             this.dbGridTransact_Dates.Size = new System.Drawing.Size(479, 249);
@@ -605,9 +607,9 @@
             this.groupDeleteTransacts.Controls.Add(this.lblDeleteAll);
             this.groupDeleteTransacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupDeleteTransacts.Location = new System.Drawing.Point(1388, 464);
-            this.groupDeleteTransacts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupDeleteTransacts.Margin = new System.Windows.Forms.Padding(4);
             this.groupDeleteTransacts.Name = "groupDeleteTransacts";
-            this.groupDeleteTransacts.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupDeleteTransacts.Padding = new System.Windows.Forms.Padding(4);
             this.groupDeleteTransacts.Size = new System.Drawing.Size(529, 222);
             this.groupDeleteTransacts.TabIndex = 21;
             this.groupDeleteTransacts.TabStop = false;
@@ -616,7 +618,7 @@
             // btnDelete_All
             // 
             this.btnDelete_All.Location = new System.Drawing.Point(45, 154);
-            this.btnDelete_All.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete_All.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete_All.Name = "btnDelete_All";
             this.btnDelete_All.Size = new System.Drawing.Size(136, 28);
             this.btnDelete_All.TabIndex = 23;
@@ -638,7 +640,7 @@
             // 
             this.spinDeleteAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spinDeleteAll.Location = new System.Drawing.Point(156, 98);
-            this.spinDeleteAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinDeleteAll.Margin = new System.Windows.Forms.Padding(4);
             this.spinDeleteAll.Name = "spinDeleteAll";
             this.spinDeleteAll.Size = new System.Drawing.Size(133, 22);
             this.spinDeleteAll.TabIndex = 21;
@@ -654,18 +656,44 @@
             this.lblDeleteAll.TabIndex = 20;
             this.lblDeleteAll.Text = "Snack_ID:";
             // 
+            // btnExit_Transactions
+            // 
+            this.btnExit_Transactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit_Transactions.Location = new System.Drawing.Point(1764, 742);
+            this.btnExit_Transactions.Name = "btnExit_Transactions";
+            this.btnExit_Transactions.Size = new System.Drawing.Size(143, 74);
+            this.btnExit_Transactions.TabIndex = 20;
+            this.btnExit_Transactions.Text = "BACK TO MAIN";
+            this.btnExit_Transactions.UseVisualStyleBackColor = true;
+            this.btnExit_Transactions.Click += new System.EventHandler(this.btnExit_Transactions_Click);
+            // 
+            // btnClearAll
+            // 
+            this.btnClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearAll.Location = new System.Drawing.Point(1432, 742);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(143, 74);
+            this.btnClearAll.TabIndex = 21;
+            this.btnClearAll.Text = "CLEAR ALL INPUTS";
+            this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
+            // 
             // Main_Snacks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 959);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1924, 958);
+            this.Controls.Add(this.btnClearAll);
+            this.Controls.Add(this.btnExit_Transactions);
             this.Controls.Add(this.groupDeleteTransacts);
             this.Controls.Add(this.groupDate);
             this.Controls.Add(this.groupTransact_Detail);
             this.Controls.Add(this.groupSnacks);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main_Snacks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main_Snacks";
             this.Load += new System.EventHandler(this.Main_Snacks_Load);
             this.groupSnacks.ResumeLayout(false);
@@ -743,5 +771,7 @@
         private System.Windows.Forms.Label lblDeleteAllTransactions;
         private System.Windows.Forms.NumericUpDown spinDeleteAll;
         private System.Windows.Forms.Label lblDeleteAll;
+        private System.Windows.Forms.Button btnExit_Transactions;
+        private System.Windows.Forms.Button btnClearAll;
     }
 }
