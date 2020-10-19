@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCommitSale = new System.Windows.Forms.Button();
             this.btnMake_A_Booking = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.toolTipHelp = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnCommitSale
@@ -118,5 +120,6 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.ToolTip toolTipHelp;
     }
 }

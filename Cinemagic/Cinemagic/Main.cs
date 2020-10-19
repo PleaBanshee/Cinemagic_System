@@ -10,12 +10,12 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using RandomProj;
 using Cinemagic;
+using System.Diagnostics;
 
 namespace RandomProj
 {
     public partial class Main : Form
     {
-        // Re-use these public variables through OOP in your other Forms 
         public SqlCommand com;
         public SqlConnection conn;
         public DataSet ds;
@@ -29,6 +29,7 @@ namespace RandomProj
 
         private void Main_Load(object sender, EventArgs e)
         {
+            toolTipHelp.SetToolTip(btnHelp, "When the window opens, select Help.pdf");
             btnHelp.ForeColor = Color.Blue;
             lblWelcome.BackColor = Color.Transparent;
             lblWelcome.ForeColor = Color.Yellow;
@@ -76,8 +77,7 @@ namespace RandomProj
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            Help help_form = new Help();
-            help_form.Show();
+            Process.Start(Application.StartupPath);
         }
     }
 }
