@@ -659,11 +659,11 @@
             // 
             // btnClearMovies
             // 
-            this.btnClearMovies.Location = new System.Drawing.Point(520, 778);
+            this.btnClearMovies.Location = new System.Drawing.Point(439, 778);
             this.btnClearMovies.Name = "btnClearMovies";
-            this.btnClearMovies.Size = new System.Drawing.Size(75, 23);
+            this.btnClearMovies.Size = new System.Drawing.Size(156, 44);
             this.btnClearMovies.TabIndex = 49;
-            this.btnClearMovies.Text = "CLEAR";
+            this.btnClearMovies.Text = "CLEAR ALL INPUTS";
             this.btnClearMovies.UseVisualStyleBackColor = true;
             this.btnClearMovies.Click += new System.EventHandler(this.btnClearMovies_Click);
             // 
@@ -671,7 +671,7 @@
             // 
             this.btnMain.Location = new System.Drawing.Point(50, 778);
             this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(75, 23);
+            this.btnMain.Size = new System.Drawing.Size(156, 44);
             this.btnMain.TabIndex = 48;
             this.btnMain.Text = "BACK";
             this.btnMain.UseVisualStyleBackColor = true;

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RandomProj;
+using System.Threading;
 
 namespace Cinemagic
 {
@@ -32,6 +33,12 @@ namespace Cinemagic
             lblUsername.BackColor = Color.Transparent;
         }
 
+        public void SplashStart()
+        {
+            Application.Run(new SplashScreen.Form1());
+        }
+
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username;
@@ -46,8 +53,12 @@ namespace Cinemagic
                 }
                 else
                 {
-                    MessageBox.Show("You will be redirected to the Main Systems Form", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
+                    Thread t = new Thread(new ThreadStart(SplashStart));
+                    t.Start();
+                    Thread.Sleep(5000);
+                    t.Abort();
+                    this.WindowState = FormWindowState.Normal;
                     Main sys_form = new Main();
                     sys_form.ShowDialog();
                 }  
