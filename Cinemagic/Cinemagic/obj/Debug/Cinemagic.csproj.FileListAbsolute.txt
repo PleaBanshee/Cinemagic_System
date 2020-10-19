@@ -83,3 +83,4 @@ C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\bin\Debug\CinemagicDB
 C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\RandomProj.Bookings_Movies.resources
 C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\RandomProj.DeleteAllBookings.resources
 C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\RandomProj.Help.resources
+C:\Users\User\Desktop\Cinemagic_System\Cinemagic\Cinemagic\obj\Debug\SplashScreen.Form1.resources

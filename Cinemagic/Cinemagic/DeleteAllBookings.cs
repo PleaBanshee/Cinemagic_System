@@ -94,7 +94,7 @@ namespace RandomProj
                 {
                     cmd.ExecuteNonQuery();
                     cinema.conn.Close();
-                    DialogResult confirm_deletions = MessageBox.Show($"Bookings with Customer_ID {spinDeleteAll_Bookings.Value} deleted successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult confirm_deletions = MessageBox.Show($"Bookings with Customer_ID {spinDel_Movies.Value} deleted successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (confirm_deletions == DialogResult.OK)
                     {
                         this.Hide();
