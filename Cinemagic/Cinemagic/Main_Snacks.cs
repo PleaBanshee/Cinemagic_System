@@ -28,17 +28,26 @@ namespace RandomProj
 
         private void setColors()
         {
-            foreach (GroupBox box in this.Controls)
-            {
-                box.BackColor = Color.LightSkyBlue;
-            }
+            groupDate.BackColor = Color.LightSkyBlue;
+            groupSnacks.BackColor = Color.LightSkyBlue;
+            groupTransact_Detail.BackColor = Color.LightSkyBlue;
             groupMaintain_Snacks.BackColor = Color.DodgerBlue;
             groupTransact_Details.BackColor = Color.DodgerBlue;
             groupDeleteTransacts.BackColor = Color.DodgerBlue;
         }
 
+        private void AddScrolling()
+        {
+            FlowLayoutPanel scroller = new FlowLayoutPanel();
+            scroller.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
+            scroller.WrapContents = false;
+            scroller.Dock = System.Windows.Forms.DockStyle.Fill;
+            scroller.AutoScroll = true;
+        }
+
         private void Main_Snacks_Load(object sender, EventArgs e)
         {
+            
             isInvalid_SnackInputs = false;
             isInvalid_TransactionInputs = false;
             this.BackgroundImage = Cinemagic.Properties.Resources.System_Light;
@@ -258,6 +267,14 @@ namespace RandomProj
                             MessageBox.Show("Invalid Transaction Date", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                    catch (SqlException sql_err)
+                    {
+                        int err_num = sql_err.Number;
+                        if (err_num == 547)
+                        {
+                            MessageBox.Show($"Snack_ID {spinSnack_ID.Value} does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message + " Failed to add transaction... try again please", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -353,6 +370,14 @@ namespace RandomProj
                         else
                         {
                             MessageBox.Show("The selected Snack_Sale_ID does not exist!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (SqlException sql_err)
+                    {
+                        int err_num = sql_err.Number;
+                        if (err_num == 547)
+                        {
+                            MessageBox.Show($"Snack_ID {spinSnack_ID.Value} does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception error)
@@ -454,7 +479,7 @@ namespace RandomProj
                 int err_num = sql_err.Number;
                 if (err_num == 547)
                 {
-                    MessageBox.Show($"Failed to delete record... Please delete all records in Transaction Details with Snack_ID {spinID.Value}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Failed to delete record... Please go to DELETE ALL TRANSACTIONS WITH SNACK_ID delete all records in Transaction Details with Snack_ID {spinID.Value}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -622,6 +647,30 @@ namespace RandomProj
                 isInvalid_SnackInputs = true;
                 MessageBox.Show("Snack Description cannot contain numbers or special characters", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnExit_Transactions_Click(object sender, EventArgs e)
+        {
+            Main main_system = new Main();
+            this.Hide();
+            main_system.ShowDialog();
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            txtDescription.Text = "";
+            txtItem.Text = "";
+            txtPrice.Text = "";
+            txtTotal.Text = "";
+            txtUnit_Cost.Text = "";
+            spinDeleteAll.Value = 0;
+            spinDelete_TransactID.Value = 0;
+            spinFill_SnackID.Value = 0;
+            spinFill_SnackSaleID.Value = 0;
+            spinID.Value = 0;
+            spinQuantity.Value = 0;
+            spinQuantity_Ordered.Value = 0;
+            spinSnack_ID.Value = 0;
         }
     }
 }

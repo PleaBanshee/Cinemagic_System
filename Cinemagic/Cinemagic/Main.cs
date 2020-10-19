@@ -29,6 +29,16 @@ namespace RandomProj
 
         private void Main_Load(object sender, EventArgs e)
         {
+            btnHelp.ForeColor = Color.Blue;
+            lblWelcome.BackColor = Color.Transparent;
+            lblWelcome.ForeColor = Color.Yellow;
+            lblWelcome.Text = $"Welcome to the Cinemagic Booking System! {'\n'}Make a booking or commit a snack transaction.{'\n'}The Cinemagic System makes it easier" +
+            $"to maintain{'\n'} bookings, customers, movies as well as snacks{'\n'} and their transaction details.{'\n'} Cinemagic takes process automation to a{'\n'} whole new level!";
+            btnMake_A_Booking.ForeColor = Color.Blue;
+            btnCommitSale.ForeColor = Color.Blue;
+            btnExit.ForeColor = Color.Red;
+            this.BackgroundImage = Cinemagic.Properties.Resources.Main_Wallpaper;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             try
             {
                 conn = new SqlConnection(constr);
@@ -62,6 +72,12 @@ namespace RandomProj
             {
                 Application.Exit();
             }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            Help help_form = new Help();
+            help_form.Show();
         }
     }
 }

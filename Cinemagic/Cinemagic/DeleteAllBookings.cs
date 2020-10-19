@@ -70,6 +70,46 @@ namespace RandomProj
         {
             this.BackgroundImage = Cinemagic.Properties.Resources.System_Light;
             groupDeleteAllBookings.BackColor = Color.LightSkyBlue;
+            groupDeleteCustomersID.BackColor = Color.DodgerBlue;
+            groupDeleteMovieID.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnDel_WithMovieID_Click(object sender, EventArgs e)
+        {
+            dt.Clear();
+            Main cinema = new Main();
+            string select_movies = "SELECT * FROM BOOKING WHERE Movie_ID = " + spinDel_Movies.Value.ToString() + ";";
+            SqlCommand cmd;
+            try
+            {
+                string delete_all = "DELETE FROM BOOKING WHERE Movie_ID = " + spinDel_Movies.Value.ToString();
+                cinema.conn = new SqlConnection(cinema.constr);
+                cinema.conn.Open();
+                cinema.com = new SqlCommand(select_movies, cinema.conn);
+                cmd = new SqlCommand(delete_all, cinema.conn);
+                cinema.adap = new SqlDataAdapter();
+                cinema.adap.SelectCommand = cinema.com;
+                cinema.adap.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    cmd.ExecuteNonQuery();
+                    cinema.conn.Close();
+                    DialogResult confirm_deletions = MessageBox.Show($"Bookings with Customer_ID {spinDeleteAll_Bookings.Value} deleted successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (confirm_deletions == DialogResult.OK)
+                    {
+                        this.Hide();
+                        bookings.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Movie_ID does not exist", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message + " Failed to delete selected records...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

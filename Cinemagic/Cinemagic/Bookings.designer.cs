@@ -586,11 +586,11 @@
             // 
             this.lblTicket_Cost.AutoSize = true;
             this.lblTicket_Cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTicket_Cost.Location = new System.Drawing.Point(87, 134);
+            this.lblTicket_Cost.Location = new System.Drawing.Point(66, 131);
             this.lblTicket_Cost.Name = "lblTicket_Cost";
-            this.lblTicket_Cost.Size = new System.Drawing.Size(109, 17);
+            this.lblTicket_Cost.Size = new System.Drawing.Size(133, 17);
             this.lblTicket_Cost.TabIndex = 24;
-            this.lblTicket_Cost.Text = "Tickets Amount:";
+            this.lblTicket_Cost.Text = "Tickets Amount (R):";
             // 
             // lblCust_ID
             // 
@@ -809,9 +809,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(115, 302);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 17);
+            this.label4.Size = new System.Drawing.Size(142, 17);
             this.label4.TabIndex = 35;
-            this.label4.Text = "DELETE A CUSTOMER";
+            this.label4.Text = "DELETE A GENRE";
             // 
             // spinDel_GenreID
             // 
@@ -1007,9 +1007,9 @@
             this.lblDelete_Movie.AutoSize = true;
             this.lblDelete_Movie.Location = new System.Drawing.Point(76, 414);
             this.lblDelete_Movie.Name = "lblDelete_Movie";
-            this.lblDelete_Movie.Size = new System.Drawing.Size(159, 17);
+            this.lblDelete_Movie.Size = new System.Drawing.Size(136, 17);
             this.lblDelete_Movie.TabIndex = 35;
-            this.lblDelete_Movie.Text = "DELETE A BOOKING";
+            this.lblDelete_Movie.Text = "DELETE A MOVIE";
             // 
             // spinDel_MovieID
             // 
